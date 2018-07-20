@@ -8,6 +8,9 @@ xcuserdata/
 
 # Swift
 
+# API Keys, and other private stuff
+PopularMovies/Utils/PopularMoviesConstants.swift
+
 ## Build generated
 build/
 DerivedData/
