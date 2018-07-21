@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		441CB3A7FB8F17A41CEF1981 /* Pods_PopularMovies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6616EE2C84B61CF15410D5A5 /* Pods_PopularMovies.framework */; };
 		D798A50820EF465F0058696A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D798A50720EF465F0058696A /* AppDelegate.swift */; };
 		D798A50A20EF465F0058696A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D798A50920EF465F0058696A /* MainViewController.swift */; };
 		D798A50D20EF465F0058696A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D798A50B20EF465F0058696A /* Main.storyboard */; };
@@ -14,9 +15,16 @@
 		D798A51220EF46720058696A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D798A51020EF46720058696A /* LaunchScreen.storyboard */; };
 		D798A51A20EF53EA0058696A /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = D798A51920EF53EA0058696A /* .gitignore */; };
 		D798A52120F045060058696A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D798A52020F045060058696A /* README.md */; };
+		D798A56920FC3D0B0058696A /* MovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D798A56720FC3D0B0058696A /* MovieCollectionViewCell.swift */; };
+		D798A56A20FC3D0B0058696A /* MovieCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D798A56820FC3D0B0058696A /* MovieCollectionViewCell.xib */; };
+		D798A56D20FDE4450058696A /* PopularMoviesConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D798A56C20FDE4450058696A /* PopularMoviesConstants.swift */; };
+		D798A57020FFF3770058696A /* MovieListResultObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D798A56F20FFF3770058696A /* MovieListResultObject.swift */; };
+		D798A572210149750058696A /* TheMovieDatabaseUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D798A571210149750058696A /* TheMovieDatabaseUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6616EE2C84B61CF15410D5A5 /* Pods_PopularMovies.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PopularMovies.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B23604520039153B38D7F928 /* Pods-PopularMovies.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PopularMovies.release.xcconfig"; path = "Pods/Target Support Files/Pods-PopularMovies/Pods-PopularMovies.release.xcconfig"; sourceTree = "<group>"; };
 		D798A50420EF465F0058696A /* PopularMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PopularMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D798A50720EF465F0058696A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D798A50920EF465F0058696A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -26,6 +34,12 @@
 		D798A51320EF46720058696A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D798A51920EF53EA0058696A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		D798A52020F045060058696A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D798A56720FC3D0B0058696A /* MovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewCell.swift; sourceTree = "<group>"; };
+		D798A56820FC3D0B0058696A /* MovieCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieCollectionViewCell.xib; sourceTree = "<group>"; };
+		D798A56C20FDE4450058696A /* PopularMoviesConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMoviesConstants.swift; sourceTree = "<group>"; };
+		D798A56F20FFF3770058696A /* MovieListResultObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListResultObject.swift; sourceTree = "<group>"; };
+		D798A571210149750058696A /* TheMovieDatabaseUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMovieDatabaseUtils.swift; sourceTree = "<group>"; };
+		F465460714F2323DF5452BCD /* Pods-PopularMovies.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PopularMovies.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PopularMovies/Pods-PopularMovies.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,12 +47,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				441CB3A7FB8F17A41CEF1981 /* Pods_PopularMovies.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A145C7D1AF04E8C12D3575BA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F465460714F2323DF5452BCD /* Pods-PopularMovies.debug.xcconfig */,
+				B23604520039153B38D7F928 /* Pods-PopularMovies.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		D798A4FB20EF465F0058696A = {
 			isa = PBXGroup;
 			children = (
@@ -46,6 +70,8 @@
 				D798A51920EF53EA0058696A /* .gitignore */,
 				D798A50620EF465F0058696A /* PopularMovies */,
 				D798A50520EF465F0058696A /* Products */,
+				A145C7D1AF04E8C12D3575BA /* Pods */,
+				D8EF62C339BBFC96236786E0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,8 +86,10 @@
 		D798A50620EF465F0058696A /* PopularMovies */ = {
 			isa = PBXGroup;
 			children = (
+				D798A56E20FFF34F0058696A /* Model */,
 				D798A51B20EF57BE0058696A /* View */,
 				D798A51C20EF58630058696A /* Controller */,
+				D798A56B20FDE40F0058696A /* Utils */,
 				D798A50E20EF46720058696A /* Assets.xcassets */,
 				D798A51020EF46720058696A /* LaunchScreen.storyboard */,
 				D798A51D20EF59100058696A /* Supporting Files */,
@@ -72,6 +100,7 @@
 		D798A51B20EF57BE0058696A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D798A56620FC3C1E0058696A /* Custom Cell */,
 				D798A50B20EF465F0058696A /* Main.storyboard */,
 			);
 			path = View;
@@ -94,6 +123,40 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		D798A56620FC3C1E0058696A /* Custom Cell */ = {
+			isa = PBXGroup;
+			children = (
+				D798A56720FC3D0B0058696A /* MovieCollectionViewCell.swift */,
+				D798A56820FC3D0B0058696A /* MovieCollectionViewCell.xib */,
+			);
+			path = "Custom Cell";
+			sourceTree = "<group>";
+		};
+		D798A56B20FDE40F0058696A /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				D798A56C20FDE4450058696A /* PopularMoviesConstants.swift */,
+				D798A571210149750058696A /* TheMovieDatabaseUtils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		D798A56E20FFF34F0058696A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D798A56F20FFF3770058696A /* MovieListResultObject.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D8EF62C339BBFC96236786E0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6616EE2C84B61CF15410D5A5 /* Pods_PopularMovies.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -101,9 +164,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D798A51620EF46720058696A /* Build configuration list for PBXNativeTarget "PopularMovies" */;
 			buildPhases = (
+				42396251F374988948E52320 /* [CP] Check Pods Manifest.lock */,
 				D798A50020EF465F0058696A /* Sources */,
 				D798A50120EF465F0058696A /* Frameworks */,
 				D798A50220EF465F0058696A /* Resources */,
+				D3869FDD2A6343897152DFE4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -157,17 +222,65 @@
 				D798A52120F045060058696A /* README.md in Resources */,
 				D798A50F20EF46720058696A /* Assets.xcassets in Resources */,
 				D798A50D20EF465F0058696A /* Main.storyboard in Resources */,
+				D798A56A20FC3D0B0058696A /* MovieCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		42396251F374988948E52320 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PopularMovies-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D3869FDD2A6343897152DFE4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PopularMovies/Pods-PopularMovies-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PopularMovies/Pods-PopularMovies-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D798A50020EF465F0058696A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D798A56920FC3D0B0058696A /* MovieCollectionViewCell.swift in Sources */,
+				D798A57020FFF3770058696A /* MovieListResultObject.swift in Sources */,
 				D798A50A20EF465F0058696A /* MainViewController.swift in Sources */,
+				D798A572210149750058696A /* TheMovieDatabaseUtils.swift in Sources */,
+				D798A56D20FDE4450058696A /* PopularMoviesConstants.swift in Sources */,
 				D798A50820EF465F0058696A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -310,10 +423,11 @@
 		};
 		D798A51720EF46720058696A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F465460714F2323DF5452BCD /* Pods-PopularMovies.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = PopularMovies/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/PopularMovies/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -327,10 +441,11 @@
 		};
 		D798A51820EF46720058696A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B23604520039153B38D7F928 /* Pods-PopularMovies.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = PopularMovies/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/PopularMovies/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
