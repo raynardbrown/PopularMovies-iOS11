@@ -55,6 +55,23 @@ class MainViewController : UIViewController,
     return cell
   }
   
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
+  {
+    let movieListResultObject : MovieListResultObject = movieListResultObjectArray[indexPath.row]
+    
+    performSegue(withIdentifier: "launchMoviePosterDetailView", sender: movieListResultObject)
+  }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+  {
+    if segue.identifier == "launchMoviePosterDetailView"
+    {
+      let destinationViewController = segue.destination as! MoviePosterDetailViewController
+      
+      destinationViewController.movieListResultObject = sender as! MovieListResultObject
+    }
+  }
+  
   func onMovieResults(movieResults : [MovieListResultObject])
   {
     movieListResultObjectArray = movieResults
