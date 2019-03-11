@@ -21,6 +21,7 @@
 		D798A57020FFF3770058696A /* MovieListResultObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D798A56F20FFF3770058696A /* MovieListResultObject.swift */; };
 		D798A572210149750058696A /* TheMovieDatabaseUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D798A571210149750058696A /* TheMovieDatabaseUtils.swift */; };
 		D7F4BF6B2228F2F700B63C9A /* MovieReviewResultObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F4BF6A2228F2F700B63C9A /* MovieReviewResultObject.swift */; };
+		D7F4BF6D2236165800B63C9A /* MoviePosterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F4BF6C2236165800B63C9A /* MoviePosterDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		D798A56F20FFF3770058696A /* MovieListResultObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListResultObject.swift; sourceTree = "<group>"; };
 		D798A571210149750058696A /* TheMovieDatabaseUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMovieDatabaseUtils.swift; sourceTree = "<group>"; };
 		D7F4BF6A2228F2F700B63C9A /* MovieReviewResultObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieReviewResultObject.swift; sourceTree = "<group>"; };
+		D7F4BF6C2236165800B63C9A /* MoviePosterDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePosterDetailViewController.swift; sourceTree = "<group>"; };
 		F465460714F2323DF5452BCD /* Pods-PopularMovies.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PopularMovies.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PopularMovies/Pods-PopularMovies.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -113,6 +115,7 @@
 			children = (
 				D798A50720EF465F0058696A /* AppDelegate.swift */,
 				D798A50920EF465F0058696A /* MainViewController.swift */,
+				D7F4BF6C2236165800B63C9A /* MoviePosterDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				D798A56D20FDE4450058696A /* PopularMoviesConstants.swift in Sources */,
 				D7F4BF6B2228F2F700B63C9A /* MovieReviewResultObject.swift in Sources */,
 				D798A50820EF465F0058696A /* AppDelegate.swift in Sources */,
+				D7F4BF6D2236165800B63C9A /* MoviePosterDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
