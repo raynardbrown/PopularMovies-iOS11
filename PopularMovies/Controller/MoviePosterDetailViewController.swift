@@ -9,6 +9,8 @@ import UIKit
 
 class MoviePosterDetailViewController : UIViewController
 {
+  var movieListResultObject : MovieListResultObject!
+  
   override func viewDidLoad()
   {
     super.viewDidLoad()
