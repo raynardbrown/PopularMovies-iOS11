@@ -35,6 +35,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="185" height="278"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </view>
+                                        <connections>
+                                            <segue destination="jbW-6z-nYu" kind="show" identifier="launchMoviePosterDetailView" id="4Xi-7M-ADs"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
