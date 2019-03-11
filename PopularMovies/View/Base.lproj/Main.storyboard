@@ -57,6 +57,21 @@
             </objects>
             <point key="canvasLocation" x="1025" y="-581"/>
         </scene>
+        <!--Movie Poster Detail View Controller-->
+        <scene sceneID="bKU-jJ-6cB">
+            <objects>
+                <viewController id="jbW-6z-nYu" customClass="MoviePosterDetailViewController" customModule="PopularMovies" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EZq-Md-8Dx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Zq9-uz-o4e"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uIa-yJ-rfr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1784" y="-584"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Gt0-Xo-RcX">
             <objects>
