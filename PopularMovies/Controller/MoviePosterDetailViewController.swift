@@ -14,6 +14,8 @@ class MoviePosterDetailViewController : UIViewController
   override func viewDidLoad()
   {
     super.viewDidLoad()
+    
+    self.title = "Movie Detail"
   }
   
   override func didReceiveMemoryWarning()
