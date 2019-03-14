@@ -29,7 +29,7 @@ class MoviePosterDetailViewController : UIViewController
     
     let moviePosterPath : String = TheMovieDatabaseUtils.getMoviePosterUriFromPath(movieListResultObject.getPosterPath())
     
-    // TODO: Set the image using SDWebImage
+    moviePosterImage.sd_setImage(with: URL(string: moviePosterPath))
     
     movieReleaseDateText.text = movieListResultObject.getReleaseDate()
     
