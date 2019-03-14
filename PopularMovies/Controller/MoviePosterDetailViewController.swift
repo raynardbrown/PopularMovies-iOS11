@@ -6,16 +6,36 @@
 //
 
 import UIKit
+import SDWebImage
 
 class MoviePosterDetailViewController : UIViewController
 {
   var movieListResultObject : MovieListResultObject!
+  
+  @IBOutlet var movieTitleLabel: UILabel!
+  @IBOutlet var moviePosterImage: UIImageView!
+  @IBOutlet var movieReleaseDateText: UILabel!
+  @IBOutlet var movieRatingText: UILabel!
+  @IBOutlet var movieDescriptionText: UILabel!
+  
   
   override func viewDidLoad()
   {
     super.viewDidLoad()
     
     self.title = "Movie Detail"
+    
+    movieTitleLabel.text = movieListResultObject.getOriginalTitle()
+    
+    let moviePosterPath : String = TheMovieDatabaseUtils.getMoviePosterUriFromPath(movieListResultObject.getPosterPath())
+    
+    // TODO: Set the image using SDWebImage
+    
+    movieReleaseDateText.text = movieListResultObject.getReleaseDate()
+    
+    movieRatingText.text = movieListResultObject.getUserRating()
+    
+    movieDescriptionText.text = movieListResultObject.getPlotSynopsis()
   }
   
   override func didReceiveMemoryWarning()
