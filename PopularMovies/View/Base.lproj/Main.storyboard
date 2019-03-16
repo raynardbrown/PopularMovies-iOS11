@@ -68,73 +68,101 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Title Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CmO-B6-2p8" userLabel="Movie Title Label">
-                                <rect key="frame" x="16" y="80" width="343" height="37"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="32"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="39S-FE-0hR" userLabel="Movie Poster Image">
-                                <rect key="frame" x="16" y="133" width="185" height="278"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cUn-b4-XWw">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e5Y-Ge-KUo" userLabel="Content View">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="397.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Title Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CmO-B6-2p8" userLabel="Movie Title Label">
+                                                <rect key="frame" x="16" y="16" width="240.5" height="37"/>
+                                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="32"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="39S-FE-0hR" userLabel="Movie Poster Image">
+                                                <rect key="frame" x="16" y="69" width="185" height="278"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="278" id="eav-f2-dnR"/>
+                                                    <constraint firstAttribute="width" constant="185" id="qLt-46-gqp"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2019-01-01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uzR-U1-tA6" userLabel="Release Date Text">
+                                                <rect key="frame" x="237" y="104" width="122" height="18.5"/>
+                                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User rating:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d2R-Cn-1Bm" userLabel="User Rating Label">
+                                                <rect key="frame" x="237" y="138.5" width="122" height="18.5"/>
+                                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7.3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ivc-4h-2BG" userLabel="User Rating Text">
+                                                <rect key="frame" x="237" y="173" width="122" height="18.5"/>
+                                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qeO-Ab-biE" userLabel="Movie Description">
+                                                <rect key="frame" x="16" y="363" width="127.5" height="18.5"/>
+                                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Release date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pL2-cz-pQk" userLabel="Release Date Label">
+                                                <rect key="frame" x="237" y="69" width="122" height="19"/>
+                                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="qeO-Ab-biE" firstAttribute="top" secondItem="39S-FE-0hR" secondAttribute="bottom" constant="16" id="2uc-HR-B7j"/>
+                                            <constraint firstAttribute="trailing" secondItem="Ivc-4h-2BG" secondAttribute="trailing" constant="16" id="31g-cK-9bf"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="qeO-Ab-biE" secondAttribute="trailing" constant="16" id="6Oo-Ye-vAa"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="CmO-B6-2p8" secondAttribute="trailing" constant="16" id="BsT-Og-Iyd"/>
+                                            <constraint firstItem="qeO-Ab-biE" firstAttribute="leading" secondItem="e5Y-Ge-KUo" secondAttribute="leading" constant="16" id="C4T-iY-c7P"/>
+                                            <constraint firstItem="CmO-B6-2p8" firstAttribute="top" secondItem="e5Y-Ge-KUo" secondAttribute="top" constant="16" id="GZy-aL-Sae"/>
+                                            <constraint firstItem="d2R-Cn-1Bm" firstAttribute="leading" secondItem="39S-FE-0hR" secondAttribute="trailing" constant="36" id="Lgf-Lu-tVc"/>
+                                            <constraint firstAttribute="bottom" secondItem="qeO-Ab-biE" secondAttribute="bottom" constant="16" id="MDv-HE-8eB"/>
+                                            <constraint firstItem="Ivc-4h-2BG" firstAttribute="top" secondItem="d2R-Cn-1Bm" secondAttribute="bottom" constant="16" id="NLQ-eo-EMg"/>
+                                            <constraint firstItem="Ivc-4h-2BG" firstAttribute="leading" secondItem="39S-FE-0hR" secondAttribute="trailing" constant="36" id="RpB-yh-AGb"/>
+                                            <constraint firstItem="pL2-cz-pQk" firstAttribute="top" secondItem="CmO-B6-2p8" secondAttribute="bottom" constant="16" id="Uao-l9-3el"/>
+                                            <constraint firstItem="CmO-B6-2p8" firstAttribute="leading" secondItem="e5Y-Ge-KUo" secondAttribute="leading" constant="16" id="VmN-Cn-HmT"/>
+                                            <constraint firstItem="pL2-cz-pQk" firstAttribute="leading" secondItem="39S-FE-0hR" secondAttribute="trailing" constant="36" id="bgE-fF-Bu0"/>
+                                            <constraint firstItem="uzR-U1-tA6" firstAttribute="leading" secondItem="39S-FE-0hR" secondAttribute="trailing" constant="36" id="dSl-Wf-FBp"/>
+                                            <constraint firstItem="39S-FE-0hR" firstAttribute="leading" secondItem="e5Y-Ge-KUo" secondAttribute="leading" constant="16" id="frV-T1-q4R"/>
+                                            <constraint firstAttribute="trailing" secondItem="d2R-Cn-1Bm" secondAttribute="trailing" constant="16" id="j5k-sR-UZr"/>
+                                            <constraint firstItem="39S-FE-0hR" firstAttribute="top" secondItem="CmO-B6-2p8" secondAttribute="bottom" constant="16" id="o6Z-hM-icl"/>
+                                            <constraint firstItem="d2R-Cn-1Bm" firstAttribute="top" secondItem="uzR-U1-tA6" secondAttribute="bottom" constant="16" id="rp3-LF-AjF"/>
+                                            <constraint firstItem="uzR-U1-tA6" firstAttribute="top" secondItem="pL2-cz-pQk" secondAttribute="bottom" constant="16" id="vQr-hB-VAA"/>
+                                            <constraint firstAttribute="trailing" secondItem="pL2-cz-pQk" secondAttribute="trailing" constant="16" id="wAi-AF-HsQ"/>
+                                            <constraint firstAttribute="trailing" secondItem="uzR-U1-tA6" secondAttribute="trailing" constant="16" id="y4L-GV-lmb"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="185" id="HBt-VO-Mgn"/>
-                                    <constraint firstAttribute="height" constant="278" id="d8H-wU-GAJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="e5Y-Ge-KUo" secondAttribute="bottom" id="CG5-9J-qVK"/>
+                                    <constraint firstAttribute="trailing" secondItem="e5Y-Ge-KUo" secondAttribute="trailing" id="IG2-iH-rXa"/>
+                                    <constraint firstItem="e5Y-Ge-KUo" firstAttribute="top" secondItem="cUn-b4-XWw" secondAttribute="top" id="g0Y-hf-06d"/>
+                                    <constraint firstItem="e5Y-Ge-KUo" firstAttribute="leading" secondItem="cUn-b4-XWw" secondAttribute="leading" id="tdc-h6-QYq"/>
+                                    <constraint firstItem="e5Y-Ge-KUo" firstAttribute="width" secondItem="cUn-b4-XWw" secondAttribute="width" id="zAf-fJ-n2F"/>
                                 </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Release date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pL2-cz-pQk" userLabel="Release Date Label">
-                                <rect key="frame" x="233" y="133" width="126" height="18.5"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2019-01-01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uzR-U1-tA6" userLabel="Release Date Text">
-                                <rect key="frame" x="233" y="167.5" width="126" height="18.5"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User rating:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d2R-Cn-1Bm" userLabel="User Rating Label">
-                                <rect key="frame" x="233" y="202" width="126" height="18.5"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7.3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ivc-4h-2BG" userLabel="User Rating Text">
-                                <rect key="frame" x="233" y="236.5" width="126" height="18.5"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qeO-Ab-biE" userLabel="Movie Description">
-                                <rect key="frame" x="16" y="427" width="343" height="18.5"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Zq9-uz-o4e" firstAttribute="trailing" secondItem="Ivc-4h-2BG" secondAttribute="trailing" constant="16" id="19Z-Nd-vqe"/>
-                            <constraint firstItem="Ivc-4h-2BG" firstAttribute="leading" secondItem="39S-FE-0hR" secondAttribute="trailing" constant="32" id="3ca-LT-Dor"/>
-                            <constraint firstItem="Zq9-uz-o4e" firstAttribute="trailing" secondItem="pL2-cz-pQk" secondAttribute="trailing" constant="16" id="8rz-3B-d2q"/>
-                            <constraint firstItem="qeO-Ab-biE" firstAttribute="leading" secondItem="Zq9-uz-o4e" secondAttribute="leading" constant="16" id="9S3-y0-Hth"/>
-                            <constraint firstItem="uzR-U1-tA6" firstAttribute="top" secondItem="pL2-cz-pQk" secondAttribute="bottom" constant="16" id="9cx-ux-DVk"/>
-                            <constraint firstItem="CmO-B6-2p8" firstAttribute="top" secondItem="Zq9-uz-o4e" secondAttribute="top" constant="16" id="Fxi-JS-ud3"/>
-                            <constraint firstItem="Ivc-4h-2BG" firstAttribute="top" secondItem="d2R-Cn-1Bm" secondAttribute="bottom" constant="16" id="Kcf-n6-y0c"/>
-                            <constraint firstItem="Zq9-uz-o4e" firstAttribute="trailing" secondItem="qeO-Ab-biE" secondAttribute="trailing" constant="16" id="My5-6c-SIy"/>
-                            <constraint firstItem="Zq9-uz-o4e" firstAttribute="trailing" secondItem="uzR-U1-tA6" secondAttribute="trailing" constant="16" id="SEn-lb-FjD"/>
-                            <constraint firstItem="uzR-U1-tA6" firstAttribute="leading" secondItem="39S-FE-0hR" secondAttribute="trailing" constant="32" id="SjN-ax-TYq"/>
-                            <constraint firstItem="d2R-Cn-1Bm" firstAttribute="top" secondItem="uzR-U1-tA6" secondAttribute="bottom" constant="16" id="a2b-lk-fFE"/>
-                            <constraint firstItem="qeO-Ab-biE" firstAttribute="top" secondItem="39S-FE-0hR" secondAttribute="bottom" constant="16" id="ctc-Ux-KQ1"/>
-                            <constraint firstItem="39S-FE-0hR" firstAttribute="leading" secondItem="Zq9-uz-o4e" secondAttribute="leading" constant="16" id="cv6-z7-dcE"/>
-                            <constraint firstItem="Zq9-uz-o4e" firstAttribute="trailing" secondItem="d2R-Cn-1Bm" secondAttribute="trailing" constant="16" id="d2s-mY-Kwn"/>
-                            <constraint firstItem="pL2-cz-pQk" firstAttribute="leading" secondItem="39S-FE-0hR" secondAttribute="trailing" constant="32" id="i7p-M3-x1e"/>
-                            <constraint firstItem="39S-FE-0hR" firstAttribute="top" secondItem="CmO-B6-2p8" secondAttribute="bottom" constant="16" id="krB-Op-9ff"/>
-                            <constraint firstItem="CmO-B6-2p8" firstAttribute="leading" secondItem="Zq9-uz-o4e" secondAttribute="leading" constant="16" id="kxq-IL-sIG"/>
-                            <constraint firstItem="d2R-Cn-1Bm" firstAttribute="leading" secondItem="39S-FE-0hR" secondAttribute="trailing" constant="32" id="ofw-tb-636"/>
-                            <constraint firstItem="39S-FE-0hR" firstAttribute="top" secondItem="CmO-B6-2p8" secondAttribute="bottom" constant="16" id="ql4-1j-Z84"/>
-                            <constraint firstItem="pL2-cz-pQk" firstAttribute="top" secondItem="CmO-B6-2p8" secondAttribute="bottom" constant="16" id="uvJ-Sb-A3t"/>
-                            <constraint firstItem="Zq9-uz-o4e" firstAttribute="trailing" secondItem="CmO-B6-2p8" secondAttribute="trailing" constant="16" id="xyj-ak-Ykr"/>
+                            <constraint firstItem="cUn-b4-XWw" firstAttribute="leading" secondItem="Zq9-uz-o4e" secondAttribute="leading" id="485-aB-t6R"/>
+                            <constraint firstItem="cUn-b4-XWw" firstAttribute="leading" secondItem="Zq9-uz-o4e" secondAttribute="leading" id="8th-mo-VUQ"/>
+                            <constraint firstItem="cUn-b4-XWw" firstAttribute="top" secondItem="Zq9-uz-o4e" secondAttribute="top" id="OUG-1K-6vQ"/>
+                            <constraint firstItem="cUn-b4-XWw" firstAttribute="bottom" secondItem="Zq9-uz-o4e" secondAttribute="bottom" id="PbE-O9-3af"/>
+                            <constraint firstItem="cUn-b4-XWw" firstAttribute="trailing" secondItem="Zq9-uz-o4e" secondAttribute="trailing" id="XZr-wb-Dtw"/>
+                            <constraint firstItem="cUn-b4-XWw" firstAttribute="trailing" secondItem="Zq9-uz-o4e" secondAttribute="trailing" id="apm-kw-9I6"/>
+                            <constraint firstItem="cUn-b4-XWw" firstAttribute="top" secondItem="Zq9-uz-o4e" secondAttribute="top" id="fG2-gv-9s9"/>
+                            <constraint firstItem="cUn-b4-XWw" firstAttribute="bottom" secondItem="Zq9-uz-o4e" secondAttribute="bottom" id="wFE-7F-fml"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Zq9-uz-o4e"/>
                     </view>
