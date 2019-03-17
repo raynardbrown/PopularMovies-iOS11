@@ -72,7 +72,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e5Y-Ge-KUo" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="397.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="449"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Title Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CmO-B6-2p8" userLabel="Movie Title Label">
                                                 <rect key="frame" x="16" y="16" width="240.5" height="37"/>
@@ -117,37 +117,54 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trailers:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v0B-2A-ee7" userLabel="Movie Trailers Label">
+                                                <rect key="frame" x="16" y="414.5" width="343" height="18.5"/>
+                                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="zaX-uT-8vz" userLabel="Movie Description Trailer Separator">
+                                                <rect key="frame" x="16" y="397.5" width="343" height="1"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="qeO-Ab-biE" firstAttribute="top" secondItem="39S-FE-0hR" secondAttribute="bottom" constant="16" id="2uc-HR-B7j"/>
                                             <constraint firstAttribute="trailing" secondItem="Ivc-4h-2BG" secondAttribute="trailing" constant="16" id="31g-cK-9bf"/>
+                                            <constraint firstAttribute="bottom" secondItem="v0B-2A-ee7" secondAttribute="bottom" constant="16" id="5aT-v7-Nt5"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="qeO-Ab-biE" secondAttribute="trailing" constant="16" id="6Oo-Ye-vAa"/>
+                                            <constraint firstAttribute="trailing" secondItem="zaX-uT-8vz" secondAttribute="trailing" constant="16" id="95D-rj-60U"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="CmO-B6-2p8" secondAttribute="trailing" constant="16" id="BsT-Og-Iyd"/>
+                                            <constraint firstItem="zaX-uT-8vz" firstAttribute="leading" secondItem="e5Y-Ge-KUo" secondAttribute="leading" constant="16" id="C2L-Hj-KZY"/>
                                             <constraint firstItem="qeO-Ab-biE" firstAttribute="leading" secondItem="e5Y-Ge-KUo" secondAttribute="leading" constant="16" id="C4T-iY-c7P"/>
+                                            <constraint firstItem="zaX-uT-8vz" firstAttribute="top" secondItem="qeO-Ab-biE" secondAttribute="bottom" constant="16" id="CFE-16-iPF"/>
+                                            <constraint firstItem="v0B-2A-ee7" firstAttribute="leading" secondItem="e5Y-Ge-KUo" secondAttribute="leading" constant="16" id="FIU-U8-L7a"/>
                                             <constraint firstItem="CmO-B6-2p8" firstAttribute="top" secondItem="e5Y-Ge-KUo" secondAttribute="top" constant="16" id="GZy-aL-Sae"/>
                                             <constraint firstItem="d2R-Cn-1Bm" firstAttribute="leading" secondItem="39S-FE-0hR" secondAttribute="trailing" constant="36" id="Lgf-Lu-tVc"/>
-                                            <constraint firstAttribute="bottom" secondItem="qeO-Ab-biE" secondAttribute="bottom" constant="16" id="MDv-HE-8eB"/>
                                             <constraint firstItem="Ivc-4h-2BG" firstAttribute="top" secondItem="d2R-Cn-1Bm" secondAttribute="bottom" constant="16" id="NLQ-eo-EMg"/>
                                             <constraint firstItem="Ivc-4h-2BG" firstAttribute="leading" secondItem="39S-FE-0hR" secondAttribute="trailing" constant="36" id="RpB-yh-AGb"/>
                                             <constraint firstItem="pL2-cz-pQk" firstAttribute="top" secondItem="CmO-B6-2p8" secondAttribute="bottom" constant="16" id="Uao-l9-3el"/>
                                             <constraint firstItem="CmO-B6-2p8" firstAttribute="leading" secondItem="e5Y-Ge-KUo" secondAttribute="leading" constant="16" id="VmN-Cn-HmT"/>
                                             <constraint firstItem="pL2-cz-pQk" firstAttribute="leading" secondItem="39S-FE-0hR" secondAttribute="trailing" constant="36" id="bgE-fF-Bu0"/>
+                                            <constraint firstItem="v0B-2A-ee7" firstAttribute="top" secondItem="zaX-uT-8vz" secondAttribute="bottom" constant="16" id="bk3-dR-O5W"/>
                                             <constraint firstItem="uzR-U1-tA6" firstAttribute="leading" secondItem="39S-FE-0hR" secondAttribute="trailing" constant="36" id="dSl-Wf-FBp"/>
                                             <constraint firstItem="39S-FE-0hR" firstAttribute="leading" secondItem="e5Y-Ge-KUo" secondAttribute="leading" constant="16" id="frV-T1-q4R"/>
                                             <constraint firstAttribute="trailing" secondItem="d2R-Cn-1Bm" secondAttribute="trailing" constant="16" id="j5k-sR-UZr"/>
                                             <constraint firstItem="39S-FE-0hR" firstAttribute="top" secondItem="CmO-B6-2p8" secondAttribute="bottom" constant="16" id="o6Z-hM-icl"/>
                                             <constraint firstItem="d2R-Cn-1Bm" firstAttribute="top" secondItem="uzR-U1-tA6" secondAttribute="bottom" constant="16" id="rp3-LF-AjF"/>
+                                            <constraint firstAttribute="bottom" secondItem="v0B-2A-ee7" secondAttribute="bottom" constant="16" id="uok-lS-I4v"/>
                                             <constraint firstItem="uzR-U1-tA6" firstAttribute="top" secondItem="pL2-cz-pQk" secondAttribute="bottom" constant="16" id="vQr-hB-VAA"/>
                                             <constraint firstAttribute="trailing" secondItem="pL2-cz-pQk" secondAttribute="trailing" constant="16" id="wAi-AF-HsQ"/>
+                                            <constraint firstAttribute="trailing" secondItem="v0B-2A-ee7" secondAttribute="trailing" constant="16" id="xyf-K5-eko"/>
                                             <constraint firstAttribute="trailing" secondItem="uzR-U1-tA6" secondAttribute="trailing" constant="16" id="y4L-GV-lmb"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="e5Y-Ge-KUo" secondAttribute="bottom" id="CG5-9J-qVK"/>
                                     <constraint firstAttribute="trailing" secondItem="e5Y-Ge-KUo" secondAttribute="trailing" id="IG2-iH-rXa"/>
                                     <constraint firstItem="e5Y-Ge-KUo" firstAttribute="top" secondItem="cUn-b4-XWw" secondAttribute="top" id="g0Y-hf-06d"/>
+                                    <constraint firstAttribute="bottom" secondItem="e5Y-Ge-KUo" secondAttribute="bottom" id="gDG-GW-w6a"/>
                                     <constraint firstItem="e5Y-Ge-KUo" firstAttribute="leading" secondItem="cUn-b4-XWw" secondAttribute="leading" id="tdc-h6-QYq"/>
                                     <constraint firstItem="e5Y-Ge-KUo" firstAttribute="width" secondItem="cUn-b4-XWw" secondAttribute="width" id="zAf-fJ-n2F"/>
                                 </constraints>
