@@ -5,13 +5,14 @@
 //  Copyright © 2019 Raynard Brown. All rights reserved.
 //
 
+/// MovieReviewResultObject is an object that models a review for a specific movie.
 class MovieReviewResultObject
 {
   private var id : Int
   private var author : String
   private var reviewContent : String
   
-  /// Models a review for a specific movie.
+  /// Create a new MovieReviewResultObject.
   ///
   /// - Parameters:
   ///   - id: the identifier that uniquely identifies the movie associated with this review.
