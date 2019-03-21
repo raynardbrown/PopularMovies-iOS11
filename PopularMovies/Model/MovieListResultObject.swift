@@ -5,6 +5,7 @@
 //  Copyright © 2018 Raynard Brown. All rights reserved.
 //
 
+/// An object that holds the results of a query to the remote movie database.
 class MovieListResultObject
 {
   private var posterPath : String
@@ -14,7 +15,7 @@ class MovieListResultObject
   private var userRating : String
   private var id : Int
   
-  /// An object the holds the results of a query to the remote movie data base
+  /// Create a new MovieListResultObject.
   ///
   /// - Parameters:
   ///   - posterPath: the path of the movie poster on the remote server excluding the base URL and
