@@ -20,28 +20,28 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="251" image="play_arrow_icon" translatesAutoresizingMaskIntoConstraints="NO" id="f6B-om-A1a">
-                        <rect key="frame" x="16" y="16.5" width="48" height="48"/>
+                        <rect key="frame" x="20" y="20.5" width="48" height="48"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="48" id="4gr-Qz-0de"/>
                             <constraint firstAttribute="width" constant="48" id="IKJ-l9-lU9"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Trailer Title Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ILF-ax-lp9" userLabel="Movie Trailer Title Label">
-                        <rect key="frame" x="80" y="16.5" width="224" height="48"/>
+                        <rect key="frame" x="76" y="20.5" width="224" height="48"/>
                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="ILF-ax-lp9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="3zc-iJ-IjF"/>
-                    <constraint firstAttribute="trailing" secondItem="ILF-ax-lp9" secondAttribute="trailing" constant="16" id="7Il-tM-zgt"/>
-                    <constraint firstItem="ILF-ax-lp9" firstAttribute="leading" secondItem="f6B-om-A1a" secondAttribute="trailing" constant="16" id="P4c-S9-J8H"/>
-                    <constraint firstItem="f6B-om-A1a" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="U0h-JV-bhU"/>
+                    <constraint firstItem="ILF-ax-lp9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" symbolic="YES" id="3zc-iJ-IjF"/>
+                    <constraint firstAttribute="trailing" secondItem="ILF-ax-lp9" secondAttribute="trailing" constant="20" symbolic="YES" id="7Il-tM-zgt"/>
+                    <constraint firstItem="ILF-ax-lp9" firstAttribute="leading" secondItem="f6B-om-A1a" secondAttribute="trailing" constant="8" symbolic="YES" id="P4c-S9-J8H"/>
+                    <constraint firstItem="f6B-om-A1a" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" symbolic="YES" id="U0h-JV-bhU"/>
                     <constraint firstItem="ILF-ax-lp9" firstAttribute="bottom" secondItem="f6B-om-A1a" secondAttribute="bottom" id="UP6-ex-EvK"/>
-                    <constraint firstItem="f6B-om-A1a" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="i16-xT-eNF"/>
-                    <constraint firstAttribute="bottom" secondItem="f6B-om-A1a" secondAttribute="bottom" constant="16" id="nyW-TQ-FpO"/>
-                    <constraint firstAttribute="bottom" secondItem="ILF-ax-lp9" secondAttribute="bottom" constant="16" id="spO-DM-dpq"/>
+                    <constraint firstItem="f6B-om-A1a" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" symbolic="YES" id="i16-xT-eNF"/>
+                    <constraint firstAttribute="bottom" secondItem="f6B-om-A1a" secondAttribute="bottom" constant="20" symbolic="YES" id="nyW-TQ-FpO"/>
+                    <constraint firstAttribute="bottom" secondItem="ILF-ax-lp9" secondAttribute="bottom" constant="20" symbolic="YES" id="spO-DM-dpq"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
