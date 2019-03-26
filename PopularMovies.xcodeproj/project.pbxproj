@@ -27,6 +27,8 @@
 		D7F4BF7A22449AAE00B63C9A /* CustomMovieTrailerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F4BF7822449AAE00B63C9A /* CustomMovieTrailerTableViewCell.swift */; };
 		D7F4BF7B22449AAE00B63C9A /* CustomMovieTrailerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7F4BF7922449AAE00B63C9A /* CustomMovieTrailerTableViewCell.xib */; };
 		D7F4BF8522473EBA00B63C9A /* MovieFavoriteObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F4BF8422473EBA00B63C9A /* MovieFavoriteObject.swift */; };
+		D7F4BF882249DB9900B63C9A /* CustomMainDetailViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F4BF862249DB9900B63C9A /* CustomMainDetailViewTableViewCell.swift */; };
+		D7F4BF892249DB9900B63C9A /* CustomMainDetailViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7F4BF872249DB9900B63C9A /* CustomMainDetailViewTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +55,8 @@
 		D7F4BF7822449AAE00B63C9A /* CustomMovieTrailerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMovieTrailerTableViewCell.swift; sourceTree = "<group>"; };
 		D7F4BF7922449AAE00B63C9A /* CustomMovieTrailerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomMovieTrailerTableViewCell.xib; sourceTree = "<group>"; };
 		D7F4BF8422473EBA00B63C9A /* MovieFavoriteObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieFavoriteObject.swift; sourceTree = "<group>"; };
+		D7F4BF862249DB9900B63C9A /* CustomMainDetailViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMainDetailViewTableViewCell.swift; sourceTree = "<group>"; };
+		D7F4BF872249DB9900B63C9A /* CustomMainDetailViewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomMainDetailViewTableViewCell.xib; sourceTree = "<group>"; };
 		F465460714F2323DF5452BCD /* Pods-PopularMovies.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PopularMovies.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PopularMovies/Pods-PopularMovies.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -146,6 +150,8 @@
 				D798A56820FC3D0B0058696A /* MovieCollectionViewCell.xib */,
 				D7F4BF7822449AAE00B63C9A /* CustomMovieTrailerTableViewCell.swift */,
 				D7F4BF7922449AAE00B63C9A /* CustomMovieTrailerTableViewCell.xib */,
+				D7F4BF862249DB9900B63C9A /* CustomMainDetailViewTableViewCell.swift */,
+				D7F4BF872249DB9900B63C9A /* CustomMainDetailViewTableViewCell.xib */,
 			);
 			path = "Custom Cell";
 			sourceTree = "<group>";
@@ -245,6 +251,7 @@
 				D798A50F20EF46720058696A /* Assets.xcassets in Resources */,
 				D798A50D20EF465F0058696A /* Main.storyboard in Resources */,
 				D798A56A20FC3D0B0058696A /* MovieCollectionViewCell.xib in Resources */,
+				D7F4BF892249DB9900B63C9A /* CustomMainDetailViewTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,6 +315,7 @@
 				D7F4BF6F223F392600B63C9A /* MyUISeparator.swift in Sources */,
 				D7F4BF7A22449AAE00B63C9A /* CustomMovieTrailerTableViewCell.swift in Sources */,
 				D7F4BF6B2228F2F700B63C9A /* MovieReviewResultObject.swift in Sources */,
+				D7F4BF882249DB9900B63C9A /* CustomMainDetailViewTableViewCell.swift in Sources */,
 				D798A50820EF465F0058696A /* AppDelegate.swift in Sources */,
 				D7F4BF6D2236165800B63C9A /* MoviePosterDetailViewController.swift in Sources */,
 			);
