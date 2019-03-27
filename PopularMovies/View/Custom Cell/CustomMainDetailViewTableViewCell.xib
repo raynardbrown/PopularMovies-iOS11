@@ -38,11 +38,6 @@
                             <constraint firstAttribute="height" constant="278" id="WMj-tx-mmq"/>
                         </constraints>
                     </imageView>
-                    <view contentMode="scaleToFill" verticalHuggingPriority="252" verticalCompressionResistancePriority="1000" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="Hha-d8-TnY" userLabel="Movie Description Trailer Separator" customClass="MyUISeparator" customModule="PopularMovies">
-                        <rect key="frame" x="20" y="377.5" width="430" height="1"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="DFO-Df-3iU"/>
-                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2019-01-01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dmF-1l-0dt" userLabel="Release Date Text">
                         <rect key="frame" x="213" y="92" width="237" height="18.5"/>
                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
@@ -73,20 +68,23 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" verticalHuggingPriority="252" verticalCompressionResistancePriority="1000" placeholderIntrinsicWidth="430" placeholderIntrinsicHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="lJB-Ti-aUO" userLabel="Movie Poster Description Trailer Separator" customClass="MyUISeparator" customModule="PopularMovies" customModuleProvider="target">
+                        <rect key="frame" x="20" y="377.5" width="430" height="1"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="lJB-Ti-aUO" firstAttribute="top" secondItem="aXf-Wj-ZBI" secondAttribute="bottom" constant="8" symbolic="YES" id="03c-RV-pnJ"/>
                     <constraint firstAttribute="trailing" secondItem="kbx-B5-a08" secondAttribute="trailing" constant="20" symbolic="YES" id="09R-Xe-vIo"/>
                     <constraint firstItem="gNe-Oi-K1k" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" symbolic="YES" id="3Fd-kM-PiE"/>
                     <constraint firstAttribute="trailing" secondItem="dmF-1l-0dt" secondAttribute="trailing" constant="20" symbolic="YES" id="3Y1-te-SZr"/>
                     <constraint firstAttribute="bottom" secondItem="g42-Gf-0cB" secondAttribute="bottom" constant="20" symbolic="YES" id="4t1-bc-gud"/>
-                    <constraint firstItem="Hha-d8-TnY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" symbolic="YES" id="5e0-ca-lhE"/>
                     <constraint firstAttribute="trailing" secondItem="g42-Gf-0cB" secondAttribute="trailing" constant="20" symbolic="YES" id="6wk-ii-ofj"/>
                     <constraint firstAttribute="trailing" secondItem="aXf-Wj-ZBI" secondAttribute="trailing" constant="20" symbolic="YES" id="7CX-fJ-CoR"/>
-                    <constraint firstItem="Hha-d8-TnY" firstAttribute="top" secondItem="aXf-Wj-ZBI" secondAttribute="bottom" constant="8" symbolic="YES" id="Ei2-bd-VdN"/>
                     <constraint firstItem="kbx-B5-a08" firstAttribute="top" secondItem="dmF-1l-0dt" secondAttribute="bottom" constant="8" symbolic="YES" id="Fg8-T9-W0m"/>
+                    <constraint firstAttribute="trailing" secondItem="lJB-Ti-aUO" secondAttribute="trailing" constant="20" symbolic="YES" id="HTE-vq-v6G"/>
                     <constraint firstItem="IsP-eC-b0Y" firstAttribute="top" secondItem="kbx-B5-a08" secondAttribute="bottom" constant="8" symbolic="YES" id="KYk-IY-dE0"/>
-                    <constraint firstItem="g42-Gf-0cB" firstAttribute="top" secondItem="Hha-d8-TnY" secondAttribute="bottom" constant="8" symbolic="YES" id="LSM-BE-oD4"/>
-                    <constraint firstAttribute="trailing" secondItem="Hha-d8-TnY" secondAttribute="trailing" constant="20" symbolic="YES" id="SKS-Dx-dAg"/>
+                    <constraint firstItem="g42-Gf-0cB" firstAttribute="top" secondItem="lJB-Ti-aUO" secondAttribute="bottom" constant="8" symbolic="YES" id="QJ0-yq-Fk7"/>
                     <constraint firstItem="gNe-Oi-K1k" firstAttribute="top" secondItem="eX8-Ie-Wog" secondAttribute="bottom" constant="8" symbolic="YES" id="TuO-g1-9R9"/>
                     <constraint firstItem="g42-Gf-0cB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" symbolic="YES" id="Uag-UU-ndy"/>
                     <constraint firstItem="eX8-Ie-Wog" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" symbolic="YES" id="Udb-uf-ch2"/>
@@ -98,6 +96,7 @@
                     <constraint firstItem="1JL-Ub-GIR" firstAttribute="top" secondItem="gNe-Oi-K1k" secondAttribute="top" id="o4g-ck-hF3"/>
                     <constraint firstItem="dmF-1l-0dt" firstAttribute="top" secondItem="1JL-Ub-GIR" secondAttribute="bottom" constant="8" symbolic="YES" id="qsK-Im-y1I"/>
                     <constraint firstItem="1JL-Ub-GIR" firstAttribute="leading" secondItem="gNe-Oi-K1k" secondAttribute="trailing" constant="8" symbolic="YES" id="s8Z-Hp-FFG"/>
+                    <constraint firstItem="lJB-Ti-aUO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" symbolic="YES" id="u24-sh-ZfL"/>
                     <constraint firstItem="dmF-1l-0dt" firstAttribute="leading" secondItem="gNe-Oi-K1k" secondAttribute="trailing" constant="8" symbolic="YES" id="vwU-M1-ISP"/>
                     <constraint firstItem="IsP-eC-b0Y" firstAttribute="leading" secondItem="gNe-Oi-K1k" secondAttribute="trailing" constant="8" symbolic="YES" id="wHD-jL-Cu4"/>
                     <constraint firstAttribute="trailing" secondItem="IsP-eC-b0Y" secondAttribute="trailing" constant="20" symbolic="YES" id="wMR-91-FUf"/>
@@ -107,7 +106,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="moviePosterDescriptionLabel" destination="aXf-Wj-ZBI" id="zQh-cZ-CMq"/>
-                <outlet property="moviePosterDescriptionTrailerSeparator" destination="Hha-d8-TnY" id="pbT-p2-eBX"/>
+                <outlet property="moviePosterDescriptionTrailerSeparator" destination="lJB-Ti-aUO" id="n1Y-2f-pSv"/>
                 <outlet property="moviePosterImage" destination="gNe-Oi-K1k" id="A2D-AW-Y3v"/>
                 <outlet property="moviePosterReleaseDateLabel" destination="dmF-1l-0dt" id="rJj-MJ-mm9"/>
                 <outlet property="moviePosterTitleLabel" destination="eX8-Ie-Wog" id="6Uc-Iq-Abr"/>
