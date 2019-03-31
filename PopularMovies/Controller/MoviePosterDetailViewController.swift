@@ -8,34 +8,88 @@
 import UIKit
 import SDWebImage
 
-class MoviePosterDetailViewController : UIViewController
+class MoviePosterDetailViewController : UIViewController,
+                                        UITableViewDelegate,
+                                        UITableViewDataSource
 {
   var movieListResultObject : MovieListResultObject!
-  
-  @IBOutlet var movieTitleLabel: UILabel!
-  @IBOutlet var moviePosterImage: UIImageView!
-  @IBOutlet var movieReleaseDateText: UILabel!
-  @IBOutlet var movieRatingText: UILabel!
-  @IBOutlet var movieDescriptionText: UILabel!
-  
-  
+
+  @IBOutlet var mainTableView: UITableView!
+
   override func viewDidLoad()
   {
     super.viewDidLoad()
     
     self.title = "Movie Detail"
     
-    movieTitleLabel.text = movieListResultObject.getOriginalTitle()
+    self.mainTableView.delegate = self
+    self.mainTableView.dataSource = self
+    
+    mainTableView.register(UINib(nibName: "CustomMainDetailViewTableViewCell", bundle: nil),
+                       forCellReuseIdentifier: "CustomMainDetailViewTableViewCell")
+    
+    configureTableView()
+  }
+  
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+  {
+    return 1
+  }
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+  {
+    let index : Int = indexPath.row
+    
+    var cell : UITableViewCell?
+    
+    if index == 0
+    {
+      let tempCell = tableView.dequeueReusableCell(withIdentifier: "CustomMainDetailViewTableViewCell",
+                                                   for: indexPath) as! CustomMainDetailViewTableViewCell
+      
+      cell = updateMainCell(tempCell)
+    }
+    
+    return cell!
+  }
+  
+  func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath?
+  {
+    let index : Int = indexPath.row
+    
+    if index == 0
+    {
+      // disable selecting the first row
+      return nil
+    }
+    
+    return indexPath
+  }
+  
+  func configureTableView() -> Void
+  {
+    // ensure that the table view separator extends the length of a table cell
+    mainTableView.separatorInset = .zero
+    
+    mainTableView.rowHeight = UITableViewAutomaticDimension
+    mainTableView.estimatedRowHeight = 61
+  }
+  
+  func updateMainCell(_ cell : CustomMainDetailViewTableViewCell) -> UITableViewCell
+  {
+    cell.moviePosterTitleLabel.text = movieListResultObject.getOriginalTitle()
     
     let moviePosterPath : String = TheMovieDatabaseUtils.getMoviePosterUriFromPath(movieListResultObject.getPosterPath())
     
-    moviePosterImage.sd_setImage(with: URL(string: moviePosterPath))
+    cell.moviePosterImage.sd_setImage(with: URL(string: moviePosterPath))
     
-    movieReleaseDateText.text = movieListResultObject.getReleaseDate()
+    cell.moviePosterReleaseDateLabel.text = movieListResultObject.getReleaseDate()
     
-    movieRatingText.text = movieListResultObject.getUserRating()
+    cell.moviePosterUserRatingLabel.text = movieListResultObject.getUserRating()
     
-    movieDescriptionText.text = movieListResultObject.getPlotSynopsis()
+    cell.moviePosterDescriptionLabel.text = movieListResultObject.getPlotSynopsis()
+    
+    return cell
   }
   
   override func didReceiveMemoryWarning()
