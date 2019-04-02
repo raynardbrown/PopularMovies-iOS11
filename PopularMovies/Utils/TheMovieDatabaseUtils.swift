@@ -16,7 +16,9 @@ class TheMovieDatabaseUtils
     
   }
 
-  static func queryTheMovieDatabase(_ queryBaseUrl : String, _ queryParameters : [String : String], _ completionHandler : @escaping ([MovieListResultObject]) -> Void)
+  static func queryTheMovieDatabase(_ queryBaseUrl : String,
+                                    _ queryParameters : [String : String],
+                                    _ completionHandler : @escaping ([MovieListResultObject]) -> Void)
   {
     Alamofire.request(queryBaseUrl, method: .get, parameters: queryParameters).responseJSON
     { (response) in
@@ -61,7 +63,12 @@ class TheMovieDatabaseUtils
         
         let id : Int = result["id"].intValue
         
-        movieListResultObjectArray.append(MovieListResultObject(posterPath, plotSynopsis, releaseDate, originalTitle, userRating, id))
+        movieListResultObjectArray.append(MovieListResultObject(posterPath,
+                                                                plotSynopsis,
+                                                                releaseDate,
+                                                                originalTitle,
+                                                                userRating,
+                                                                id))
       }
     }
     return movieListResultObjectArray
