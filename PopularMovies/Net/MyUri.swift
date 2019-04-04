@@ -9,13 +9,20 @@ import Foundation
 
 class MyUri
 {
-  private var url : URL
+  private var urlComponents : URLComponents
   
   init?(_ uriString : String)
   {
-    if let temp = URL(string: uriString)
+    if let url = URL(string: uriString)
     {
-      self.url = temp
+      if let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)
+      {
+        self.urlComponents = urlComponents
+      }
+      else
+      {
+        return nil
+      }
     }
     else
     {
