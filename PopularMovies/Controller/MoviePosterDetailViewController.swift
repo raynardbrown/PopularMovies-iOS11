@@ -79,7 +79,9 @@ class MoviePosterDetailViewController : UIViewController,
   {
     cell.moviePosterTitleLabel.text = movieListResultObject.getOriginalTitle()
     
-    let moviePosterPath : String = TheMovieDatabaseUtils.getMoviePosterUriFromPath(movieListResultObject.getPosterPath())
+    let moviePosterRelativePath : String = movieListResultObject.getPosterPath()
+    
+    let moviePosterPath : String = TheMovieDatabaseUtils.getMoviePosterUriFromPath(moviePosterRelativePath)
     
     cell.moviePosterImage.sd_setImage(with: URL(string: moviePosterPath))
     
