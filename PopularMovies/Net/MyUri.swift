@@ -58,8 +58,11 @@ class MyUri
     }
   }
   
-  @discardableResult
-  func appendPath(_ path : String) -> Self
+  /// Add the specified path to this MyUri.
+  ///
+  /// - Parameter path: the path that will be added to this MyUri.
+  /// - Returns: this MyUri.
+  @discardableResult func appendPath(_ path : String) -> Self
   {
     url = url.appendingPathComponent(path)
     
