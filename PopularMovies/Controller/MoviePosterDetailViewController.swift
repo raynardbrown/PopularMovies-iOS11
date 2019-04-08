@@ -83,7 +83,8 @@ class MoviePosterDetailViewController : UIViewController,
     
     let moviePosterPath : String = TheMovieDatabaseUtils.getMoviePosterUriFromPath(moviePosterRelativePath)
     
-    cell.moviePosterImage.sd_setImage(with: URL(string: moviePosterPath))
+    cell.moviePosterImage.sd_setImage(with: URL(string: moviePosterPath),
+                                      placeholderImage : UIImage(named: "image_placeholder.png"))
     
     cell.moviePosterReleaseDateLabel.text = movieListResultObject.getReleaseDate()
     
