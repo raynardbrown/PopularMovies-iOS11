@@ -145,6 +145,9 @@ class MyUri
     return uriString
   }
   
+  /// Return all of the path segments associated with this MyUri.
+  ///
+  /// - Returns: the path segments associated with this MyUri.
   func getPathSegments() -> [String]
   {
     return url.pathComponents
