@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// A convenience class for parsing and manipulating URIs.
 class MyUri
 {
   /// The components that make up a valid URI.
