@@ -75,8 +75,13 @@ class MyUri
     return self
   }
   
-  @discardableResult
-  func appendQueryParameter(_ parameter : String, _ value : String) -> Self
+  /// Add the specified query parameter to this MyUri.
+  ///
+  /// - Parameters:
+  ///   - parameter: The name of the query parameter that will be added to this MyUri.
+  ///   - value: the value associated with the query specified query parameter.
+  /// - Returns: this MyUr.
+  @discardableResult func appendQueryParameter(_ parameter : String, _ value : String) -> Self
   {
     queryParameters[parameter] = value
     
