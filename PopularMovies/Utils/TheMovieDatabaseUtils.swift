@@ -15,6 +15,31 @@ class TheMovieDatabaseUtils
   {
     
   }
+  
+  static func getPopularMoviesUri(_ apiKey : String, _ page : Int) -> MyUri?
+  {
+    let movieDatabaseGetPopularPath = "popular"
+    
+    return getMoviesUriHelper(apiKey, page, movieDatabaseGetPopularPath)
+  }
+  
+  static func getMoviesUriHelper(_ apiKey : String, _ page : Int, _ path : String) -> MyUri?
+  {
+    let pageToString = "\(page)"
+    
+    let movieDatabaseBaseUrl = "https://api.themoviedb.org/3/movie"
+    let movieDatabaseApiKeyUrlParameter = "api_key"
+    let movieDatabasePageUrlParameter = "page"
+    
+    if let uri : MyUri = MyUri(movieDatabaseBaseUrl)
+    {
+      return uri.appendPath(path)
+      .appendQueryParameter(movieDatabaseApiKeyUrlParameter, apiKey)
+      .appendQueryParameter(movieDatabasePageUrlParameter, pageToString)
+    }
+    
+    return nil
+  }
 
   static func queryTheMovieDatabase(_ myUri : MyUri,
                                     _ completionHandler : @escaping ([MovieListResultObject]) -> Void)
