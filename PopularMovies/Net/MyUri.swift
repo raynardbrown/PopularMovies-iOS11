@@ -67,6 +67,12 @@ class MyUri
     return self
   }
   
+  /// Return a String representation of this MyUri up to and including the specified uriComponents.
+  ///
+  /// - Parameter uriComponents: the last URI component that will make up the URI returned by this
+  /// function.
+  /// - Returns: a String that represents the components specified in this MyUri up to and including
+  /// the specified uriComponents.
   func getComponentsEndingAt(_ uriComponents : UriComponents) -> String
   {
     var uriString : String = ""
