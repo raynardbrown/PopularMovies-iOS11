@@ -9,6 +9,13 @@ import Foundation
 
 class MyUri
 {
+  /// The components that make up a valid URI.
+  ///
+  /// - SCHEME: The scheme component of a URI.
+  /// - AUTHORITY: The authority component of a URI.
+  /// - PATH: The path component of a URI.
+  /// - QUERY: The query component of a URI.
+  /// - FRAGMENT: The fragment component of a URI.
   enum UriComponents
   {
     case SCHEME
