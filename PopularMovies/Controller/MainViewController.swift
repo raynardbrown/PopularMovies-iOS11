@@ -58,7 +58,7 @@ class MainViewController : UIViewController,
     let moviePosterPath : String = TheMovieDatabaseUtils.getMoviePosterUriFromPath(movePosterRelativePath)
     
     cell.movieCollectionImageView.sd_setImage(with: URL(string: moviePosterPath),
-                                              placeholderImage : UIImage(named: "imagePlaceholder.png"))
+                                              placeholderImage : UIImage(named: "image_placeholder.png"))
     
     return cell
   }
