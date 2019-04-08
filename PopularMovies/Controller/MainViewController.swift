@@ -41,16 +41,21 @@ class MainViewController : UIViewController,
     super.didReceiveMemoryWarning()
   }
   
-  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
+  func collectionView(_ collectionView: UICollectionView,
+                      numberOfItemsInSection section: Int) -> Int
   {
     return movieListResultObjectArray.count
   }
   
-  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
+  func collectionView(_ collectionView: UICollectionView,
+                      cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
   {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "customMovieCollectionViewCell", for: indexPath) as! MovieCollectionViewCell
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "customMovieCollectionViewCell",
+                                                  for: indexPath) as! MovieCollectionViewCell
     
-    let moviePosterPath : String = TheMovieDatabaseUtils.getMoviePosterUriFromPath(movieListResultObjectArray[indexPath.row].getPosterPath())
+    let movePosterRelativePath : String = movieListResultObjectArray[indexPath.row].getPosterPath()
+    
+    let moviePosterPath : String = TheMovieDatabaseUtils.getMoviePosterUriFromPath(movePosterRelativePath)
     
     cell.movieCollectionImageView.sd_setImage(with: URL(string: moviePosterPath))
     
