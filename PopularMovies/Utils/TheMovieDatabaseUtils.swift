@@ -16,10 +16,12 @@ class TheMovieDatabaseUtils
     
   }
 
-  static func queryTheMovieDatabase(_ queryBaseUrl : String,
-                                    _ queryParameters : [String : String],
+  static func queryTheMovieDatabase(_ myUri : MyUri,
                                     _ completionHandler : @escaping ([MovieListResultObject]) -> Void)
   {
+    let queryBaseUrl = myUri.getComponentsEndingAt(MyUri.UriComponents.PATH)
+    let queryParameters = myUri.getQueryParameters()
+    
     Alamofire.request(queryBaseUrl, method: .get, parameters: queryParameters).responseJSON
     { (response) in
       
