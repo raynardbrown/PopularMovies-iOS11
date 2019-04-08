@@ -27,11 +27,13 @@ class MainViewController : UIViewController,
     moviePosterCollectionView.register(UINib(nibName: "MovieCollectionViewCell", bundle: nil),
                                        forCellWithReuseIdentifier: "customMovieCollectionViewCell")
     
-    // TODO: Temp code for testing
-    let params : [String : String] = ["api_key" : PopularMoviesConstants.getTheMovieDatabaseApiKey(),
-                                      "page" : "1"]
-    // TODO: Temp code for testing
-    TheMovieDatabaseUtils.queryTheMovieDatabase("https://api.themoviedb.org/3/movie/popular", params, onMovieResults)
+    let theMovieDatabaseApiKey = PopularMoviesConstants.getTheMovieDatabaseApiKey()
+    let page : Int = 1
+    
+    if let myUri = TheMovieDatabaseUtils.getPopularMoviesUri(theMovieDatabaseApiKey, page)
+    {
+      TheMovieDatabaseUtils.queryTheMovieDatabase(myUri, onMovieResults)
+    }
   }
 
   override func didReceiveMemoryWarning()
