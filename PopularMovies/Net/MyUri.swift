@@ -153,6 +153,9 @@ class MyUri
     return url.pathComponents
   }
   
+  /// Return all of the query parameters associated with this MyUri.
+  ///
+  /// - Returns: the query parameters associated with this MyUri.
   func getQueryParameters() -> [String : String]
   {
     return queryParameters
