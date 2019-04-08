@@ -22,6 +22,11 @@ class MyUri
   private var urlComponents : URLComponents
   private var queryParameters : [String : String]
   
+  /// Create a new MyUri with the specified URI string.
+  ///
+  /// Returns nil if the specified URI string is malformed.
+  ///
+  /// - Parameter uriString: a well formed URI as a String.
   init?(_ uriString : String)
   {
     if let url = URL(string: uriString)
