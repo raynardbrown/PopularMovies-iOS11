@@ -30,6 +30,7 @@
 		D7F4BF882249DB9900B63C9A /* CustomMainDetailViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F4BF862249DB9900B63C9A /* CustomMainDetailViewTableViewCell.swift */; };
 		D7F4BF892249DB9900B63C9A /* CustomMainDetailViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7F4BF872249DB9900B63C9A /* CustomMainDetailViewTableViewCell.xib */; };
 		D7F4BF8C22542A4100B63C9A /* MyUri.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F4BF8B22542A4100B63C9A /* MyUri.swift */; };
+		D7F4BF8E225D9A5B00B63C9A /* PopularMoviesSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F4BF8D225D9A5B00B63C9A /* PopularMoviesSettings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		D7F4BF862249DB9900B63C9A /* CustomMainDetailViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMainDetailViewTableViewCell.swift; sourceTree = "<group>"; };
 		D7F4BF872249DB9900B63C9A /* CustomMainDetailViewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomMainDetailViewTableViewCell.xib; sourceTree = "<group>"; };
 		D7F4BF8B22542A4100B63C9A /* MyUri.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUri.swift; sourceTree = "<group>"; };
+		D7F4BF8D225D9A5B00B63C9A /* PopularMoviesSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMoviesSettings.swift; sourceTree = "<group>"; };
 		F465460714F2323DF5452BCD /* Pods-PopularMovies.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PopularMovies.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PopularMovies/Pods-PopularMovies.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -175,6 +177,7 @@
 				D7F4BF6A2228F2F700B63C9A /* MovieReviewResultObject.swift */,
 				D7F4BF702240A65E00B63C9A /* MovieVideoResultObject.swift */,
 				D7F4BF8422473EBA00B63C9A /* MovieFavoriteObject.swift */,
+				D7F4BF8D225D9A5B00B63C9A /* PopularMoviesSettings.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				D7F4BF6B2228F2F700B63C9A /* MovieReviewResultObject.swift in Sources */,
 				D7F4BF882249DB9900B63C9A /* CustomMainDetailViewTableViewCell.swift in Sources */,
 				D798A50820EF465F0058696A /* AppDelegate.swift in Sources */,
+				D7F4BF8E225D9A5B00B63C9A /* PopularMoviesSettings.swift in Sources */,
 				D7F4BF6D2236165800B63C9A /* MoviePosterDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
