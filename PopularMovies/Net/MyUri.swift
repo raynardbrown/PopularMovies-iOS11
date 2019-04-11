@@ -161,6 +161,8 @@ class MyUri
     return queryParameters
   }
   
+  /// Helper function that takes the query parameters dictionary property of this class and converts
+  /// it into an array of URLQueryItems that are suitable for the URLComponents class.
   private func buildQueryItemObjects()
   {
     var queryItems : [URLQueryItem] = []
