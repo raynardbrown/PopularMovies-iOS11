@@ -42,7 +42,7 @@ class TheMovieDatabaseUtils
   }
 
   static func queryTheMovieDatabase(_ myUri : MyUri,
-                                    _ completionHandler : @escaping ([MovieListResultObject]) -> Void)
+                                    _ completionHandler : @escaping (DataResponse<Any>) -> Void)
   {
     let queryBaseUrl = myUri.getComponentsEndingAt(MyUri.UriComponents.PATH)
     let queryParameters = myUri.getQueryParameters()
@@ -50,21 +50,7 @@ class TheMovieDatabaseUtils
     Alamofire.request(queryBaseUrl, method: .get, parameters: queryParameters).responseJSON
     { (response) in
       
-      if(response.result.isSuccess)
-      {
-        let resultJson : JSON = JSON(response.result.value!)
-        
-        let movieResultArray : [MovieListResultObject] = movieJsonToMovieResultArray(resultJson)
-        
-        // send the movie result array to the completion handler
-        completionHandler(movieResultArray)
-      }
-      else
-      {
-        // Error getting the movie json data, send an empty array
-        completionHandler([MovieListResultObject]())
-      }
-      
+      completionHandler(response)
     }
   }
   
