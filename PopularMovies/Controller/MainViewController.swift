@@ -6,7 +6,9 @@
 //
 
 import UIKit
+import Alamofire
 import SDWebImage
+import SwiftyJSON
 
 class MainViewController : UIViewController,
                            UICollectionViewDelegate,
@@ -80,10 +82,21 @@ class MainViewController : UIViewController,
     }
   }
   
-  func onMovieResults(movieResults : [MovieListResultObject])
+  func onMovieResults(movieResultsResponse : DataResponse<Any>)
   {
-    movieListResultObjectArray = movieResults
-    
-    moviePosterCollectionView.reloadData()
+    if(movieResultsResponse.result.isSuccess)
+    {
+      let resultJson : JSON = JSON(movieResultsResponse.result.value!)
+      
+      let movieResultArray : [MovieListResultObject] = TheMovieDatabaseUtils.movieJsonToMovieResultArray(resultJson)
+      
+      movieListResultObjectArray = movieResultArray
+      
+      moviePosterCollectionView.reloadData()
+    }
+    else
+    {
+      // TODO: handle failure
+    }
   }
 }
