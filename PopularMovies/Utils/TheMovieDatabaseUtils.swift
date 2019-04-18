@@ -41,8 +41,16 @@ class TheMovieDatabaseUtils
     return nil
   }
 
+  /// Query the movie database using the specified URI. The data from the request is passed to the
+  /// specified closure.
+  ///
+  /// - Parameters:
+  ///   - myUri: the URI used to query the movie database.
+  ///   - completionHandler: the closure that is called after the movie database is queried.
+  ///   - dataResponse: the data from the movie database query that is passed to the specified
+  /// closure.
   static func queryTheMovieDatabase(_ myUri : MyUri,
-                                    _ completionHandler : @escaping (DataResponse<Any>) -> Void)
+                                    _ completionHandler : @escaping (_ dataResponse : DataResponse<Any>) -> Void)
   {
     let queryBaseUrl = myUri.getComponentsEndingAt(MyUri.UriComponents.PATH)
     let queryParameters = myUri.getQueryParameters()
