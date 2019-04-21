@@ -51,7 +51,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Popular Movies" id="MRL-dS-9Ee"/>
+                    <navigationItem key="navigationItem" title="Popular Movies" id="MRL-dS-9Ee">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="sort_icon_white" id="VxU-d5-Xro"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="moviePosterCollectionView" destination="O6Z-Ol-KhA" id="wGx-ax-z8f"/>
                     </connections>
@@ -118,5 +120,8 @@
             <point key="canvasLocation" x="32.799999999999997" y="-580.65967016491754"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="sort_icon_white" width="24" height="24"/>
+    </resources>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>
