@@ -18,6 +18,8 @@ class MainViewController : UIViewController,
   
   private var movieListResultObjectArray : [MovieListResultObject] = [MovieListResultObject]()
   
+  private let appTitle : String = "Popular Movies"
+  
   override func viewDidLoad()
   {
     super.viewDidLoad()
@@ -41,6 +43,15 @@ class MainViewController : UIViewController,
   override func didReceiveMemoryWarning()
   {
     super.didReceiveMemoryWarning()
+  }
+  
+  override func viewWillAppear(_ animated: Bool)
+  {
+    super.viewWillAppear(animated)
+    
+    // Ensure the navigation title is displayed when we navigate back from the child view
+    // TODO: Fix this so that the animation transitions smoothly
+    self.navigationItem.title = appTitle
   }
   
   func collectionView(_ collectionView: UICollectionView,
@@ -76,6 +87,10 @@ class MainViewController : UIViewController,
   {
     if segue.identifier == "launchMoviePosterDetailView"
     {
+      // Clear the navigation title of this view controller so that the back button of the child
+      // view does not include text.
+      self.navigationItem.title = " "
+      
       let destinationViewController = segue.destination as! MoviePosterDetailViewController
       
       destinationViewController.movieListResultObject = sender as! MovieListResultObject
