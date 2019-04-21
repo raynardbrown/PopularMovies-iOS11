@@ -52,7 +52,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Popular Movies" id="MRL-dS-9Ee">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="sort_icon_white" id="VxU-d5-Xro"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="sort_icon_white" id="VxU-d5-Xro" userLabel="Sort Button Nav Item">
+                            <connections>
+                                <action selector="onSortNavItemClick:" destination="BYZ-38-t0r" id="874-jN-JQh"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="moviePosterCollectionView" destination="O6Z-Ol-KhA" id="wGx-ax-z8f"/>
