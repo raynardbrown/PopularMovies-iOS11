@@ -114,4 +114,9 @@ class MainViewController : UIViewController,
       // TODO: handle failure
     }
   }
+  
+  @IBAction func onSortNavItemClick(_ sender: Any)
+  {
+    
+  }
 }
