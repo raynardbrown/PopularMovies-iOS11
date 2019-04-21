@@ -9,5 +9,6 @@ target 'PopularMovies' do
   pod 'SwiftyJSON'
   pod 'Alamofire'
   pod 'SDWebImage', '~> 4.0'
+  pod 'Reachability'
 
 end
