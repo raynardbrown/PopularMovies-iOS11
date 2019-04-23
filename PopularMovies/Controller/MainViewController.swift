@@ -20,6 +20,8 @@ class MainViewController : UIViewController,
   
   private let appTitle : String = "Popular Movies"
   
+  private var popularMoviesSettings : PopularMoviesSettings!
+  
   override func viewDidLoad()
   {
     super.viewDidLoad()
@@ -28,16 +30,13 @@ class MainViewController : UIViewController,
     moviePosterCollectionView.delegate = self
     moviePosterCollectionView.dataSource = self
     
+    // default sort setting
+    popularMoviesSettings = PopularMoviesSettings(PopularMoviesSettings.MOST_POPULAR)
+    
     moviePosterCollectionView.register(UINib(nibName: "MovieCollectionViewCell", bundle: nil),
                                        forCellWithReuseIdentifier: "customMovieCollectionViewCell")
     
-    let theMovieDatabaseApiKey = PopularMoviesConstants.getTheMovieDatabaseApiKey()
-    let page : Int = 1
-    
-    if let myUri = TheMovieDatabaseUtils.getPopularMoviesUri(theMovieDatabaseApiKey, page)
-    {
-      TheMovieDatabaseUtils.queryTheMovieDatabase(myUri, onMovieResults)
-    }
+    dispatchMovieListResultRequest()
   }
 
   override func didReceiveMemoryWarning()
@@ -115,6 +114,69 @@ class MainViewController : UIViewController,
     }
   }
   
+  func onActionSheetClickHelper(_ sortSetting : Int) -> Void
+  {
+    if(popularMoviesSettings.getSortSetting() != sortSetting)
+    {
+      popularMoviesSettings.setSortSetting(sortSetting)
+      
+      // reset the movie list array
+      
+      movieListResultObjectArray = [MovieListResultObject]()
+      
+      // fetch movie posters
+      dispatchMovieListResultRequest()
+    }
+  }
+  
+  func dispatchMovieListResultRequest() -> Void
+  {
+    let setting : Int = popularMoviesSettings.getSortSetting()
+    
+    if !(setting == PopularMoviesSettings.FAVORITES)
+    {
+      if setting == PopularMoviesSettings.MOST_POPULAR
+      {
+        fetchMostPopular()
+      }
+      else
+      {
+        fetchTopRated()
+      }
+    }
+    else
+    {
+      fetchFavorites()
+    }
+  }
+  
+  func fetchMostPopular() -> Void
+  {
+    let theMovieDatabaseApiKey = PopularMoviesConstants.getTheMovieDatabaseApiKey()
+    let page : Int = 1
+    
+    if let myUri = TheMovieDatabaseUtils.getPopularMoviesUri(theMovieDatabaseApiKey, page)
+    {
+      TheMovieDatabaseUtils.queryTheMovieDatabase(myUri, onMovieResults)
+    }
+  }
+  
+  func fetchTopRated() -> Void
+  {
+    let theMovieDatabaseApiKey = PopularMoviesConstants.getTheMovieDatabaseApiKey()
+    let page : Int = 1
+    
+    if let myUri = TheMovieDatabaseUtils.getTopRatedMoviesUri(theMovieDatabaseApiKey, page)
+    {
+      TheMovieDatabaseUtils.queryTheMovieDatabase(myUri, onMovieResults)
+    }
+  }
+  
+  func fetchFavorites() -> Void
+  {
+    // TODO: Implement
+  }
+  
   @IBAction func onSortNavItemClick(_ sender: Any)
   {
     // pass nil to the title and message in order to hide the title/message frame
@@ -124,6 +186,7 @@ class MainViewController : UIViewController,
     { (action) in
       
       // Popular Movies Clicked
+      self.onActionSheetClickHelper(PopularMoviesSettings.MOST_POPULAR)
       
     }))
     
@@ -131,6 +194,7 @@ class MainViewController : UIViewController,
     { (action) in
       
       // Top Movies Clicked
+      self.onActionSheetClickHelper(PopularMoviesSettings.TOP_RATED)
         
     }))
     
@@ -138,13 +202,14 @@ class MainViewController : UIViewController,
     { (action) in
       
       // Favorite Movies Clicked
+      self.onActionSheetClickHelper(PopularMoviesSettings.FAVORITES)
         
     }))
     
     alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:
     { (action) in
       
-      // Cancel Clicked
+      // Cancel Clicked, Do nothing
         
     }))
     
