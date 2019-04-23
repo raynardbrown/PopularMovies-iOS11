@@ -117,6 +117,38 @@ class MainViewController : UIViewController,
   
   @IBAction func onSortNavItemClick(_ sender: Any)
   {
+    // pass nil to the title and message in order to hide the title/message frame
+    let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
     
+    alert.addAction(UIAlertAction(title: "Most popular", style: .default, handler:
+    { (action) in
+      
+      // Popular Movies Clicked
+      
+    }))
+    
+    alert.addAction(UIAlertAction(title: "Top rated", style: .default, handler:
+    { (action) in
+      
+      // Top Movies Clicked
+        
+    }))
+    
+    alert.addAction(UIAlertAction(title: "Favorites", style: .default, handler:
+    { (action) in
+      
+      // Favorite Movies Clicked
+        
+    }))
+    
+    alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:
+    { (action) in
+      
+      // Cancel Clicked
+        
+    }))
+    
+    // show the action sheet
+    self.present(alert, animated: true, completion: nil)
   }
 }
