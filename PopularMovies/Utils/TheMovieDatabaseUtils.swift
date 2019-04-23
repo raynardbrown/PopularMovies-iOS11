@@ -23,6 +23,13 @@ class TheMovieDatabaseUtils
     return getMoviesUriHelper(apiKey, page, movieDatabaseGetPopularPath)
   }
   
+  static func getTopRatedMoviesUri(_ apiKey : String, _ page : Int) -> MyUri?
+  {
+    let movieDatabaseGetTopRatedPath = "top_rated"
+    
+    return getMoviesUriHelper(apiKey, page, movieDatabaseGetTopRatedPath)
+  }
+  
   static func getMoviesUriHelper(_ apiKey : String, _ page : Int, _ path : String) -> MyUri?
   {
     let pageToString = "\(page)"
