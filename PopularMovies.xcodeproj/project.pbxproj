@@ -32,6 +32,7 @@
 		D7F4BF8C22542A4100B63C9A /* MyUri.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F4BF8B22542A4100B63C9A /* MyUri.swift */; };
 		D7F4BF8E225D9A5B00B63C9A /* PopularMoviesSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F4BF8D225D9A5B00B63C9A /* PopularMoviesSettings.swift */; };
 		D7F4BF9222716F7A00B63C9A /* PopularMoviesDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D7F4BF9022716F7900B63C9A /* PopularMoviesDataModel.xcdatamodeld */; };
+		D7F4BFBE2274112200B63C9A /* MovieFavorite+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F4BFBC2274112200B63C9A /* MovieFavorite+CoreDataClass.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,7 @@
 		D7F4BF8B22542A4100B63C9A /* MyUri.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUri.swift; sourceTree = "<group>"; };
 		D7F4BF8D225D9A5B00B63C9A /* PopularMoviesSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMoviesSettings.swift; sourceTree = "<group>"; };
 		D7F4BF9122716F7A00B63C9A /* PopularMoviesDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PopularMoviesDataModel.xcdatamodel; sourceTree = "<group>"; };
+		D7F4BFBC2274112200B63C9A /* MovieFavorite+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MovieFavorite+CoreDataClass.swift"; sourceTree = "<group>"; };
 		F465460714F2323DF5452BCD /* Pods-PopularMovies.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PopularMovies.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PopularMovies/Pods-PopularMovies.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -196,6 +198,7 @@
 		D7F4BF8F22716F4900B63C9A /* Data Model */ = {
 			isa = PBXGroup;
 			children = (
+				D7F4BFBC2274112200B63C9A /* MovieFavorite+CoreDataClass.swift */,
 				D7F4BF9022716F7900B63C9A /* PopularMoviesDataModel.xcdatamodeld */,
 			);
 			path = "Data Model";
@@ -338,6 +341,7 @@
 				D7F4BF8522473EBA00B63C9A /* MovieFavoriteObject.swift in Sources */,
 				D798A50A20EF465F0058696A /* MainViewController.swift in Sources */,
 				D798A572210149750058696A /* TheMovieDatabaseUtils.swift in Sources */,
+				D7F4BFBE2274112200B63C9A /* MovieFavorite+CoreDataClass.swift in Sources */,
 				D7F4BF8C22542A4100B63C9A /* MyUri.swift in Sources */,
 				D798A56D20FDE4450058696A /* PopularMoviesConstants.swift in Sources */,
 				D7F4BF6F223F392600B63C9A /* MyUISeparator.swift in Sources */,
