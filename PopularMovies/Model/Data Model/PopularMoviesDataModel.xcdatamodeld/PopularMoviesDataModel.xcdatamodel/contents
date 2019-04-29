@@ -8,7 +8,12 @@
         <attribute name="movie_title" attributeType="String" syncable="YES"/>
         <attribute name="movie_user_rating" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="MovieTrailers" representedClassName=".MovieTrailers" syncable="YES" codeGenerationType="category">
+        <attribute name="trailer_clip_title" attributeType="String" syncable="YES"/>
+        <attribute name="trailer_youtube_key" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
         <element name="MovieFavorite" positionX="-54" positionY="-9" width="128" height="135"/>
+        <element name="MovieTrailers" positionX="-36" positionY="54" width="128" height="75"/>
     </elements>
 </model>
