@@ -34,6 +34,7 @@
 		D7F4BF9222716F7A00B63C9A /* PopularMoviesDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D7F4BF9022716F7900B63C9A /* PopularMoviesDataModel.xcdatamodeld */; };
 		D7F4BFBE2274112200B63C9A /* MovieFavorite+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F4BFBC2274112200B63C9A /* MovieFavorite+CoreDataClass.swift */; };
 		D7F4BFC22276B81500B63C9A /* MovieTrailers+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F4BFC02276B81500B63C9A /* MovieTrailers+CoreDataClass.swift */; };
+		D7F4BFC6227809D600B63C9A /* MovieReviews+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F4BFC4227809D600B63C9A /* MovieReviews+CoreDataClass.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 		D7F4BF9122716F7A00B63C9A /* PopularMoviesDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PopularMoviesDataModel.xcdatamodel; sourceTree = "<group>"; };
 		D7F4BFBC2274112200B63C9A /* MovieFavorite+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MovieFavorite+CoreDataClass.swift"; sourceTree = "<group>"; };
 		D7F4BFC02276B81500B63C9A /* MovieTrailers+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MovieTrailers+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D7F4BFC4227809D600B63C9A /* MovieReviews+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MovieReviews+CoreDataClass.swift"; sourceTree = "<group>"; };
 		F465460714F2323DF5452BCD /* Pods-PopularMovies.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PopularMovies.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PopularMovies/Pods-PopularMovies.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -200,6 +202,7 @@
 		D7F4BF8F22716F4900B63C9A /* Data Model */ = {
 			isa = PBXGroup;
 			children = (
+				D7F4BFC4227809D600B63C9A /* MovieReviews+CoreDataClass.swift */,
 				D7F4BFC02276B81500B63C9A /* MovieTrailers+CoreDataClass.swift */,
 				D7F4BFBC2274112200B63C9A /* MovieFavorite+CoreDataClass.swift */,
 				D7F4BF9022716F7900B63C9A /* PopularMoviesDataModel.xcdatamodeld */,
@@ -349,6 +352,7 @@
 				D7F4BF8C22542A4100B63C9A /* MyUri.swift in Sources */,
 				D798A56D20FDE4450058696A /* PopularMoviesConstants.swift in Sources */,
 				D7F4BF6F223F392600B63C9A /* MyUISeparator.swift in Sources */,
+				D7F4BFC6227809D600B63C9A /* MovieReviews+CoreDataClass.swift in Sources */,
 				D7F4BF7A22449AAE00B63C9A /* CustomMovieTrailerTableViewCell.swift in Sources */,
 				D7F4BF6B2228F2F700B63C9A /* MovieReviewResultObject.swift in Sources */,
 				D7F4BF882249DB9900B63C9A /* CustomMainDetailViewTableViewCell.swift in Sources */,
