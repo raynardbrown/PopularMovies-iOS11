@@ -13,6 +13,15 @@ class MovieFavoriteObject
   private var movieReviewResultObjectList : [MovieReviewResultObject]
   private var moviePosterImageData : [UInt8]
   
+  /// Create a new MovieFavoriteObject
+  ///
+  /// - Parameters:
+  ///   - movieListResultObject: the movie associated with this favorite.
+  ///   - movieVideoResultObjectList: the collection of movie trailers associated with this movie
+  /// favorite.
+  ///   - movieReviewResultObjectList: the collection of reviews associated with this movie
+  /// favorite.
+  ///   - moviePosterImageData: the movie poster image data as an array of bytes.
   init(_ movieListResultObject : MovieListResultObject,
        _ movieVideoResultObjectList : [MovieVideoResultObject],
        _ movieReviewResultObjectList : [MovieReviewResultObject],
