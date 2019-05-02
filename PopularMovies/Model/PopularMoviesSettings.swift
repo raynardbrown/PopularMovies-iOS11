@@ -13,6 +13,10 @@ class PopularMoviesSettings
   
   private var sortSetting : Int
   
+  /// Create a new PopularMoviesSettings with the specified sort setting.
+  ///
+  /// - Parameter sortSetting: specifies the order in which movie posters are displayed within the
+  /// main view controller.
   init(_ sortSetting : Int)
   {
     self.sortSetting = sortSetting
