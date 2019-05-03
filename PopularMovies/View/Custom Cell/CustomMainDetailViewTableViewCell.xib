@@ -67,46 +67,28 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" verticalHuggingPriority="252" verticalCompressionResistancePriority="1000" placeholderIntrinsicWidth="430" placeholderIntrinsicHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="lJB-Ti-aUO" userLabel="Movie Poster Description Trailer Separator" customClass="MyUISeparator" customModule="PopularMovies" customModuleProvider="target">
-                        <rect key="frame" x="20" y="377.5" width="430" height="1"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trailers:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g42-Gf-0cB" userLabel="Movie Trailers Label">
-                        <rect key="frame" x="20" y="386" width="430" height="32"/>
-                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="lJB-Ti-aUO" firstAttribute="top" secondItem="aXf-Wj-ZBI" secondAttribute="bottom" constant="8" symbolic="YES" id="03c-RV-pnJ"/>
                     <constraint firstItem="gNe-Oi-K1k" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" symbolic="YES" id="3Fd-kM-PiE"/>
-                    <constraint firstAttribute="bottom" secondItem="g42-Gf-0cB" secondAttribute="bottom" constant="20" symbolic="YES" id="4t1-bc-gud"/>
-                    <constraint firstAttribute="trailing" secondItem="g42-Gf-0cB" secondAttribute="trailing" constant="20" symbolic="YES" id="6wk-ii-ofj"/>
                     <constraint firstAttribute="trailing" secondItem="aXf-Wj-ZBI" secondAttribute="trailing" constant="20" symbolic="YES" id="7CX-fJ-CoR"/>
-                    <constraint firstAttribute="trailing" secondItem="lJB-Ti-aUO" secondAttribute="trailing" constant="20" symbolic="YES" id="HTE-vq-v6G"/>
                     <constraint firstItem="D2N-jQ-gBu" firstAttribute="top" secondItem="gNe-Oi-K1k" secondAttribute="top" id="PBH-6t-2Gm"/>
-                    <constraint firstItem="g42-Gf-0cB" firstAttribute="top" secondItem="lJB-Ti-aUO" secondAttribute="bottom" constant="8" symbolic="YES" id="QJ0-yq-Fk7"/>
                     <constraint firstItem="gNe-Oi-K1k" firstAttribute="top" secondItem="eX8-Ie-Wog" secondAttribute="bottom" constant="8" symbolic="YES" id="TuO-g1-9R9"/>
-                    <constraint firstItem="g42-Gf-0cB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" symbolic="YES" id="Uag-UU-ndy"/>
                     <constraint firstItem="eX8-Ie-Wog" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" symbolic="YES" id="Udb-uf-ch2"/>
                     <constraint firstAttribute="trailing" secondItem="D2N-jQ-gBu" secondAttribute="trailing" constant="16" id="Uku-Xh-uAN"/>
                     <constraint firstItem="D2N-jQ-gBu" firstAttribute="leading" secondItem="gNe-Oi-K1k" secondAttribute="trailing" constant="32" id="etb-dc-xlL"/>
                     <constraint firstItem="aXf-Wj-ZBI" firstAttribute="top" secondItem="gNe-Oi-K1k" secondAttribute="bottom" constant="8" symbolic="YES" id="fNP-yR-6B9"/>
                     <constraint firstAttribute="trailing" secondItem="eX8-Ie-Wog" secondAttribute="trailing" constant="20" symbolic="YES" id="ihN-FI-fdL"/>
                     <constraint firstItem="eX8-Ie-Wog" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" symbolic="YES" id="jJe-Ur-BWT"/>
-                    <constraint firstItem="lJB-Ti-aUO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" symbolic="YES" id="u24-sh-ZfL"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="aXf-Wj-ZBI" secondAttribute="bottom" constant="16" id="wcn-WU-2Bk"/>
                     <constraint firstItem="aXf-Wj-ZBI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" symbolic="YES" id="y0F-I3-O6j"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="moviePosterDescriptionLabel" destination="aXf-Wj-ZBI" id="zQh-cZ-CMq"/>
-                <outlet property="moviePosterDescriptionTrailerSeparator" destination="lJB-Ti-aUO" id="n1Y-2f-pSv"/>
                 <outlet property="moviePosterImage" destination="gNe-Oi-K1k" id="A2D-AW-Y3v"/>
                 <outlet property="moviePosterReleaseDateLabel" destination="dmF-1l-0dt" id="rJj-MJ-mm9"/>
                 <outlet property="moviePosterTitleLabel" destination="eX8-Ie-Wog" id="6Uc-Iq-Abr"/>
-                <outlet property="moviePosterTrailersLabel" destination="g42-Gf-0cB" id="xPh-ey-x7h"/>
                 <outlet property="moviePosterUserRatingLabel" destination="IsP-eC-b0Y" id="MIj-zb-iBH"/>
             </connections>
             <point key="canvasLocation" x="-8" y="-73.5"/>
