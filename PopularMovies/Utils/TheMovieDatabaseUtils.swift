@@ -87,7 +87,9 @@ class TheMovieDatabaseUtils
         
         let originalTitle : String = result["original_title"].stringValue
         
-        let userRating : String = result["vote_average"].stringValue
+        let userRatingFloat : Float = result["vote_average"].floatValue
+        
+        let userRating : String = "\(userRatingFloat)"
         
         let id : Int = result["id"].intValue
         
