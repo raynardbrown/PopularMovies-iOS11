@@ -59,11 +59,24 @@ class MoviePosterDetailViewController : UIViewController,
     
     if index == 0
     {
-      // disable selecting the first row
+      // disable selecting the first row when clicked
       return nil
     }
     
     return indexPath
+  }
+  
+  func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool
+  {
+    let index : Int = indexPath.row
+    
+    if index == 0
+    {
+      // disable highlighting the first row when clicked
+      return false
+    }
+    
+    return true
   }
   
   func configureTableView() -> Void
