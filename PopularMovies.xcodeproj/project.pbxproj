@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		441CB3A7FB8F17A41CEF1981 /* Pods_PopularMovies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6616EE2C84B61CF15410D5A5 /* Pods_PopularMovies.framework */; };
+		D7126860227D5FF400AAEB33 /* MovieTrailerHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D712685E227D5FF400AAEB33 /* MovieTrailerHeaderTableViewCell.swift */; };
+		D7126861227D5FF400AAEB33 /* MovieTrailerHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D712685F227D5FF400AAEB33 /* MovieTrailerHeaderTableViewCell.xib */; };
 		D798A50820EF465F0058696A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D798A50720EF465F0058696A /* AppDelegate.swift */; };
 		D798A50A20EF465F0058696A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D798A50920EF465F0058696A /* MainViewController.swift */; };
 		D798A50D20EF465F0058696A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D798A50B20EF465F0058696A /* Main.storyboard */; };
@@ -40,6 +42,8 @@
 /* Begin PBXFileReference section */
 		6616EE2C84B61CF15410D5A5 /* Pods_PopularMovies.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PopularMovies.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B23604520039153B38D7F928 /* Pods-PopularMovies.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PopularMovies.release.xcconfig"; path = "Pods/Target Support Files/Pods-PopularMovies/Pods-PopularMovies.release.xcconfig"; sourceTree = "<group>"; };
+		D712685E227D5FF400AAEB33 /* MovieTrailerHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTrailerHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		D712685F227D5FF400AAEB33 /* MovieTrailerHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieTrailerHeaderTableViewCell.xib; sourceTree = "<group>"; };
 		D798A50420EF465F0058696A /* PopularMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PopularMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D798A50720EF465F0058696A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D798A50920EF465F0058696A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -165,6 +169,8 @@
 				D7F4BF7922449AAE00B63C9A /* CustomMovieTrailerTableViewCell.xib */,
 				D7F4BF862249DB9900B63C9A /* CustomMainDetailViewTableViewCell.swift */,
 				D7F4BF872249DB9900B63C9A /* CustomMainDetailViewTableViewCell.xib */,
+				D712685E227D5FF400AAEB33 /* MovieTrailerHeaderTableViewCell.swift */,
+				D712685F227D5FF400AAEB33 /* MovieTrailerHeaderTableViewCell.xib */,
 			);
 			path = "Custom Cell";
 			sourceTree = "<group>";
@@ -283,6 +289,7 @@
 				D798A52120F045060058696A /* README.md in Resources */,
 				D7F4BF7B22449AAE00B63C9A /* CustomMovieTrailerTableViewCell.xib in Resources */,
 				D798A50F20EF46720058696A /* Assets.xcassets in Resources */,
+				D7126861227D5FF400AAEB33 /* MovieTrailerHeaderTableViewCell.xib in Resources */,
 				D798A50D20EF465F0058696A /* Main.storyboard in Resources */,
 				D798A56A20FC3D0B0058696A /* MovieCollectionViewCell.xib in Resources */,
 				D7F4BF892249DB9900B63C9A /* CustomMainDetailViewTableViewCell.xib in Resources */,
@@ -344,6 +351,7 @@
 				D7F4BFC22276B81500B63C9A /* MovieTrailers+CoreDataClass.swift in Sources */,
 				D798A56920FC3D0B0058696A /* MovieCollectionViewCell.swift in Sources */,
 				D798A57020FFF3770058696A /* MovieListResultObject.swift in Sources */,
+				D7126860227D5FF400AAEB33 /* MovieTrailerHeaderTableViewCell.swift in Sources */,
 				D7F4BF712240A65E00B63C9A /* MovieVideoResultObject.swift in Sources */,
 				D7F4BF8522473EBA00B63C9A /* MovieFavoriteObject.swift in Sources */,
 				D798A50A20EF465F0058696A /* MainViewController.swift in Sources */,
