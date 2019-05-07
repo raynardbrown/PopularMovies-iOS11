@@ -25,6 +25,7 @@ class MoviePosterDetailViewController : UIViewController,
     self.mainTableView.delegate = self
     self.mainTableView.dataSource = self
     
+    // register the main cell
     mainTableView.register(UINib(nibName: "CustomMainDetailViewTableViewCell", bundle: nil),
                        forCellReuseIdentifier: "CustomMainDetailViewTableViewCell")
     
@@ -86,6 +87,9 @@ class MoviePosterDetailViewController : UIViewController,
     
     mainTableView.rowHeight = UITableViewAutomaticDimension
     mainTableView.estimatedRowHeight = 61
+    
+    // remove additional separator lines at the bottom of the table view
+    mainTableView.tableFooterView = UIView()
   }
   
   func updateMainCell(_ cell : CustomMainDetailViewTableViewCell) -> UITableViewCell
