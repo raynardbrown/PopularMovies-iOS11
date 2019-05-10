@@ -10,6 +10,9 @@ import Alamofire
 import SDWebImage
 import SwiftyJSON
 
+/// The main entry point for this application. This view controller displays a collection of movie
+/// posters from a local or remote database. Clicking on a movie poster launches a detailed view
+/// controller for the clicked movie poster.
 class MainViewController : UIViewController,
                            UICollectionViewDelegate,
                            UICollectionViewDataSource
