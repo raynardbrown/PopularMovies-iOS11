@@ -25,6 +25,8 @@ class MainViewController : UIViewController,
   
   private var popularMoviesSettings : PopularMoviesSettings!
   
+  static let LaunchMoviePosterDetailView : String = "launchMoviePosterDetailView"
+  
   override func viewDidLoad()
   {
     super.viewDidLoad()
@@ -82,12 +84,13 @@ class MainViewController : UIViewController,
   {
     let movieListResultObject : MovieListResultObject = movieListResultObjectArray[indexPath.row]
     
-    performSegue(withIdentifier: "launchMoviePosterDetailView", sender: movieListResultObject)
+    performSegue(withIdentifier: MainViewController.LaunchMoviePosterDetailView,
+                 sender: movieListResultObject)
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?)
   {
-    if segue.identifier == "launchMoviePosterDetailView"
+    if segue.identifier == MainViewController.LaunchMoviePosterDetailView
     {
       // Clear the navigation title of this view controller so that the back button of the child
       // view does not include text.
