@@ -8,6 +8,8 @@
 import UIKit
 import SDWebImage
 
+/// A view controller that displays a detailed view of the poster that was clicked from the main
+/// view controller.
 class MoviePosterDetailViewController : UIViewController,
                                         UITableViewDelegate,
                                         UITableViewDataSource
