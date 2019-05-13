@@ -7,6 +7,8 @@
 
 import UIKit
 
+/// Holder for a single movie poster in the collection of movie posters that are displayed in the
+/// main view controller.
 class MovieCollectionViewCell: UICollectionViewCell
 {
   @IBOutlet var movieCollectionImageView: UIImageView!
