@@ -37,6 +37,13 @@ class TheMovieDatabaseUtils
     return getMoviesUriWithIdHelper(apiKey, page, id, movieDatabaseGetVideosPath)
   }
   
+  static func getReviewsMoviesUri(_ apiKey : String, _ page : Int, _ id : Int) -> MyUri?
+  {
+    let movieDatabaseGetReviewsPath = "reviews"
+    
+    return getMoviesUriWithIdHelper(apiKey, page, id, movieDatabaseGetReviewsPath)
+  }
+  
   static func getMoviesUriHelper(_ apiKey : String, _ page : Int, _ path : String) -> MyUri?
   {
     let pageToString = "\(page)"
