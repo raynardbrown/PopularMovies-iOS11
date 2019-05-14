@@ -103,6 +103,13 @@ class TheMovieDatabaseUtils
     }
   }
   
+  static func getMoviePosterUriFromPath(_ posterPath : String) -> String
+  {
+    let baseUri : String = "https://image.tmdb.org/t/p"
+    let imageSizePath = "w185"
+    return baseUri + "/" + imageSizePath + posterPath
+  }
+  
   static func movieJsonToMovieResultArray(_ json : JSON) -> [MovieListResultObject]
   {
     var movieListResultObjectArray : [MovieListResultObject] = [MovieListResultObject]()
@@ -138,11 +145,25 @@ class TheMovieDatabaseUtils
     return movieListResultObjectArray
   }
   
-  static func getMoviePosterUriFromPath(_ posterPath : String) -> String
+  static func movieVideoJsonStringToMovieVideoResultArray(_ json : JSON, _ id : Int) -> [MovieVideoResultObject]
   {
-    let baseUri : String = "https://image.tmdb.org/t/p"
-    let imageSizePath = "w185"
-    return baseUri + "/" + imageSizePath + posterPath
+    let resultsArray = json["results"].arrayValue
+    
+    var movieVideoResultObjectArray : [MovieVideoResultObject] = [MovieVideoResultObject]()
+    
+    if resultsArray.count > 0
+    {
+      for result in resultsArray
+      {
+        let videoClipName : String = result["name"].stringValue
+        
+        let key : String = result["key"].stringValue
+        
+        movieVideoResultObjectArray.append(MovieVideoResultObject(id, videoClipName, key))
+      }
+    }
+    
+    return movieVideoResultObjectArray
   }
 
 } // end TheMovieDatabaseUtils
