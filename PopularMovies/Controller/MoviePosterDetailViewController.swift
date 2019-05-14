@@ -44,6 +44,16 @@ class MoviePosterDetailViewController : UIViewController,
     return 1
   }
   
+  func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
+  {
+    if section == 0
+    {
+      return 0 // the main section has no header
+    }
+    
+    return UITableViewAutomaticDimension
+  }
+  
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
   {
     let section : Int = indexPath.section
