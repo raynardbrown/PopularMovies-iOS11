@@ -30,6 +30,13 @@ class TheMovieDatabaseUtils
     return getMoviesUriHelper(apiKey, page, movieDatabaseGetTopRatedPath)
   }
   
+  static func getVideosMoviesUri(_ apiKey : String, _ page : Int, _ id : Int) -> MyUri?
+  {
+    let movieDatabaseGetVideosPath = "videos"
+    
+    return getMoviesUriWithIdHelper(apiKey, page, id, movieDatabaseGetVideosPath)
+  }
+  
   static func getMoviesUriHelper(_ apiKey : String, _ page : Int, _ path : String) -> MyUri?
   {
     let pageToString = "\(page)"
@@ -41,6 +48,26 @@ class TheMovieDatabaseUtils
     if let uri : MyUri = MyUri(movieDatabaseBaseUrl)
     {
       return uri.appendPath(path)
+      .appendQueryParameter(movieDatabaseApiKeyUrlParameter, apiKey)
+      .appendQueryParameter(movieDatabasePageUrlParameter, pageToString)
+    }
+    
+    return nil
+  }
+  
+  static func getMoviesUriWithIdHelper(_ apiKey : String, _ page : Int, _ id : Int, _ path : String) -> MyUri?
+  {
+    let idToString = "\(id)"
+    let pageToString = "\(page)"
+    
+    let movieDatabaseBaseUrl = "https://api.themoviedb.org/3/movie"
+    let movieDatabaseApiKeyUrlParameter = "api_key"
+    let movieDatabasePageUrlParameter = "page"
+    
+    if let uri : MyUri = MyUri(movieDatabaseBaseUrl)
+    {
+      return uri.appendPath(idToString)
+      .appendPath(path)
       .appendQueryParameter(movieDatabaseApiKeyUrlParameter, apiKey)
       .appendQueryParameter(movieDatabasePageUrlParameter, pageToString)
     }
