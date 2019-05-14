@@ -6,7 +6,9 @@
 //
 
 import UIKit
+import Alamofire
 import SDWebImage
+import SwiftyJSON
 
 /// A view controller that displays a detailed view of the poster that was clicked from the main
 /// view controller.
@@ -15,6 +17,8 @@ class MoviePosterDetailViewController : UIViewController,
                                         UITableViewDataSource
 {
   var movieListResultObject : MovieListResultObject!
+  
+  var movieVideoResultObjectArray : [MovieVideoResultObject] = [MovieVideoResultObject]()
 
   @IBOutlet var mainTableView: UITableView!
 
@@ -38,7 +42,13 @@ class MoviePosterDetailViewController : UIViewController,
     mainTableView.register(UINib(nibName: "EmptyDetailViewTableViewCell", bundle: nil),
                            forCellReuseIdentifier: "EmptyDetailViewTableViewCell")
     
+    // register the trailer cell
+    mainTableView.register(UINib(nibName: "CustomMovieTrailerTableViewCell", bundle: nil),
+                           forCellReuseIdentifier: "CustomMovieTrailerTableViewCell")
+    
     configureTableView()
+    
+    fetchTrailers()
   }
   
   func numberOfSections(in tableView: UITableView) -> Int
@@ -48,6 +58,16 @@ class MoviePosterDetailViewController : UIViewController,
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
   {
+    if section == 0
+    {
+      return 1
+    }
+    
+    if section == 1 && movieVideoResultObjectArray.count > 0
+    {
+      return movieVideoResultObjectArray.count
+    }
+    
     return 1
   }
   
@@ -88,6 +108,8 @@ class MoviePosterDetailViewController : UIViewController,
   {
     let section : Int = indexPath.section
     
+    let index : Int = indexPath.row
+    
     var cell : UITableViewCell?
     
     if section == 0
@@ -102,12 +124,24 @@ class MoviePosterDetailViewController : UIViewController,
     
     if section == 1
     {
-      let tempCell = tableView.dequeueReusableCell(withIdentifier: "EmptyDetailViewTableViewCell",
-                                                   for: indexPath) as! EmptyDetailViewTableViewCell
+      if movieVideoResultObjectArray.count > 0
+      {
+        let tempCell = tableView.dequeueReusableCell(withIdentifier: "CustomMovieTrailerTableViewCell",
+                                                     for: indexPath) as! CustomMovieTrailerTableViewCell
       
-      tempCell.emptyCellLabel.text = "No Trailers Here"
+        tempCell.movieTrailerTitleLabel.text = movieVideoResultObjectArray[index].getVideoClipName()
       
-      cell = tempCell
+        cell = tempCell
+      }
+      else
+      {
+        let tempCell = tableView.dequeueReusableCell(withIdentifier: "EmptyDetailViewTableViewCell",
+                                                     for: indexPath) as! EmptyDetailViewTableViewCell
+        
+        tempCell.emptyCellLabel.text = "No Trailers Here"
+        
+        cell = tempCell
+      }
     }
     
     if section == 2
@@ -183,6 +217,36 @@ class MoviePosterDetailViewController : UIViewController,
     cell.moviePosterDescriptionLabel.text = movieListResultObject.getPlotSynopsis()
     
     return cell
+  }
+  
+  func fetchTrailers() -> Void
+  {
+    let theMovieDatabaseApiKey = PopularMoviesConstants.getTheMovieDatabaseApiKey()
+    let page : Int = 1
+    
+    if let myUri = TheMovieDatabaseUtils.getVideosMoviesUri(theMovieDatabaseApiKey, page, movieListResultObject.getId())
+    {
+      TheMovieDatabaseUtils.queryTheMovieDatabase(myUri, onTrailerResults)
+    }
+  }
+  
+  func onTrailerResults(movieTrailerResultsResponse : DataResponse<Any>)
+  {
+    if(movieTrailerResultsResponse.result.isSuccess)
+    {
+      let resultJson : JSON = JSON(movieTrailerResultsResponse.result.value!)
+      
+      let movieTrailerResultArray : [MovieVideoResultObject] = TheMovieDatabaseUtils.movieVideoJsonStringToMovieVideoResultArray(resultJson,
+                                                                                                                                 movieListResultObject.getId())
+      
+      movieVideoResultObjectArray = movieTrailerResultArray
+      
+      mainTableView.reloadData()
+    }
+    else
+    {
+      // TODO: handle failure
+    }
   }
   
   override func didReceiveMemoryWarning()
