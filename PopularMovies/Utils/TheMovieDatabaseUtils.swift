@@ -165,5 +165,26 @@ class TheMovieDatabaseUtils
     
     return movieVideoResultObjectArray
   }
+  
+  static func movieReviewJsonStringToMovieReviewResultArray(_ json : JSON, _ id : Int) -> [MovieReviewResultObject]
+  {
+    let resultsArray = json["results"].arrayValue
+    
+    var movieReviewResultObjectArray : [MovieReviewResultObject] = [MovieReviewResultObject]()
+    
+    if resultsArray.count > 0
+    {
+      for result in resultsArray
+      {
+        let author : String = result["author"].stringValue
+        
+        let content : String = result["content"].stringValue
+        
+        movieReviewResultObjectArray.append(MovieReviewResultObject(id, author, content))
+      }
+    }
+    
+    return movieReviewResultObjectArray
+  }
 
 } // end TheMovieDatabaseUtils
