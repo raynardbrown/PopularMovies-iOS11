@@ -35,12 +35,15 @@ class MoviePosterDetailViewController : UIViewController,
     mainTableView.register(UINib(nibName: "DetailViewTableHeader", bundle: nil),
                            forHeaderFooterViewReuseIdentifier: "DetailViewTableHeader")
     
+    mainTableView.register(UINib(nibName: "EmptyDetailViewTableViewCell", bundle: nil),
+                           forCellReuseIdentifier: "EmptyDetailViewTableViewCell")
+    
     configureTableView()
   }
   
   func numberOfSections(in tableView: UITableView) -> Int
   {
-    return 1
+    return 3
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
@@ -97,6 +100,26 @@ class MoviePosterDetailViewController : UIViewController,
       cell = updateMainCell(tempCell)
     }
     
+    if section == 1
+    {
+      let tempCell = tableView.dequeueReusableCell(withIdentifier: "EmptyDetailViewTableViewCell",
+                                                   for: indexPath) as! EmptyDetailViewTableViewCell
+      
+      tempCell.emptyCellLabel.text = "No Trailers Here"
+      
+      cell = tempCell
+    }
+    
+    if section == 2
+    {
+      let tempCell = tableView.dequeueReusableCell(withIdentifier: "EmptyDetailViewTableViewCell",
+                                                   for: indexPath) as! EmptyDetailViewTableViewCell
+      
+      tempCell.emptyCellLabel.text = "No Reviews Here"
+      
+      cell = tempCell
+    }
+    
     return cell!
   }
   
@@ -133,6 +156,10 @@ class MoviePosterDetailViewController : UIViewController,
     
     mainTableView.rowHeight = UITableViewAutomaticDimension
     mainTableView.estimatedRowHeight = 61
+    
+    // set up estimated heights for the section headers within the table view
+    mainTableView.sectionHeaderHeight = UITableViewAutomaticDimension
+    mainTableView.estimatedSectionHeaderHeight = 50
     
     // remove additional separator lines at the bottom of the table view
     mainTableView.tableFooterView = UIView()
