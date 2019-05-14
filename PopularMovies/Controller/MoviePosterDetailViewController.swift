@@ -31,6 +31,10 @@ class MoviePosterDetailViewController : UIViewController,
     mainTableView.register(UINib(nibName: "CustomMainDetailViewTableViewCell", bundle: nil),
                        forCellReuseIdentifier: "CustomMainDetailViewTableViewCell")
     
+    // register generic header
+    mainTableView.register(UINib(nibName: "DetailViewTableHeader", bundle: nil),
+                           forHeaderFooterViewReuseIdentifier: "DetailViewTableHeader")
+    
     configureTableView()
   }
   
@@ -52,6 +56,29 @@ class MoviePosterDetailViewController : UIViewController,
     }
     
     return UITableViewAutomaticDimension
+  }
+  
+  func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
+  {
+    if section == 1
+    {
+      let header = self.mainTableView.dequeueReusableHeaderFooterView(withIdentifier: "DetailViewTableHeader") as! DetailViewTableHeader
+      
+      header.headerLabel.text = "Trailers:"
+      
+      return header
+    }
+    
+    if section == 2
+    {
+      let header = self.mainTableView.dequeueReusableHeaderFooterView(withIdentifier: "DetailViewTableHeader") as! DetailViewTableHeader
+      
+      header.headerLabel.text = "Reviews:"
+      
+      return header
+    }
+    
+    return nil
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
