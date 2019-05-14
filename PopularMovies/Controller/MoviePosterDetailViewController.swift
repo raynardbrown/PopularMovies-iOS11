@@ -34,6 +34,11 @@ class MoviePosterDetailViewController : UIViewController,
     configureTableView()
   }
   
+  func numberOfSections(in tableView: UITableView) -> Int
+  {
+    return 1
+  }
+  
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
   {
     return 1
@@ -41,12 +46,14 @@ class MoviePosterDetailViewController : UIViewController,
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
   {
-    let index : Int = indexPath.row
+    let section : Int = indexPath.section
     
     var cell : UITableViewCell?
     
-    if index == 0
+    if section == 0
     {
+      // the main section only has one row so there is no need to check the index
+      
       let tempCell = tableView.dequeueReusableCell(withIdentifier: "CustomMainDetailViewTableViewCell",
                                                    for: indexPath) as! CustomMainDetailViewTableViewCell
       
