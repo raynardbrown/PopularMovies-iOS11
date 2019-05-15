@@ -19,6 +19,8 @@ class MoviePosterDetailViewController : UIViewController,
   var movieListResultObject : MovieListResultObject!
   
   var movieVideoResultObjectArray : [MovieVideoResultObject] = [MovieVideoResultObject]()
+  
+  var movieReviewResultObjectArray : [MovieReviewResultObject] = [MovieReviewResultObject]()
 
   @IBOutlet var mainTableView: UITableView!
 
@@ -46,6 +48,10 @@ class MoviePosterDetailViewController : UIViewController,
     mainTableView.register(UINib(nibName: "CustomMovieTrailerTableViewCell", bundle: nil),
                            forCellReuseIdentifier: "CustomMovieTrailerTableViewCell")
     
+    // register the review cell
+    mainTableView.register(UINib(nibName: "CustomMovieReviewTableViewCell", bundle: nil),
+                           forCellReuseIdentifier: "CustomMovieReviewTableViewCell")
+    
     configureTableView()
     
     fetchTrailers()
@@ -68,6 +74,11 @@ class MoviePosterDetailViewController : UIViewController,
       return movieVideoResultObjectArray.count
     }
     
+    if section == 2 && movieReviewResultObjectArray.count > 0
+    {
+      return movieReviewResultObjectArray.count
+    }
+    
     return 1
   }
   
@@ -75,7 +86,7 @@ class MoviePosterDetailViewController : UIViewController,
   {
     if section == 0
     {
-      return 0 // the main section has no header
+      return CGFloat.leastNonzeroMagnitude // the main section has no header
     }
     
     return UITableViewAutomaticDimension
@@ -146,12 +157,26 @@ class MoviePosterDetailViewController : UIViewController,
     
     if section == 2
     {
-      let tempCell = tableView.dequeueReusableCell(withIdentifier: "EmptyDetailViewTableViewCell",
-                                                   for: indexPath) as! EmptyDetailViewTableViewCell
-      
-      tempCell.emptyCellLabel.text = "No Reviews Here"
-      
-      cell = tempCell
+      if movieReviewResultObjectArray.count > 0
+      {
+        let tempCell = tableView.dequeueReusableCell(withIdentifier: "CustomMovieReviewTableViewCell",
+                                                     for: indexPath) as! CustomMovieReviewTableViewCell
+        
+        tempCell.reviewAuthor.text = movieReviewResultObjectArray[index].getAuthor()
+        
+        tempCell.reviewText.text = movieReviewResultObjectArray[index].getReviewContent()
+        
+        cell = tempCell
+      }
+      else
+      {
+        let tempCell = tableView.dequeueReusableCell(withIdentifier: "EmptyDetailViewTableViewCell",
+                                                     for: indexPath) as! EmptyDetailViewTableViewCell
+        
+        tempCell.emptyCellLabel.text = "No Reviews Here"
+        
+        cell = tempCell
+      }
     }
     
     return cell!
