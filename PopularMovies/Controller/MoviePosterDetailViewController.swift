@@ -55,6 +55,8 @@ class MoviePosterDetailViewController : UIViewController,
     configureTableView()
     
     fetchTrailers()
+    
+    fetchReviews()
   }
   
   func numberOfSections(in tableView: UITableView) -> Int
@@ -259,6 +261,17 @@ class MoviePosterDetailViewController : UIViewController,
     }
   }
   
+  func fetchReviews() -> Void
+  {
+    let theMovieDatabaseApiKey = PopularMoviesConstants.getTheMovieDatabaseApiKey()
+    let page : Int = 1
+    
+    if let myUri = TheMovieDatabaseUtils.getReviewsMoviesUri(theMovieDatabaseApiKey, page, movieListResultObject.getId())
+    {
+      TheMovieDatabaseUtils.queryTheMovieDatabase(myUri, onReviewsResults)
+    }
+  }
+  
   func onTrailerResults(movieTrailerResultsResponse : DataResponse<Any>)
   {
     if(movieTrailerResultsResponse.result.isSuccess)
@@ -269,6 +282,25 @@ class MoviePosterDetailViewController : UIViewController,
                                                                                                                                  movieListResultObject.getId())
       
       movieVideoResultObjectArray = movieTrailerResultArray
+      
+      mainTableView.reloadData()
+    }
+    else
+    {
+      // TODO: handle failure
+    }
+  }
+  
+  func onReviewsResults(movieReviewResultsResponse : DataResponse<Any>)
+  {
+    if(movieReviewResultsResponse.result.isSuccess)
+    {
+      let resultJson : JSON = JSON(movieReviewResultsResponse.result.value!)
+      
+      let movieReviewResultArray : [MovieReviewResultObject] = TheMovieDatabaseUtils.movieReviewJsonStringToMovieReviewResultArray(resultJson,
+                                                                                                                                 movieListResultObject.getId())
+      
+      movieReviewResultObjectArray = movieReviewResultArray
       
       mainTableView.reloadData()
     }
