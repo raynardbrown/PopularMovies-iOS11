@@ -9,6 +9,7 @@ import UIKit
 
 class CustomMovieReviewTableViewCell : UITableViewCell
 {
+  @IBOutlet var reviewAuthor: UILabel!
   @IBOutlet var reviewText: UILabel!
 
   override func awakeFromNib()
