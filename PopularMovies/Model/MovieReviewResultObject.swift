@@ -37,7 +37,7 @@ class MovieReviewResultObject
     return author
   }
   
-  func getReviewCount() -> String
+  func getReviewContent() -> String
   {
     return reviewContent
   }
