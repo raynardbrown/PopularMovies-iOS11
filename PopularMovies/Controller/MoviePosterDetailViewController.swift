@@ -198,6 +198,9 @@ class MoviePosterDetailViewController : UIViewController,
     // remove additional separator lines at the bottom of the table view
     // in additional there is a small gap at the bottom of the table view that is removed
     mainTableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: CGFloat.leastNonzeroMagnitude))
+    
+    // Remove the gaps at bottom of each sections (iOS bug?)
+    mainTableView.sectionFooterHeight = 0.0
   }
   
   func updateMainCell(_ cell : CustomMainDetailViewTableViewCell) -> UITableViewCell
