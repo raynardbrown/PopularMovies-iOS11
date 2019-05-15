@@ -196,7 +196,8 @@ class MoviePosterDetailViewController : UIViewController,
     mainTableView.estimatedSectionHeaderHeight = 50
     
     // remove additional separator lines at the bottom of the table view
-    mainTableView.tableFooterView = UIView()
+    // in additional there is a small gap at the bottom of the table view that is removed
+    mainTableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: CGFloat.leastNonzeroMagnitude))
   }
   
   func updateMainCell(_ cell : CustomMainDetailViewTableViewCell) -> UITableViewCell
