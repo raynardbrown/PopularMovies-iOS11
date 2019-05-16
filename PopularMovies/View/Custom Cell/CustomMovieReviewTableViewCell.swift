@@ -7,7 +7,9 @@
 
 import UIKit
 
-class CustomMovieReviewTableViewCell : UITableViewCell
+class CustomMovieReviewTableViewCell : UITableViewCell,
+                                       Reusable,
+                                       ReusableNib
 {
   @IBOutlet var reviewAuthor: UILabel!
   @IBOutlet var reviewText: UILabel!
