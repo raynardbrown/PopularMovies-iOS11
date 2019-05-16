@@ -7,7 +7,9 @@
 
 import UIKit
 
-class CustomMainDetailViewTableViewCell: UITableViewCell
+class CustomMainDetailViewTableViewCell: UITableViewCell,
+                                         Reusable,
+                                         ReusableNib
 {
   @IBOutlet var moviePosterTitleLabel: UILabel!
   @IBOutlet var moviePosterImage: UIImageView!
