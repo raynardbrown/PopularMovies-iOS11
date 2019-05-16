@@ -7,7 +7,9 @@
 
 import UIKit
 
-class DetailViewTableHeader : UITableViewHeaderFooterView
+class DetailViewTableHeader : UITableViewHeaderFooterView,
+                              Reusable,
+                              ReusableNib
 {
   @IBOutlet var headerLabel: UILabel!
 }
