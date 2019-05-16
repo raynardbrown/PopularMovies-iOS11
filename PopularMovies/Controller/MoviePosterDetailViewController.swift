@@ -34,23 +34,24 @@ class MoviePosterDetailViewController : UIViewController,
     self.mainTableView.dataSource = self
     
     // register the main cell
-    mainTableView.register(UINib(nibName: "CustomMainDetailViewTableViewCell", bundle: nil),
-                       forCellReuseIdentifier: "CustomMainDetailViewTableViewCell")
+    mainTableView.register(CustomMainDetailViewTableViewCell.nib,
+                           forCellReuseIdentifier: CustomMainDetailViewTableViewCell.reuseIdentifier)
     
     // register generic header
-    mainTableView.register(UINib(nibName: "DetailViewTableHeader", bundle: nil),
-                           forHeaderFooterViewReuseIdentifier: "DetailViewTableHeader")
+    mainTableView.register(DetailViewTableHeader.nib,
+                           forHeaderFooterViewReuseIdentifier: DetailViewTableHeader.reuseIdentifier)
     
-    mainTableView.register(UINib(nibName: "EmptyDetailViewTableViewCell", bundle: nil),
-                           forCellReuseIdentifier: "EmptyDetailViewTableViewCell")
+    // register the error/empty cell
+    mainTableView.register(EmptyDetailViewTableViewCell.nib,
+                           forCellReuseIdentifier: EmptyDetailViewTableViewCell.reuseIdentifier)
     
     // register the trailer cell
-    mainTableView.register(UINib(nibName: "CustomMovieTrailerTableViewCell", bundle: nil),
-                           forCellReuseIdentifier: "CustomMovieTrailerTableViewCell")
+    mainTableView.register(CustomMovieTrailerTableViewCell.nib,
+                           forCellReuseIdentifier: CustomMovieTrailerTableViewCell.reuseIdentifier)
     
     // register the review cell
-    mainTableView.register(UINib(nibName: "CustomMovieReviewTableViewCell", bundle: nil),
-                           forCellReuseIdentifier: "CustomMovieReviewTableViewCell")
+    mainTableView.register(CustomMovieReviewTableViewCell.nib,
+                           forCellReuseIdentifier: CustomMovieReviewTableViewCell.reuseIdentifier)
     
     configureTableView()
     
@@ -98,7 +99,7 @@ class MoviePosterDetailViewController : UIViewController,
   {
     if section == 1
     {
-      let header = self.mainTableView.dequeueReusableHeaderFooterView(withIdentifier: "DetailViewTableHeader") as! DetailViewTableHeader
+      let header = self.mainTableView.dequeueReusableHeaderFooterView(withIdentifier: DetailViewTableHeader.reuseIdentifier) as! DetailViewTableHeader
       
       header.headerLabel.text = "Trailers:"
       
@@ -107,7 +108,7 @@ class MoviePosterDetailViewController : UIViewController,
     
     if section == 2
     {
-      let header = self.mainTableView.dequeueReusableHeaderFooterView(withIdentifier: "DetailViewTableHeader") as! DetailViewTableHeader
+      let header = self.mainTableView.dequeueReusableHeaderFooterView(withIdentifier: DetailViewTableHeader.reuseIdentifier) as! DetailViewTableHeader
       
       header.headerLabel.text = "Reviews:"
       
@@ -129,7 +130,7 @@ class MoviePosterDetailViewController : UIViewController,
     {
       // the main section only has one row so there is no need to check the index
       
-      let tempCell = tableView.dequeueReusableCell(withIdentifier: "CustomMainDetailViewTableViewCell",
+      let tempCell = tableView.dequeueReusableCell(withIdentifier: CustomMainDetailViewTableViewCell.reuseIdentifier,
                                                    for: indexPath) as! CustomMainDetailViewTableViewCell
       
       cell = updateMainCell(tempCell)
@@ -139,7 +140,7 @@ class MoviePosterDetailViewController : UIViewController,
     {
       if movieVideoResultObjectArray.count > 0
       {
-        let tempCell = tableView.dequeueReusableCell(withIdentifier: "CustomMovieTrailerTableViewCell",
+        let tempCell = tableView.dequeueReusableCell(withIdentifier: CustomMovieTrailerTableViewCell.reuseIdentifier,
                                                      for: indexPath) as! CustomMovieTrailerTableViewCell
       
         tempCell.movieTrailerTitleLabel.text = movieVideoResultObjectArray[index].getVideoClipName()
@@ -148,7 +149,7 @@ class MoviePosterDetailViewController : UIViewController,
       }
       else
       {
-        let tempCell = tableView.dequeueReusableCell(withIdentifier: "EmptyDetailViewTableViewCell",
+        let tempCell = tableView.dequeueReusableCell(withIdentifier: EmptyDetailViewTableViewCell.reuseIdentifier,
                                                      for: indexPath) as! EmptyDetailViewTableViewCell
         
         tempCell.emptyCellLabel.text = "No Trailers Here"
@@ -161,7 +162,7 @@ class MoviePosterDetailViewController : UIViewController,
     {
       if movieReviewResultObjectArray.count > 0
       {
-        let tempCell = tableView.dequeueReusableCell(withIdentifier: "CustomMovieReviewTableViewCell",
+        let tempCell = tableView.dequeueReusableCell(withIdentifier: CustomMovieReviewTableViewCell.reuseIdentifier,
                                                      for: indexPath) as! CustomMovieReviewTableViewCell
         
         tempCell.reviewAuthor.text = movieReviewResultObjectArray[index].getAuthor()
@@ -172,7 +173,7 @@ class MoviePosterDetailViewController : UIViewController,
       }
       else
       {
-        let tempCell = tableView.dequeueReusableCell(withIdentifier: "EmptyDetailViewTableViewCell",
+        let tempCell = tableView.dequeueReusableCell(withIdentifier: EmptyDetailViewTableViewCell.reuseIdentifier,
                                                      for: indexPath) as! EmptyDetailViewTableViewCell
         
         tempCell.emptyCellLabel.text = "No Reviews Here"
