@@ -46,6 +46,7 @@
 		D7FBE43A228A800D005CA9C2 /* CustomMovieReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FBE438228A800D005CA9C2 /* CustomMovieReviewTableViewCell.swift */; };
 		D7FBE43B228A800D005CA9C2 /* CustomMovieReviewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7FBE439228A800D005CA9C2 /* CustomMovieReviewTableViewCell.xib */; };
 		D7FBE43D228D0665005CA9C2 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FBE43C228D0665005CA9C2 /* Reusable.swift */; };
+		D7FBE441228D07E7005CA9C2 /* ReusableNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FBE440228D07E7005CA9C2 /* ReusableNib.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +92,7 @@
 		D7FBE438228A800D005CA9C2 /* CustomMovieReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMovieReviewTableViewCell.swift; sourceTree = "<group>"; };
 		D7FBE439228A800D005CA9C2 /* CustomMovieReviewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomMovieReviewTableViewCell.xib; sourceTree = "<group>"; };
 		D7FBE43C228D0665005CA9C2 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
+		D7FBE440228D07E7005CA9C2 /* ReusableNib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableNib.swift; sourceTree = "<group>"; };
 		F465460714F2323DF5452BCD /* Pods-PopularMovies.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PopularMovies.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PopularMovies/Pods-PopularMovies.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -198,6 +200,7 @@
 				D7FBE438228A800D005CA9C2 /* CustomMovieReviewTableViewCell.swift */,
 				D7FBE439228A800D005CA9C2 /* CustomMovieReviewTableViewCell.xib */,
 				D7FBE43C228D0665005CA9C2 /* Reusable.swift */,
+				D7FBE440228D07E7005CA9C2 /* ReusableNib.swift */,
 			);
 			path = "Custom Cell";
 			sourceTree = "<group>";
@@ -393,6 +396,7 @@
 				D798A572210149750058696A /* TheMovieDatabaseUtils.swift in Sources */,
 				D7F4BFBE2274112200B63C9A /* MovieFavorite+CoreDataClass.swift in Sources */,
 				D7F4BF8C22542A4100B63C9A /* MyUri.swift in Sources */,
+				D7FBE441228D07E7005CA9C2 /* ReusableNib.swift in Sources */,
 				D798A56D20FDE4450058696A /* PopularMoviesConstants.swift in Sources */,
 				D7F4BF6F223F392600B63C9A /* MyUISeparator.swift in Sources */,
 				D7F4BFC6227809D600B63C9A /* MovieReviews+CoreDataClass.swift in Sources */,
