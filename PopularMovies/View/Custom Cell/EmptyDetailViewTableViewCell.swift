@@ -7,7 +7,9 @@
 
 import UIKit
 
-class EmptyDetailViewTableViewCell : UITableViewCell
+class EmptyDetailViewTableViewCell : UITableViewCell,
+                                     Reusable,
+                                     ReusableNib
 {
   @IBOutlet var emptyCellLabel: UILabel!
   
