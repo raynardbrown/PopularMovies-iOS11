@@ -7,7 +7,9 @@
 
 import UIKit
 
-class MovieReviewHeaderTableViewCell : UITableViewCell
+class MovieReviewHeaderTableViewCell : UITableViewCell,
+                                       Reusable,
+                                       ReusableNib
 {
   override func awakeFromNib()
   {
