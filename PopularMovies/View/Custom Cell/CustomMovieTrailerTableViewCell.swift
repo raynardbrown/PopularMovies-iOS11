@@ -7,7 +7,9 @@
 
 import UIKit
 
-class CustomMovieTrailerTableViewCell: UITableViewCell
+class CustomMovieTrailerTableViewCell: UITableViewCell,
+                                       Reusable,
+                                       ReusableNib
 {
   @IBOutlet var movieTrailerTitleLabel: UILabel!
   
