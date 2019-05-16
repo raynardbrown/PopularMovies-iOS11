@@ -9,7 +9,9 @@ import UIKit
 
 /// Holder for a single movie poster in the collection of movie posters that are displayed in the
 /// main view controller.
-class MovieCollectionViewCell: UICollectionViewCell, Reusable, ReusableNib
+class MovieCollectionViewCell: UICollectionViewCell,
+                               Reusable,
+                               ReusableNib
 {
   @IBOutlet var movieCollectionImageView: UIImageView!
   
