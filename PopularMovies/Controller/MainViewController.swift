@@ -38,8 +38,8 @@ class MainViewController : UIViewController,
     // default sort setting
     popularMoviesSettings = PopularMoviesSettings(PopularMoviesSettings.MOST_POPULAR)
     
-    moviePosterCollectionView.register(UINib(nibName: "MovieCollectionViewCell", bundle: nil),
-                                       forCellWithReuseIdentifier: "customMovieCollectionViewCell")
+    moviePosterCollectionView.register(MovieCollectionViewCell.nib,
+                                       forCellWithReuseIdentifier: MovieCollectionViewCell.reuseIdentifier)
     
     dispatchMovieListResultRequest()
   }
@@ -67,7 +67,7 @@ class MainViewController : UIViewController,
   func collectionView(_ collectionView: UICollectionView,
                       cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
   {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "customMovieCollectionViewCell",
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCollectionViewCell.reuseIdentifier,
                                                   for: indexPath) as! MovieCollectionViewCell
     
     let movePosterRelativePath : String = movieListResultObjectArray[indexPath.row].getPosterPath()
