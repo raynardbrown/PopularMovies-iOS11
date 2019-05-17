@@ -17,6 +17,8 @@ class CustomMainDetailViewTableViewCell: UITableViewCell,
   @IBOutlet var moviePosterUserRatingLabel: UILabel!
   @IBOutlet var moviePosterDescriptionLabel: UILabel!
   @IBOutlet var moviePosterFavoriteButton: UIButton!
+  
+  var favoriteButtonDelegate : FavoriteButtonDelegate?
 
   override func awakeFromNib()
   {
@@ -25,6 +27,9 @@ class CustomMainDetailViewTableViewCell: UITableViewCell,
 
   @IBAction func onFavoriteButtonClicked(_ sender: Any)
   {
-    
+    if let favoriteButtonDelegate = favoriteButtonDelegate
+    {
+      favoriteButtonDelegate.onFavoriteButtonClicked(sender)
+    }
   }
 }
