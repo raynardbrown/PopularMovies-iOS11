@@ -22,4 +22,9 @@ class CustomMainDetailViewTableViewCell: UITableViewCell,
   {
     super.awakeFromNib()
   }
+
+  @IBAction func onFavoriteButtonClicked(_ sender: Any)
+  {
+    
+  }
 }
