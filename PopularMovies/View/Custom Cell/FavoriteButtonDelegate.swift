@@ -1,8 +1,7 @@
 //
 //  FavoriteButtonDelegate.swift
-//  PopularMovies
 //
-//  Created by Developer on 5/16/19.
+//  Created by Raynard Brown on 2019-05-16.
 //  Copyright © 2019 Raynard Brown. All rights reserved.
 //
 
