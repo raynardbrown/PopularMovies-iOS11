@@ -16,6 +16,7 @@ class CustomMainDetailViewTableViewCell: UITableViewCell,
   @IBOutlet var moviePosterReleaseDateLabel: UILabel!
   @IBOutlet var moviePosterUserRatingLabel: UILabel!
   @IBOutlet var moviePosterDescriptionLabel: UILabel!
+  @IBOutlet var moviePosterFavoriteButton: UIButton!
 
   override func awakeFromNib()
   {
