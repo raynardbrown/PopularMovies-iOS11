@@ -92,6 +92,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="moviePosterDescriptionLabel" destination="aXf-Wj-ZBI" id="zQh-cZ-CMq"/>
+                <outlet property="moviePosterFavoriteButton" destination="R4z-j1-TJq" id="lEP-wA-wTo"/>
                 <outlet property="moviePosterImage" destination="gNe-Oi-K1k" id="A2D-AW-Y3v"/>
                 <outlet property="moviePosterReleaseDateLabel" destination="dmF-1l-0dt" id="rJj-MJ-mm9"/>
                 <outlet property="moviePosterTitleLabel" destination="eX8-Ie-Wog" id="6Uc-Iq-Abr"/>
