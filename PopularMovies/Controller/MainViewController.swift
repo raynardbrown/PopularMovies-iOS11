@@ -127,8 +127,10 @@ class MainViewController : UIViewController,
       popularMoviesSettings.setSortSetting(sortSetting)
       
       // reset the movie list array
-      
       movieListResultObjectArray = [MovieListResultObject]()
+      
+      // ensure we reload the tableview to prevent the table view using the old movie list count
+      moviePosterCollectionView.reloadData()
       
       // fetch movie posters
       dispatchMovieListResultRequest()
