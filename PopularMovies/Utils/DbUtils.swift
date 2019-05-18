@@ -51,4 +51,27 @@ class DbUtils
       completionHandler(false, error)
     }
   }
+  
+  /// Save the current changes to the database.
+  ///
+  /// - Parameters:
+  ///   - context: the database context.
+  ///   - completionHandler: the closure that is called when the changes have been saved to the
+  /// database.
+  ///   - error: an optional error object if there were any errors during the database save.
+  static func saveDb(_ context : NSManagedObjectContext,
+                     _ completionHandler : (_ error : Error?) -> Void) -> Void
+  {
+    do
+    {
+      try context.save()
+      
+      // no errors
+      completionHandler(nil)
+    }
+    catch
+    {
+      completionHandler(error)
+    }
+  }
 }
