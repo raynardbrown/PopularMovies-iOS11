@@ -13,7 +13,7 @@ class DbUtils
   {
     
   }
-  
+
   /// Check the favorite database for the movie with the specified identifier.
   ///
   /// - Parameters:
@@ -51,7 +51,7 @@ class DbUtils
       completionHandler(false, error)
     }
   }
-  
+
   /// Save the current changes to the database.
   ///
   /// - Parameters:
@@ -74,7 +74,7 @@ class DbUtils
       completionHandler(error)
     }
   }
-  
+
   /// Add the movie associated with the specified MovieListResultObject to the favorite database.
   ///
   /// - Parameters:
@@ -107,5 +107,56 @@ class DbUtils
     
     // save the changes
     DbUtils.saveDb(context, completionHandler)
+  }
+
+  /// Remove the movie associated with the specified MovieListResultObject from the favorite
+  /// database.
+  ///
+  /// - Parameters:
+  ///   - context: the database context.
+  ///   - movieListResultObject: the object that describes the movie that will be removed from the
+  /// favorite database.
+  ///   - completionHandler: the closure that is called when the specified movie has been removed
+  /// from the favorite database.
+  ///   - error: an optional error object if there were any errors removing the movie to the
+  /// database.
+  static func removeFavorite(_ context : NSManagedObjectContext,
+                             _ movieListResultObject : MovieListResultObject,
+                             _ completionHandler : (_ error : Error?) -> Void) -> Void
+  {
+    let favoriteRequest : NSFetchRequest<MovieFavorite> = MovieFavorite.fetchRequest()
+    
+    // match MovieFavorite entity objects that have the movie_id property specified by the parameter
+    let formatString = "movie_id == %@"
+    
+    let predicate  = NSPredicate(format: formatString, "\(movieListResultObject.getId())")
+    
+    favoriteRequest.predicate = predicate
+    
+    do
+    {
+      let favorites = try context.fetch(favoriteRequest)
+      
+      if favorites.count > 0
+      {
+        context.delete(favorites[0])
+        
+        // save the database
+        DbUtils.saveDb(context, completionHandler)
+      }
+      else
+      {
+        // movie is not in the database
+        
+        // major error (we are in an inconsistent UI state) if the favorite is not in the database
+        // TODO: We should handle this but for now just log the error
+        print("Error deleting favorite, favorite not in the database")
+      }
+    }
+    catch
+    {
+      // Error fetching movie favorite data from context
+      completionHandler(error)
+    }
   }
 }
