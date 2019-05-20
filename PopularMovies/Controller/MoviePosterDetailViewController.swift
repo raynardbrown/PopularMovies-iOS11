@@ -72,6 +72,8 @@ class MoviePosterDetailViewController : UIViewController,
     fetchTrailers()
     
     fetchReviews()
+    
+    DbUtils.queryFavoriteDb(context, movieListResultObject.getId(), onQueryDb)
   }
   
   func numberOfSections(in tableView: UITableView) -> Int
@@ -383,6 +385,35 @@ class MoviePosterDetailViewController : UIViewController,
           mainTableView.reloadData()
         }
       })
+    }
+  }
+  
+  func onQueryDb(_ hasFavorite : Bool, _ error : Error?) -> Void
+  {
+    if let error = error
+    {
+      print("Error fetching favorite data from context \(error)")
+    }
+    else
+    {
+      // no errors
+      
+      if hasFavorite
+      {
+        // this movie is a favorite, that means the button needs to be unfavorite
+        
+        favoriteState = .Unfavorite
+        
+        mainTableView.reloadData()
+      }
+      else
+      {
+        // this movie is not a favorite, that means the button needs to be favorite
+        
+        favoriteState = .Favorite
+        
+        mainTableView.reloadData()
+      }
     }
   }
 
