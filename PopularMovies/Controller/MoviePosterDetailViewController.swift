@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import CoreData
+
 import Alamofire
 import SDWebImage
 import SwiftyJSON
@@ -14,13 +16,25 @@ import SwiftyJSON
 /// view controller.
 class MoviePosterDetailViewController : UIViewController,
                                         UITableViewDelegate,
-                                        UITableViewDataSource
+                                        UITableViewDataSource,
+                                        FavoriteButtonDelegate
 {
+  enum FavoriteState
+  {
+    case Favorite
+    case Unfavorite
+    case Indeterminate
+  }
+
   var movieListResultObject : MovieListResultObject!
-  
+
   var movieVideoResultObjectArray : [MovieVideoResultObject] = [MovieVideoResultObject]()
-  
+
   var movieReviewResultObjectArray : [MovieReviewResultObject] = [MovieReviewResultObject]()
+
+  var favoriteState : FavoriteState = MoviePosterDetailViewController.FavoriteState.Indeterminate
+
+  let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
   @IBOutlet var mainTableView: UITableView!
 
@@ -248,6 +262,25 @@ class MoviePosterDetailViewController : UIViewController,
     
     cell.moviePosterDescriptionLabel.text = movieListResultObject.getPlotSynopsis()
     
+    if favoriteState == .Favorite
+    {
+      cell.moviePosterFavoriteButton.setTitle("Favorite", for: .normal)
+      
+      cell.moviePosterFavoriteButton.isHidden = false
+    }
+    else if favoriteState == .Unfavorite
+    {
+      cell.moviePosterFavoriteButton.setTitle("Unfavorite", for: .normal)
+      
+      cell.moviePosterFavoriteButton.isHidden = false
+    }
+    else
+    {
+      cell.moviePosterFavoriteButton.isHidden = true
+    }
+    
+    cell.favoriteButtonDelegate = self
+    
     return cell
   }
   
@@ -311,6 +344,48 @@ class MoviePosterDetailViewController : UIViewController,
     }
   }
   
+  func onFavoriteButtonClicked(_ sender: Any)
+  {
+    if favoriteState == .Favorite
+    {
+      // add favorite (add movie to database)
+      DbUtils.addFavorite(context, movieListResultObject,
+      { (error) in
+        
+        if let error = error
+        {
+          print("Error saving favorite to database \(error)")
+        }
+        else
+        {
+          // update the favorite button
+          favoriteState = .Unfavorite
+            
+          mainTableView.reloadData()
+        }
+      })
+    }
+    else
+    {
+      // remove favorite (remove movie from database)
+      DbUtils.removeFavorite(context, movieListResultObject,
+      { (error) in
+        
+        if let error = error
+        {
+          print("Error removing favorite from database \(error)")
+        }
+        else
+        {
+          // update the favorite button
+          favoriteState = .Favorite
+          
+          mainTableView.reloadData()
+        }
+      })
+    }
+  }
+
   override func didReceiveMemoryWarning()
   {
     super.didReceiveMemoryWarning()
