@@ -216,11 +216,11 @@ class MoviePosterDetailViewController : UIViewController,
   
   func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool
   {
-    let index : Int = indexPath.row
+    let section : Int = indexPath.section
     
-    if index == 0
+    if section == 0
     {
-      // disable highlighting the first row when clicked
+      // disable highlighting the main section when clicked
       return false
     }
     
