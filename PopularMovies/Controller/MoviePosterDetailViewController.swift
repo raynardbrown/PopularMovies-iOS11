@@ -5,6 +5,7 @@
 //  Copyright © 2019 Raynard Brown. All rights reserved.
 //
 
+import Foundation
 import UIKit
 import CoreData
 
@@ -233,9 +234,40 @@ class MoviePosterDetailViewController : UIViewController,
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
   {
-    // since we only allow selection on the trailer rows, we aren't concerned about checking indexes
-    // and sections.
-    tableView.deselectRow(at: indexPath, animated: true)
+    let section : Int = indexPath.section
+    
+    let index : Int = indexPath.row
+    
+    if section == 1
+    {
+      let youTubeKey : String = movieVideoResultObjectArray[index].getKey()
+      
+      openVideoOnYouTubeInBrowser(youTubeKey)
+      
+      tableView.deselectRow(at: indexPath, animated: true)
+    }
+  }
+  
+  func openVideoOnYouTubeInBrowser(_ videoKey : String)
+  {
+    let youtube_website_base_url = "https://www.youtube.com/watch"
+    
+    if let uri : MyUri = MyUri(youtube_website_base_url)
+    {
+      uri.appendQueryParameter("v", videoKey)
+      
+      if let url = URL(string: uri.getComponentsEndingAt(MyUri.UriComponents.QUERY))
+      {
+        if #available(iOS 10.0, *)
+        {
+          UIApplication.shared.open(url, options: [:], completionHandler : nil)
+        }
+        else
+        {
+          UIApplication.shared.openURL(url)
+        }
+      }
+    }
   }
   
   func configureTableView() -> Void
