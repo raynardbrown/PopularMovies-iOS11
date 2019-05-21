@@ -203,11 +203,13 @@ class MoviePosterDetailViewController : UIViewController,
   
   func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath?
   {
-    let index : Int = indexPath.row
+    let section : Int = indexPath.section
     
-    if index == 0
+    if section == 0
     {
-      // disable selecting the first row when clicked
+      // disable selecting the main section when clicked
+      
+      // we do not need to check the index too because there is only one row in our main section
       return nil
     }
     
@@ -221,6 +223,8 @@ class MoviePosterDetailViewController : UIViewController,
     if section == 0
     {
       // disable highlighting the main section when clicked
+      
+      // we do not need to check the index too because there is only one row in our main section
       return false
     }
     
