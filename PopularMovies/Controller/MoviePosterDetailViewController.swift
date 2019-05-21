@@ -231,6 +231,13 @@ class MoviePosterDetailViewController : UIViewController,
     return true
   }
   
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+  {
+    // since we only allow selection on the trailer rows, we aren't concerned about checking indexes
+    // and sections.
+    tableView.deselectRow(at: indexPath, animated: true)
+  }
+  
   func configureTableView() -> Void
   {
     // ensure that the table view separator extends the length of a table cell
