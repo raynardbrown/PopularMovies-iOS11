@@ -205,9 +205,9 @@ class MoviePosterDetailViewController : UIViewController,
   {
     let section : Int = indexPath.section
     
-    if section == 0
+    if section == 0 || section == 2
     {
-      // disable selecting the main section when clicked
+      // disable selecting the main and review section when clicked
       
       // we do not need to check the index too because there is only one row in our main section
       return nil
@@ -220,9 +220,9 @@ class MoviePosterDetailViewController : UIViewController,
   {
     let section : Int = indexPath.section
     
-    if section == 0
+    if section == 0 || section == 2
     {
-      // disable highlighting the main section when clicked
+      // disable highlighting the main and review section when clicked
       
       // we do not need to check the index too because there is only one row in our main section
       return false
