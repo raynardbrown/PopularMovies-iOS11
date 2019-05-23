@@ -27,11 +27,12 @@ class MoviePosterDetailViewController : UIViewController,
     case Indeterminate
   }
   
-  enum Sections
+  enum Sections : Int
   {
-    case MainSection
+    case MainSection = 0
     case TrailerSection
     case ReviewSection
+    case count
   }
 
   var movieListResultObject : MovieListResultObject!
