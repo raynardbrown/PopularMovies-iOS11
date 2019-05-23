@@ -40,8 +40,6 @@ class MoviePosterDetailViewController : UIViewController,
   var movieVideoResultObjectArray : [MovieVideoResultObject] = [MovieVideoResultObject]()
 
   var movieReviewResultObjectArray : [MovieReviewResultObject] = [MovieReviewResultObject]()
-  
-  var sections : [Sections: Any]!
 
   var favoriteState : FavoriteState = MoviePosterDetailViewController.FavoriteState.Indeterminate
 
@@ -57,10 +55,6 @@ class MoviePosterDetailViewController : UIViewController,
     
     self.mainTableView.delegate = self
     self.mainTableView.dataSource = self
-    
-    sections = [ Sections.MainSection : movieListResultObject,
-                 Sections.TrailerSection : movieVideoResultObjectArray,
-                 Sections.ReviewSection : movieReviewResultObjectArray]
     
     // register the main cell
     mainTableView.register(CustomMainDetailViewTableViewCell.nib,
