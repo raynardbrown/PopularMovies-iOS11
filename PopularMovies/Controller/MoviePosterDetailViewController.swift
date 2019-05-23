@@ -87,22 +87,24 @@ class MoviePosterDetailViewController : UIViewController,
   
   func numberOfSections(in tableView: UITableView) -> Int
   {
-    return 3
+    return Sections.count.rawValue
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
   {
-    if section == 0
+    let sectionAsEnum : Sections = Sections(rawValue: section)!
+
+    if sectionAsEnum == .MainSection
     {
       return 1
     }
     
-    if section == 1 && movieVideoResultObjectArray.count > 0
+    if sectionAsEnum == .TrailerSection && movieVideoResultObjectArray.count > 0
     {
       return movieVideoResultObjectArray.count
     }
     
-    if section == 2 && movieReviewResultObjectArray.count > 0
+    if sectionAsEnum == .ReviewSection && movieReviewResultObjectArray.count > 0
     {
       return movieReviewResultObjectArray.count
     }
@@ -112,7 +114,9 @@ class MoviePosterDetailViewController : UIViewController,
   
   func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
   {
-    if section == 0
+    let sectionAsEnum : Sections = Sections(rawValue: section)!
+    
+    if sectionAsEnum == .MainSection
     {
       return CGFloat.leastNonzeroMagnitude // the main section has no header
     }
@@ -122,7 +126,9 @@ class MoviePosterDetailViewController : UIViewController,
   
   func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
   {
-    if section == 1
+    let sectionAsEnum : Sections = Sections(rawValue: section)!
+    
+    if sectionAsEnum == .TrailerSection
     {
       let header = self.mainTableView.dequeueReusableHeaderFooterView(withIdentifier: DetailViewTableHeader.reuseIdentifier) as! DetailViewTableHeader
       
@@ -131,7 +137,7 @@ class MoviePosterDetailViewController : UIViewController,
       return header
     }
     
-    if section == 2
+    if sectionAsEnum == .ReviewSection
     {
       let header = self.mainTableView.dequeueReusableHeaderFooterView(withIdentifier: DetailViewTableHeader.reuseIdentifier) as! DetailViewTableHeader
       
@@ -147,11 +153,13 @@ class MoviePosterDetailViewController : UIViewController,
   {
     let section : Int = indexPath.section
     
+    let sectionAsEnum : Sections = Sections(rawValue: section)!
+    
     let index : Int = indexPath.row
     
     var cell : UITableViewCell?
     
-    if section == 0
+    if sectionAsEnum == .MainSection
     {
       // the main section only has one row so there is no need to check the index
       
@@ -161,7 +169,7 @@ class MoviePosterDetailViewController : UIViewController,
       cell = updateMainCell(tempCell)
     }
     
-    if section == 1
+    if sectionAsEnum == .TrailerSection
     {
       if movieVideoResultObjectArray.count > 0
       {
@@ -183,7 +191,7 @@ class MoviePosterDetailViewController : UIViewController,
       }
     }
     
-    if section == 2
+    if sectionAsEnum == .ReviewSection
     {
       if movieReviewResultObjectArray.count > 0
       {
@@ -214,7 +222,9 @@ class MoviePosterDetailViewController : UIViewController,
   {
     let section : Int = indexPath.section
     
-    if section == 0 || section == 2
+    let sectionAsEnum : Sections = Sections(rawValue: section)!
+    
+    if sectionAsEnum == .MainSection || sectionAsEnum == .ReviewSection
     {
       // disable selecting the main and review section when clicked
       
@@ -229,7 +239,9 @@ class MoviePosterDetailViewController : UIViewController,
   {
     let section : Int = indexPath.section
     
-    if section == 0 || section == 2
+    let sectionAsEnum : Sections = Sections(rawValue: section)!
+    
+    if sectionAsEnum == .MainSection || sectionAsEnum == .ReviewSection
     {
       // disable highlighting the main and review section when clicked
       
@@ -244,9 +256,11 @@ class MoviePosterDetailViewController : UIViewController,
   {
     let section : Int = indexPath.section
     
+    let sectionAsEnum : Sections = Sections(rawValue: section)!
+    
     let index : Int = indexPath.row
     
-    if section == 1
+    if sectionAsEnum == .TrailerSection
     {
       let youTubeKey : String = movieVideoResultObjectArray[index].getKey()
       
