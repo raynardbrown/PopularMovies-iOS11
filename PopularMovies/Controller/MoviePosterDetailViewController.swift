@@ -270,6 +270,9 @@ class MoviePosterDetailViewController : UIViewController,
     }
   }
   
+  /// Display the YouTube video specified by video key, in a web browser.
+  ///
+  /// - Parameter videoKey: the key that uniquely identifies a YouTube video.
   func openVideoOnYouTubeInBrowser(_ videoKey : String)
   {
     let youtube_website_base_url = "https://www.youtube.com/watch"
