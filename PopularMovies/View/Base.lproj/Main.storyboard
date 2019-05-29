@@ -69,7 +69,7 @@
         <!--Movie Poster Detail View Controller-->
         <scene sceneID="bKU-jJ-6cB">
             <objects>
-                <viewController id="jbW-6z-nYu" customClass="MoviePosterDetailViewController" customModule="PopularMovies" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="jbW-6z-nYu" userLabel="Movie Poster Detail View Controller" customClass="MoviePosterDetailViewController" customModule="PopularMovies" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EZq-Md-8Dx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -90,6 +90,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Zq9-uz-o4e"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Movie Detail" id="ZWG-ue-uce" userLabel="Detail View Nav Item"/>
                     <connections>
                         <outlet property="mainTableView" destination="euk-kL-HEW" id="JlE-zh-b5m"/>
                     </connections>
