@@ -90,7 +90,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Zq9-uz-o4e"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Movie Detail" id="ZWG-ue-uce" userLabel="Detail View Nav Item"/>
+                    <navigationItem key="navigationItem" title="Movie Detail" id="ZWG-ue-uce" userLabel="Detail View Nav Item">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="share_icon_white" id="QJL-bE-woK" userLabel="Share Bar Button Nav Item"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="mainTableView" destination="euk-kL-HEW" id="JlE-zh-b5m"/>
                     </connections>
@@ -126,6 +128,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="share_icon_white" width="24" height="24"/>
         <image name="sort_icon_white" width="24" height="24"/>
     </resources>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
