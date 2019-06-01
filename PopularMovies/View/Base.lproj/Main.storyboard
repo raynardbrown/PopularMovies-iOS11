@@ -91,7 +91,11 @@
                         <viewLayoutGuide key="safeArea" id="Zq9-uz-o4e"/>
                     </view>
                     <navigationItem key="navigationItem" title="Movie Detail" id="ZWG-ue-uce" userLabel="Detail View Nav Item">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="share_icon_white" id="QJL-bE-woK" userLabel="Share Bar Button Nav Item"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="share_icon_white" id="QJL-bE-woK" userLabel="Share Bar Button Nav Item">
+                            <connections>
+                                <action selector="onShareButtonClicked:" destination="jbW-6z-nYu" id="CyC-2u-qR4"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="mainTableView" destination="euk-kL-HEW" id="JlE-zh-b5m"/>
