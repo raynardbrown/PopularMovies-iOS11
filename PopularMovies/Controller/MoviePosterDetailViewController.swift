@@ -485,6 +485,36 @@ class MoviePosterDetailViewController : UIViewController,
     }
   }
 
+  @IBAction func onShareButtonClicked(_ sender: Any)
+  {
+    let youtube_website_base_url = "https://www.youtube.com/watch"
+    
+    if movieVideoResultObjectArray.count > 0
+    {
+      let videoKey = movieVideoResultObjectArray[0].getKey()
+      
+      if let uri : MyUri = MyUri(youtube_website_base_url)
+      {
+        uri.appendQueryParameter("v", videoKey)
+        
+        let uriAsString = uri.getComponentsEndingAt(MyUri.UriComponents.QUERY)
+        
+        if let url = NSURL(string: uriAsString)
+        {
+          // share the URL as text and as a URL
+          let shareData : [Any] = [uriAsString, url]
+        
+          let activityViewController = UIActivityViewController(activityItems: shareData, applicationActivities: nil)
+        
+          activityViewController.popoverPresentationController?.sourceView = self.view
+        
+          // show
+          self.present(activityViewController, animated: true, completion: nil)
+        }
+      }
+    }
+  }
+
   override func didReceiveMemoryWarning()
   {
     super.didReceiveMemoryWarning()
