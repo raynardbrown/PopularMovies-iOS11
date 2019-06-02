@@ -49,6 +49,8 @@
 		D7FBE441228D07E7005CA9C2 /* ReusableNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FBE440228D07E7005CA9C2 /* ReusableNib.swift */; };
 		D7FBE443228E65AC005CA9C2 /* FavoriteButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FBE442228E65AC005CA9C2 /* FavoriteButtonDelegate.swift */; };
 		D7FBE445228FFA8D005CA9C2 /* DbUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FBE444228FFA8D005CA9C2 /* DbUtils.swift */; };
+		D7FBE44822A48033005CA9C2 /* NoFavoritesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FBE44622A48033005CA9C2 /* NoFavoritesCollectionViewCell.swift */; };
+		D7FBE44922A48033005CA9C2 /* NoFavoritesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7FBE44722A48033005CA9C2 /* NoFavoritesCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -97,6 +99,8 @@
 		D7FBE440228D07E7005CA9C2 /* ReusableNib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableNib.swift; sourceTree = "<group>"; };
 		D7FBE442228E65AC005CA9C2 /* FavoriteButtonDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButtonDelegate.swift; sourceTree = "<group>"; };
 		D7FBE444228FFA8D005CA9C2 /* DbUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DbUtils.swift; sourceTree = "<group>"; };
+		D7FBE44622A48033005CA9C2 /* NoFavoritesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoFavoritesCollectionViewCell.swift; sourceTree = "<group>"; };
+		D7FBE44722A48033005CA9C2 /* NoFavoritesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoFavoritesCollectionViewCell.xib; sourceTree = "<group>"; };
 		F465460714F2323DF5452BCD /* Pods-PopularMovies.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PopularMovies.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PopularMovies/Pods-PopularMovies.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -206,6 +210,8 @@
 				D7FBE43C228D0665005CA9C2 /* Reusable.swift */,
 				D7FBE440228D07E7005CA9C2 /* ReusableNib.swift */,
 				D7FBE442228E65AC005CA9C2 /* FavoriteButtonDelegate.swift */,
+				D7FBE44622A48033005CA9C2 /* NoFavoritesCollectionViewCell.swift */,
+				D7FBE44722A48033005CA9C2 /* NoFavoritesCollectionViewCell.xib */,
 			);
 			path = "Custom Cell";
 			sourceTree = "<group>";
@@ -331,6 +337,7 @@
 				D798A50D20EF465F0058696A /* Main.storyboard in Resources */,
 				D798A56A20FC3D0B0058696A /* MovieCollectionViewCell.xib in Resources */,
 				D7F4BF892249DB9900B63C9A /* CustomMainDetailViewTableViewCell.xib in Resources */,
+				D7FBE44922A48033005CA9C2 /* NoFavoritesCollectionViewCell.xib in Resources */,
 				D712686F228530BD00AAEB33 /* EmptyDetailViewTableViewCell.xib in Resources */,
 				D7126865227FEF7700AAEB33 /* MovieReviewHeaderTableViewCell.xib in Resources */,
 			);
@@ -389,6 +396,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7F4BFC22276B81500B63C9A /* MovieTrailers+CoreDataClass.swift in Sources */,
+				D7FBE44822A48033005CA9C2 /* NoFavoritesCollectionViewCell.swift in Sources */,
 				D798A56920FC3D0B0058696A /* MovieCollectionViewCell.swift in Sources */,
 				D798A57020FFF3770058696A /* MovieListResultObject.swift in Sources */,
 				D7126860227D5FF400AAEB33 /* MovieTrailerHeaderTableViewCell.swift in Sources */,
