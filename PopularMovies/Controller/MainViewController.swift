@@ -15,9 +15,13 @@ import SwiftyJSON
 /// controller for the clicked movie poster.
 class MainViewController : UIViewController,
                            UICollectionViewDelegate,
-                           UICollectionViewDataSource
+                           UICollectionViewDataSource,
+                           UICollectionViewDelegateFlowLayout
 {
   @IBOutlet var moviePosterCollectionView: UICollectionView!
+  
+  // Gives us access to the itemSize property
+  @IBOutlet var moviePosterCollectionViewFlowLayout: UICollectionViewFlowLayout!
   
   private var movieListResultObjectArray : [MovieListResultObject] = [MovieListResultObject]()
   
@@ -41,6 +45,10 @@ class MainViewController : UIViewController,
     moviePosterCollectionView.register(MovieCollectionViewCell.nib,
                                        forCellWithReuseIdentifier: MovieCollectionViewCell.reuseIdentifier)
     
+    // register the no favorites error message
+    moviePosterCollectionView.register(NoFavoritesCollectionViewCell.nib,
+                                       forCellWithReuseIdentifier: NoFavoritesCollectionViewCell.reuseIdentifier)
+    
     dispatchMovieListResultRequest()
   }
 
@@ -61,23 +69,43 @@ class MainViewController : UIViewController,
   func collectionView(_ collectionView: UICollectionView,
                       numberOfItemsInSection section: Int) -> Int
   {
+    let setting : Int = popularMoviesSettings.getSortSetting()
+    
+    if setting == PopularMoviesSettings.FAVORITES && movieListResultObjectArray.count == 0
+    {
+      // we are in the favorite state but the favorite database is empty
+      return 1
+    }
+    
     return movieListResultObjectArray.count
   }
   
   func collectionView(_ collectionView: UICollectionView,
                       cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
   {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCollectionViewCell.reuseIdentifier,
-                                                  for: indexPath) as! MovieCollectionViewCell
+    let setting : Int = popularMoviesSettings.getSortSetting()
     
-    let movePosterRelativePath : String = movieListResultObjectArray[indexPath.row].getPosterPath()
+    if setting == PopularMoviesSettings.FAVORITES && movieListResultObjectArray.count == 0
+    {
+      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NoFavoritesCollectionViewCell.reuseIdentifier,
+                                                    for: indexPath) as! NoFavoritesCollectionViewCell
+      
+      return cell
+    }
+    else
+    {
+      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCollectionViewCell.reuseIdentifier,
+                                                    for: indexPath) as! MovieCollectionViewCell
     
-    let moviePosterPath : String = TheMovieDatabaseUtils.getMoviePosterUriFromPath(movePosterRelativePath)
+      let movePosterRelativePath : String = movieListResultObjectArray[indexPath.row].getPosterPath()
     
-    cell.movieCollectionImageView.sd_setImage(with: URL(string: moviePosterPath),
-                                              placeholderImage : UIImage(named: "image_placeholder.png"))
-    
-    return cell
+      let moviePosterPath : String = TheMovieDatabaseUtils.getMoviePosterUriFromPath(movePosterRelativePath)
+      
+      cell.movieCollectionImageView.sd_setImage(with: URL(string: moviePosterPath),
+                                                placeholderImage : UIImage(named: "image_placeholder.png"))
+      
+      return cell
+    }
   }
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
@@ -86,6 +114,22 @@ class MainViewController : UIViewController,
     
     performSegue(withIdentifier: MainViewController.LaunchMoviePosterDetailView,
                  sender: movieListResultObject)
+  }
+  
+  func collectionView(_ collectionView: UICollectionView,
+                      layout collectionViewLayout: UICollectionViewLayout,
+                      sizeForItemAt indexPath: IndexPath) -> CGSize
+  {
+    let setting : Int = popularMoviesSettings.getSortSetting()
+    
+    if setting == PopularMoviesSettings.FAVORITES && movieListResultObjectArray.count == 0
+    {
+      // the no favorites error message should fill the size of the collection view
+      return collectionView.frame.size
+    }
+    
+    // use the default cell size otherwise
+    return self.moviePosterCollectionViewFlowLayout.itemSize
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?)
