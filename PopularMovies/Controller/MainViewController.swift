@@ -110,10 +110,15 @@ class MainViewController : UIViewController,
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
   {
-    let movieListResultObject : MovieListResultObject = movieListResultObjectArray[indexPath.row]
+    let setting : Int = popularMoviesSettings.getSortSetting()
     
-    performSegue(withIdentifier: MainViewController.LaunchMoviePosterDetailView,
-                 sender: movieListResultObject)
+    if !(setting == PopularMoviesSettings.FAVORITES && movieListResultObjectArray.count == 0)
+    {
+      let movieListResultObject : MovieListResultObject = movieListResultObjectArray[indexPath.row]
+      
+      performSegue(withIdentifier: MainViewController.LaunchMoviePosterDetailView,
+                   sender: movieListResultObject)
+    }
   }
   
   func collectionView(_ collectionView: UICollectionView,
