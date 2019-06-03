@@ -51,6 +51,32 @@ class DbUtils
       completionHandler(false, error)
     }
   }
+  
+  static func queryFavoriteDb(_ context : NSManagedObjectContext,
+                              _ completionHandler : (_ movieFavoriteArray : [MovieFavorite],
+                                                     _ error : Error?) -> Void) -> Void
+  {
+    let favoriteRequest : NSFetchRequest<MovieFavorite> = MovieFavorite.fetchRequest()
+    
+    do
+    {
+      let favorites = try context.fetch(favoriteRequest)
+      
+      if favorites.count > 0
+      {
+        completionHandler(favorites, nil)
+      }
+      else
+      {
+        // favorites db is empty
+        completionHandler([], nil)
+      }
+    }
+    catch
+    {
+      completionHandler([], error)
+    }
+  }
 
   /// Save the current changes to the database.
   ///
