@@ -44,6 +44,8 @@ class MoviePosterDetailViewController : UIViewController,
   var favoriteState : FavoriteState = MoviePosterDetailViewController.FavoriteState.Indeterminate
 
   let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+  
+  var favoriteStateChangeDelegate : FavoriteStateChangeDelegate?
 
   @IBOutlet var mainTableView: UITableView!
 
@@ -454,6 +456,8 @@ class MoviePosterDetailViewController : UIViewController,
         }
       })
     }
+    
+    favoriteStateChangeDelegate?.onFavoriteStateChange()
   }
   
   func onQueryDb(_ hasFavorite : Bool, _ error : Error?) -> Void
