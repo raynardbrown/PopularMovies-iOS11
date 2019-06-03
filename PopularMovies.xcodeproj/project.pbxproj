@@ -52,6 +52,8 @@
 		D7FBE44822A48033005CA9C2 /* NoFavoritesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FBE44622A48033005CA9C2 /* NoFavoritesCollectionViewCell.swift */; };
 		D7FBE44922A48033005CA9C2 /* NoFavoritesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7FBE44722A48033005CA9C2 /* NoFavoritesCollectionViewCell.xib */; };
 		D7FBE44C22A4C4D3005CA9C2 /* FavoriteStateChangeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FBE44B22A4C4D3005CA9C2 /* FavoriteStateChangeDelegate.swift */; };
+		D7FBE44F22A4D63B005CA9C2 /* NoNetworkConnectionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FBE44D22A4D63B005CA9C2 /* NoNetworkConnectionCollectionViewCell.swift */; };
+		D7FBE45022A4D63B005CA9C2 /* NoNetworkConnectionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7FBE44E22A4D63B005CA9C2 /* NoNetworkConnectionCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -103,6 +105,8 @@
 		D7FBE44622A48033005CA9C2 /* NoFavoritesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoFavoritesCollectionViewCell.swift; sourceTree = "<group>"; };
 		D7FBE44722A48033005CA9C2 /* NoFavoritesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoFavoritesCollectionViewCell.xib; sourceTree = "<group>"; };
 		D7FBE44B22A4C4D3005CA9C2 /* FavoriteStateChangeDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteStateChangeDelegate.swift; sourceTree = "<group>"; };
+		D7FBE44D22A4D63B005CA9C2 /* NoNetworkConnectionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoNetworkConnectionCollectionViewCell.swift; sourceTree = "<group>"; };
+		D7FBE44E22A4D63B005CA9C2 /* NoNetworkConnectionCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoNetworkConnectionCollectionViewCell.xib; sourceTree = "<group>"; };
 		F465460714F2323DF5452BCD /* Pods-PopularMovies.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PopularMovies.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PopularMovies/Pods-PopularMovies.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -215,6 +219,8 @@
 				D7FBE442228E65AC005CA9C2 /* FavoriteButtonDelegate.swift */,
 				D7FBE44622A48033005CA9C2 /* NoFavoritesCollectionViewCell.swift */,
 				D7FBE44722A48033005CA9C2 /* NoFavoritesCollectionViewCell.xib */,
+				D7FBE44D22A4D63B005CA9C2 /* NoNetworkConnectionCollectionViewCell.swift */,
+				D7FBE44E22A4D63B005CA9C2 /* NoNetworkConnectionCollectionViewCell.xib */,
 			);
 			path = "Custom Cell";
 			sourceTree = "<group>";
@@ -343,6 +349,7 @@
 				D798A52120F045060058696A /* README.md in Resources */,
 				D7F4BF7B22449AAE00B63C9A /* CustomMovieTrailerTableViewCell.xib in Resources */,
 				D712686B2285282E00AAEB33 /* DetailViewTableHeader.xib in Resources */,
+				D7FBE45022A4D63B005CA9C2 /* NoNetworkConnectionCollectionViewCell.xib in Resources */,
 				D798A50F20EF46720058696A /* Assets.xcassets in Resources */,
 				D7126861227D5FF400AAEB33 /* MovieTrailerHeaderTableViewCell.xib in Resources */,
 				D798A50D20EF465F0058696A /* Main.storyboard in Resources */,
@@ -427,6 +434,7 @@
 				D7F4BF6F223F392600B63C9A /* MyUISeparator.swift in Sources */,
 				D7F4BFC6227809D600B63C9A /* MovieReviews+CoreDataClass.swift in Sources */,
 				D7F4BF7A22449AAE00B63C9A /* CustomMovieTrailerTableViewCell.swift in Sources */,
+				D7FBE44F22A4D63B005CA9C2 /* NoNetworkConnectionCollectionViewCell.swift in Sources */,
 				D7F4BF6B2228F2F700B63C9A /* MovieReviewResultObject.swift in Sources */,
 				D7F4BF882249DB9900B63C9A /* CustomMainDetailViewTableViewCell.swift in Sources */,
 				D7F4BF9222716F7A00B63C9A /* PopularMoviesDataModel.xcdatamodeld in Sources */,
