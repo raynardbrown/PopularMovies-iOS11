@@ -51,6 +51,7 @@
 		D7FBE445228FFA8D005CA9C2 /* DbUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FBE444228FFA8D005CA9C2 /* DbUtils.swift */; };
 		D7FBE44822A48033005CA9C2 /* NoFavoritesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FBE44622A48033005CA9C2 /* NoFavoritesCollectionViewCell.swift */; };
 		D7FBE44922A48033005CA9C2 /* NoFavoritesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7FBE44722A48033005CA9C2 /* NoFavoritesCollectionViewCell.xib */; };
+		D7FBE44C22A4C4D3005CA9C2 /* FavoriteStateChangeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FBE44B22A4C4D3005CA9C2 /* FavoriteStateChangeDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -101,6 +102,7 @@
 		D7FBE444228FFA8D005CA9C2 /* DbUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DbUtils.swift; sourceTree = "<group>"; };
 		D7FBE44622A48033005CA9C2 /* NoFavoritesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoFavoritesCollectionViewCell.swift; sourceTree = "<group>"; };
 		D7FBE44722A48033005CA9C2 /* NoFavoritesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoFavoritesCollectionViewCell.xib; sourceTree = "<group>"; };
+		D7FBE44B22A4C4D3005CA9C2 /* FavoriteStateChangeDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteStateChangeDelegate.swift; sourceTree = "<group>"; };
 		F465460714F2323DF5452BCD /* Pods-PopularMovies.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PopularMovies.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PopularMovies/Pods-PopularMovies.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -148,6 +150,7 @@
 		D798A50620EF465F0058696A /* PopularMovies */ = {
 			isa = PBXGroup;
 			children = (
+				D7FBE44A22A4C44A005CA9C2 /* Delegate */,
 				D7F4BF8A22542A1400B63C9A /* Net */,
 				D798A56E20FFF34F0058696A /* Model */,
 				D798A51B20EF57BE0058696A /* View */,
@@ -256,6 +259,14 @@
 				D7F4BF9022716F7900B63C9A /* PopularMoviesDataModel.xcdatamodeld */,
 			);
 			path = "Data Model";
+			sourceTree = "<group>";
+		};
+		D7FBE44A22A4C44A005CA9C2 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				D7FBE44B22A4C4D3005CA9C2 /* FavoriteStateChangeDelegate.swift */,
+			);
+			path = Delegate;
 			sourceTree = "<group>";
 		};
 		D8EF62C339BBFC96236786E0 /* Frameworks */ = {
@@ -421,6 +432,7 @@
 				D7F4BF9222716F7A00B63C9A /* PopularMoviesDataModel.xcdatamodeld in Sources */,
 				D7FBE445228FFA8D005CA9C2 /* DbUtils.swift in Sources */,
 				D798A50820EF465F0058696A /* AppDelegate.swift in Sources */,
+				D7FBE44C22A4C4D3005CA9C2 /* FavoriteStateChangeDelegate.swift in Sources */,
 				D7F4BF8E225D9A5B00B63C9A /* PopularMoviesSettings.swift in Sources */,
 				D7F4BF6D2236165800B63C9A /* MoviePosterDetailViewController.swift in Sources */,
 				D7126864227FEF7700AAEB33 /* MovieReviewHeaderTableViewCell.swift in Sources */,
