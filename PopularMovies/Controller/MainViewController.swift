@@ -31,6 +31,8 @@ class MainViewController : UIViewController,
   
   static let LaunchMoviePosterDetailView : String = "launchMoviePosterDetailView"
   
+  let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+  
   override func viewDidLoad()
   {
     super.viewDidLoad()
@@ -231,7 +233,7 @@ class MainViewController : UIViewController,
   
   func fetchFavorites() -> Void
   {
-    // TODO: Implement
+    DbUtils.queryFavoriteDb(context, onQueryDb)
   }
   
   @IBAction func onSortNavItemClick(_ sender: Any)
@@ -272,5 +274,67 @@ class MainViewController : UIViewController,
     
     // show the action sheet
     self.present(alert, animated: true, completion: nil)
+  }
+  
+  func onQueryDb(_ movieFavoriteArray : [MovieFavorite], _ error : Error?) -> Void
+  {
+    if let error = error
+    {
+      print("Error fetching favorite data from context \(error)")
+    }
+    else
+    {
+      // no errors
+      
+      if movieFavoriteArray.count > 0
+      {
+        // there are favorites in the database
+        
+        self.movieListResultObjectArray = favoritesToMovieResults(movieFavoriteArray)
+        
+        self.moviePosterCollectionView.reloadData()
+      }
+      else
+      {
+        // there are no favorites
+        
+        self.movieListResultObjectArray = []
+        
+        self.moviePosterCollectionView.reloadData()
+      }
+    }
+  }
+  
+  func favoritesToMovieResults(_ movieFavoriteArray : [MovieFavorite]) -> [MovieListResultObject]
+  {
+    var movieResultArray : [MovieListResultObject] = []
+    
+    for movieFavorite in movieFavoriteArray
+    {
+      guard let moviePosterUrl = movieFavorite.movie_poster_url,
+            let plotSynopsis = movieFavorite.movie_plot_synopsis,
+            let releaseDate = movieFavorite.movie_release_date,
+            let title = movieFavorite.movie_title,
+            let userRating = movieFavorite.movie_user_rating
+      else
+      {
+        // Should never happen
+        print("Error movie favorite fields are not set")
+        
+        // return an empty array
+        return []
+      }
+      
+      let movieResult : MovieListResultObject = MovieListResultObject(moviePosterUrl,
+                                                                      plotSynopsis,
+                                                                      releaseDate,
+                                                                      title,
+                                                                      userRating,
+                                                                      Int(movieFavorite.movie_id))
+      
+      movieResultArray.append(movieResult)
+    }
+    
+    return movieResultArray
   }
 }
