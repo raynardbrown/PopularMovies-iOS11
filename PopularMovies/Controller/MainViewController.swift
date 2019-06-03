@@ -16,7 +16,8 @@ import SwiftyJSON
 class MainViewController : UIViewController,
                            UICollectionViewDelegate,
                            UICollectionViewDataSource,
-                           UICollectionViewDelegateFlowLayout
+                           UICollectionViewDelegateFlowLayout,
+                           FavoriteStateChangeDelegate
 {
   @IBOutlet var moviePosterCollectionView: UICollectionView!
   
@@ -32,6 +33,8 @@ class MainViewController : UIViewController,
   static let LaunchMoviePosterDetailView : String = "launchMoviePosterDetailView"
   
   let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+  
+  private var favoritesChange : Bool = false
   
   override func viewDidLoad()
   {
@@ -66,6 +69,24 @@ class MainViewController : UIViewController,
     // Ensure the navigation title is displayed when we navigate back from the child view
     // TODO: Fix this so that the animation transitions smoothly
     self.navigationItem.title = appTitle
+    
+    let setting : Int = popularMoviesSettings.getSortSetting()
+    
+    if setting == PopularMoviesSettings.FAVORITES
+    {
+      if favoritesChange
+      {
+        // reset the movie list array
+        movieListResultObjectArray = [MovieListResultObject]()
+        
+        // ensure we reload the tableview to prevent the table view using the old movie list count
+        moviePosterCollectionView.reloadData()
+        
+        fetchFavorites()
+        
+        favoritesChange = false
+      }
+    }
   }
   
   func collectionView(_ collectionView: UICollectionView,
@@ -150,6 +171,8 @@ class MainViewController : UIViewController,
       let destinationViewController = segue.destination as! MoviePosterDetailViewController
       
       destinationViewController.movieListResultObject = sender as! MovieListResultObject
+      
+      destinationViewController.favoriteStateChangeDelegate = self
     }
   }
   
@@ -336,5 +359,10 @@ class MainViewController : UIViewController,
     }
     
     return movieResultArray
+  }
+  
+  func onFavoriteStateChange()
+  {
+    favoritesChange = true
   }
 }
