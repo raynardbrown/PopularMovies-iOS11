@@ -54,6 +54,7 @@
 		D7FBE44C22A4C4D3005CA9C2 /* FavoriteStateChangeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FBE44B22A4C4D3005CA9C2 /* FavoriteStateChangeDelegate.swift */; };
 		D7FBE44F22A4D63B005CA9C2 /* NoNetworkConnectionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FBE44D22A4D63B005CA9C2 /* NoNetworkConnectionCollectionViewCell.swift */; };
 		D7FBE45022A4D63B005CA9C2 /* NoNetworkConnectionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7FBE44E22A4D63B005CA9C2 /* NoNetworkConnectionCollectionViewCell.xib */; };
+		D7FBE45222A62A28005CA9C2 /* NetworkStateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FBE45122A62A28005CA9C2 /* NetworkStateDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,6 +108,7 @@
 		D7FBE44B22A4C4D3005CA9C2 /* FavoriteStateChangeDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteStateChangeDelegate.swift; sourceTree = "<group>"; };
 		D7FBE44D22A4D63B005CA9C2 /* NoNetworkConnectionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoNetworkConnectionCollectionViewCell.swift; sourceTree = "<group>"; };
 		D7FBE44E22A4D63B005CA9C2 /* NoNetworkConnectionCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoNetworkConnectionCollectionViewCell.xib; sourceTree = "<group>"; };
+		D7FBE45122A62A28005CA9C2 /* NetworkStateDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStateDelegate.swift; sourceTree = "<group>"; };
 		F465460714F2323DF5452BCD /* Pods-PopularMovies.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PopularMovies.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PopularMovies/Pods-PopularMovies.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -271,6 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				D7FBE44B22A4C4D3005CA9C2 /* FavoriteStateChangeDelegate.swift */,
+				D7FBE45122A62A28005CA9C2 /* NetworkStateDelegate.swift */,
 			);
 			path = Delegate;
 			sourceTree = "<group>";
@@ -440,6 +443,7 @@
 				D7F4BF9222716F7A00B63C9A /* PopularMoviesDataModel.xcdatamodeld in Sources */,
 				D7FBE445228FFA8D005CA9C2 /* DbUtils.swift in Sources */,
 				D798A50820EF465F0058696A /* AppDelegate.swift in Sources */,
+				D7FBE45222A62A28005CA9C2 /* NetworkStateDelegate.swift in Sources */,
 				D7FBE44C22A4C4D3005CA9C2 /* FavoriteStateChangeDelegate.swift in Sources */,
 				D7F4BF8E225D9A5B00B63C9A /* PopularMoviesSettings.swift in Sources */,
 				D7F4BF6D2236165800B63C9A /* MoviePosterDetailViewController.swift in Sources */,
