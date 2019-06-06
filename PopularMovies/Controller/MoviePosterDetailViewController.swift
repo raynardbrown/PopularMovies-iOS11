@@ -315,6 +315,18 @@ class MoviePosterDetailViewController : UIViewController,
     
     // Remove the gaps at bottom of each sections (iOS bug?)
     mainTableView.sectionFooterHeight = 0.0
+    
+    if #available(iOS 11.0, *)
+    {
+      // the default setting
+      self.automaticallyAdjustsScrollViewInsets = true;
+    }
+    else
+    {
+      // this is needed on platforms less than iOS 11 (i.e. iOS 10)
+      // On those platforms, iOS adds a empty header at the top of the table view
+      self.automaticallyAdjustsScrollViewInsets = false;
+    }
   }
   
   func updateMainCell(_ cell : CustomMainDetailViewTableViewCell) -> UITableViewCell
