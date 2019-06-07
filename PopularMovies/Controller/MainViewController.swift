@@ -54,6 +54,8 @@ class MainViewController : UIViewController,
     moviePosterCollectionView.register(NoFavoritesCollectionViewCell.nib,
                                        forCellWithReuseIdentifier: NoFavoritesCollectionViewCell.reuseIdentifier)
     
+    configureCollectionView()
+    
     dispatchMovieListResultRequest()
   }
 
@@ -158,6 +160,21 @@ class MainViewController : UIViewController,
     
     // use the default cell size otherwise
     return self.moviePosterCollectionViewFlowLayout.itemSize
+  }
+  
+  func configureCollectionView() -> Void
+  {
+    if #available(iOS 11.0, *)
+    {
+      // the default setting
+      self.automaticallyAdjustsScrollViewInsets = true;
+    }
+    else
+    {
+      // this is needed on platforms less than iOS 11 (i.e. iOS 10)
+      // On those platforms, iOS adds a empty header at the top of the collection view
+      self.automaticallyAdjustsScrollViewInsets = false;
+    }
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?)
