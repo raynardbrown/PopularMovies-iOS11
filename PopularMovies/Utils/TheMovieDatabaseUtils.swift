@@ -11,6 +11,13 @@ import SwiftyJSON
 
 class TheMovieDatabaseUtils
 {
+  enum MoviePosterWidths : Int
+  {
+    case w92 = 92
+    case w154 = 154
+    case w185 = 185
+  }
+  
   private init()
   {
     
