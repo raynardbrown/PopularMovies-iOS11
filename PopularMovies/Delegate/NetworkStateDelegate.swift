@@ -9,7 +9,9 @@ import Foundation
 
 protocol NetworkStateDelegate
 {
+  /// Called when the network is connected.
   func onNetworkConnected()
   
+  /// Called when the network is disconnected.
   func onNetworkDisconnected()
 }
