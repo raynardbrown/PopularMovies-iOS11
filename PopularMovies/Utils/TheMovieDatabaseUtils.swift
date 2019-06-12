@@ -110,10 +110,11 @@ class TheMovieDatabaseUtils
     }
   }
   
-  static func getMoviePosterUriFromPath(_ posterPath : String) -> String
+  static func getMoviePosterUriFromPath(_ posterPath : String,
+                                        _ posterWidth : MoviePosterWidths) -> String
   {
     let baseUri : String = "https://image.tmdb.org/t/p"
-    let imageSizePath = "w185"
+    let imageSizePath = "w\(posterWidth)"
     return baseUri + "/" + imageSizePath + posterPath
   }
   
