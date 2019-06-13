@@ -114,7 +114,7 @@ class TheMovieDatabaseUtils
                                         _ posterWidth : MoviePosterWidths) -> String
   {
     let baseUri : String = "https://image.tmdb.org/t/p"
-    let imageSizePath = "w\(posterWidth)"
+    let imageSizePath = "w\(posterWidth.rawValue)"
     return baseUri + "/" + imageSizePath + posterPath
   }
   
