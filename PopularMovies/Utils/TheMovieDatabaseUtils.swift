@@ -110,6 +110,13 @@ class TheMovieDatabaseUtils
     }
   }
   
+  /// Retrieve the full path of a movie poster from The Movie Database, given the specified poster
+  /// base path and specified image width.
+  ///
+  /// - Parameters:
+  ///   - posterPath: the base path of a movie poster image.
+  ///   - posterWidth: the width of the movie poster.
+  /// - Returns: a complete movie poster image path.
   static func getMoviePosterUriFromPath(_ posterPath : String,
                                         _ posterWidth : MoviePosterWidths) -> String
   {
