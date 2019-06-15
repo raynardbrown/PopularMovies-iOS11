@@ -36,6 +36,8 @@ class MoviePosterDetailViewController : UIViewController,
   }
 
   var movieListResultObject : MovieListResultObject!
+  
+  var posterWidth : TheMovieDatabaseUtils.MoviePosterWidths!
 
   var movieVideoResultObjectArray : [MovieVideoResultObject] = [MovieVideoResultObject]()
 
@@ -335,7 +337,8 @@ class MoviePosterDetailViewController : UIViewController,
     
     let moviePosterRelativePath : String = movieListResultObject.getPosterPath()
     
-    let moviePosterPath : String = TheMovieDatabaseUtils.getMoviePosterUriFromPath(moviePosterRelativePath)
+    let moviePosterPath : String = TheMovieDatabaseUtils.getMoviePosterUriFromPath(moviePosterRelativePath,
+                                                                                   posterWidth)
     
     cell.moviePosterImage.sd_setImage(with: URL(string: moviePosterPath),
                                       placeholderImage : UIImage(named: "image_placeholder.png"))
