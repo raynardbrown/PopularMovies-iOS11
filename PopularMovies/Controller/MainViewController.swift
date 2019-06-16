@@ -36,6 +36,8 @@ class MainViewController : UIViewController,
   
   private var favoritesChange : Bool = false
   
+  private var posterWidth : TheMovieDatabaseUtils.MoviePosterWidths!
+  
   override func viewDidLoad()
   {
     super.viewDidLoad()
@@ -188,6 +190,8 @@ class MainViewController : UIViewController,
       let destinationViewController = segue.destination as! MoviePosterDetailViewController
       
       destinationViewController.movieListResultObject = sender as! MovieListResultObject
+      
+      destinationViewController.posterWidth = posterWidth
       
       destinationViewController.favoriteStateChangeDelegate = self
     }
