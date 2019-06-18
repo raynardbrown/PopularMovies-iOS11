@@ -249,6 +249,32 @@ class MainViewController : UIViewController,
     }
   }
 
+  func computeItemSize(_ screenWidth : CGFloat,
+                       _ moviePosterWidth : TheMovieDatabaseUtils.MoviePosterWidths,
+                       _ numberPostersInRow : Int,
+                       _ horizontalGapBetweenPosters : Int) -> CGSize
+  {
+    // movie posters are images in portrait mode that have an aspect ratio of 2:3
+    let horizontalAspectRatio = 2
+    let verticalAspectRatio = 3
+    
+    let widthPostersInRow = CGFloat(moviePosterWidth.rawValue) * CGFloat(numberPostersInRow)
+    
+    // check if we need to scale first
+    let whatIsLeftover = screenWidth - widthPostersInRow - CGFloat(horizontalGapBetweenPosters)
+    
+    // split the difference between the posters in a row
+    let scaleValue = whatIsLeftover / CGFloat(numberPostersInRow)
+    
+    // shrink or widen the width of a poster
+    let finalWidth = CGFloat(moviePosterWidth.rawValue) + scaleValue
+    
+    // scale the height of a poster by the aspect ratio
+    let finalHeight = (finalWidth / CGFloat(horizontalAspectRatio)) * CGFloat(verticalAspectRatio)
+    
+    return CGSize(width: finalWidth, height: finalHeight)
+  }
+
   func dispatchMovieListResultRequest() -> Void
   {
     let setting : Int = popularMoviesSettings.getSortSetting()
