@@ -232,7 +232,23 @@ class MainViewController : UIViewController,
       dispatchMovieListResultRequest()
     }
   }
-  
+
+  func posterWidthForCellWidth(_ maxCellWidth : Int) -> TheMovieDatabaseUtils.MoviePosterWidths
+  {
+    if maxCellWidth >= TheMovieDatabaseUtils.MoviePosterWidths.w185.rawValue
+    {
+      return TheMovieDatabaseUtils.MoviePosterWidths.w185
+    }
+    else if maxCellWidth >= TheMovieDatabaseUtils.MoviePosterWidths.w154.rawValue
+    {
+      return TheMovieDatabaseUtils.MoviePosterWidths.w154
+    }
+    else
+    {
+      return TheMovieDatabaseUtils.MoviePosterWidths.w92
+    }
+  }
+
   func dispatchMovieListResultRequest() -> Void
   {
     let setting : Int = popularMoviesSettings.getSortSetting()
