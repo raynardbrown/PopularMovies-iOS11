@@ -36,6 +36,12 @@ class MainViewController : UIViewController,
   
   private var favoritesChange : Bool = false
   
+  private var dispatchedTriggered : Bool = false
+  
+  private var orientationHandled : Bool = true
+  
+  private var itemSize : CGSize = CGSize(width: 0, height: 0)
+  
   private var posterWidth : TheMovieDatabaseUtils.MoviePosterWidths!
   
   override func viewDidLoad()
@@ -56,9 +62,20 @@ class MainViewController : UIViewController,
     moviePosterCollectionView.register(NoFavoritesCollectionViewCell.nib,
                                        forCellWithReuseIdentifier: NoFavoritesCollectionViewCell.reuseIdentifier)
     
+    // register for the orientation change notification
+    NotificationCenter.default.addObserver(self,
+                                           selector: #selector(MainViewController.onRotation),
+                                           name: NSNotification.Name.UIDeviceOrientationDidChange,
+                                           object: nil)
+    
     configureCollectionView()
     
-    dispatchMovieListResultRequest()
+    // Hold off on calling dispatchMovieListResultRequest. We want to want until we've had a chance
+    // to do the follow
+    //
+    // 1) Get our initial orientation.
+    //
+    // 2) Calculate the size of the collection view cells.
   }
 
   override func didReceiveMemoryWarning()
@@ -149,6 +166,19 @@ class MainViewController : UIViewController,
     }
   }
   
+  override func viewDidLayoutSubviews()
+  {
+    super.viewDidLayoutSubviews()
+    
+    // check to see if we have updated the collection view after the user rotated the device
+    if !orientationHandled
+    {
+      orientationHandled = true
+      
+      moviePosterCollectionView.collectionViewLayout.invalidateLayout()
+    }
+  }
+  
   func collectionView(_ collectionView: UICollectionView,
                       layout collectionViewLayout: UICollectionViewLayout,
                       sizeForItemAt indexPath: IndexPath) -> CGSize
@@ -159,6 +189,13 @@ class MainViewController : UIViewController,
     {
       // the no favorites error message should fill the size of the collection view
       return collectionView.frame.size
+    }
+    
+    // TODO: When lanscape is handle by the rotation function, delete this if statement and just
+    // return itemSize.
+    if UIInterfaceOrientationIsPortrait(UIApplication.shared.statusBarOrientation)
+    {
+      return itemSize
     }
     
     // use the default cell size otherwise
@@ -277,6 +314,53 @@ class MainViewController : UIViewController,
     let finalHeight = (finalWidth / CGFloat(horizontalAspectRatio)) * CGFloat(verticalAspectRatio)
     
     return CGSize(width: finalWidth, height: finalHeight)
+  }
+
+  @objc
+  func onRotation() -> Void
+  {
+    if UIDevice.current.orientation.isLandscape
+    {
+      // TODO: Handle landscape mode
+    }
+    else
+    {
+      // We are in portrait mode
+      
+      let screenRect = UIScreen.main.bounds
+      
+      let screenWidth = screenRect.size.width
+      
+      // we would like exactly 2 movie posters to be displayed in each row
+      let numberPostersInRow = 2
+      
+      let horizontalGapBetweenPosters = 12
+      
+      // calculate the max width of a cell in this row given the number of posters we want in the
+      // row
+      let maxCellWidth = screenWidth / CGFloat(numberPostersInRow)
+      
+      posterWidth = posterWidthForCellWidth(Int(maxCellWidth))
+      
+      itemSize = computeItemSize(screenWidth,
+                                 posterWidth,
+                                 numberPostersInRow,
+                                 horizontalGapBetweenPosters)
+      
+      if !dispatchedTriggered
+      {
+        dispatchedTriggered = true
+        
+        // we do not clear the orientation flag here because at this point we have not given the
+        // collection view any data so "sizeForItemAt" would never have been triggered.
+        
+        dispatchMovieListResultRequest()
+      }
+      else
+      {
+        orientationHandled = false
+      }
+    }
   }
 
   func dispatchMovieListResultRequest() -> Void
