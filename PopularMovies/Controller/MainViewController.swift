@@ -233,6 +233,10 @@ class MainViewController : UIViewController,
     }
   }
 
+  /// Return a poster width given the specified max cell width.
+  ///
+  /// - Parameter maxCellWidth: the max width of a cell in a collection view.
+  /// - Returns: width of a poster given the max cell width parameter.
   func posterWidthForCellWidth(_ maxCellWidth : Int) -> TheMovieDatabaseUtils.MoviePosterWidths
   {
     if maxCellWidth >= TheMovieDatabaseUtils.MoviePosterWidths.w185.rawValue
