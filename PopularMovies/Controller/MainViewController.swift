@@ -290,6 +290,16 @@ class MainViewController : UIViewController,
     }
   }
 
+  /// Calculate the size of a cell within the collection view of this view controller given the
+  /// specified parameters. Use this function for scaling (up/down) movie posters given the
+  /// parameters.
+  ///
+  /// - Parameters:
+  ///   - screenWidth: the width of the screen.
+  ///   - moviePosterWidth: the width of the movie poster that is being targeted.
+  ///   - numberPostersInRow: the number of posters within one row.
+  ///   - horizontalGapBetweenPosters: the horizontal gap between posters in a row.
+  /// - Returns: the new size of a cell given the specified parameters.
   func computeItemSize(_ screenWidth : CGFloat,
                        _ moviePosterWidth : TheMovieDatabaseUtils.MoviePosterWidths,
                        _ numberPostersInRow : Int,
