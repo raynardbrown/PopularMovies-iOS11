@@ -326,6 +326,8 @@ class MainViewController : UIViewController,
     return CGSize(width: finalWidth, height: finalHeight)
   }
 
+  /// Triggered when a user rotates the device. This function in turn calculates the size of a cell
+  /// within the collection view given the orientation.
   @objc
   func onRotation() -> Void
   {
