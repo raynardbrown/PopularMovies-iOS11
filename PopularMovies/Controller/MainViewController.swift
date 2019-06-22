@@ -325,6 +325,13 @@ class MainViewController : UIViewController,
     
     return CGSize(width: finalWidth, height: finalHeight)
   }
+  
+  func computeItemSize(_ screenWidth : CGFloat,
+                       _ moviePosterWidth : TheMovieDatabaseUtils.MoviePosterWidths,
+                       _ horizontalGapBetweenPosters : Int) -> CGSize
+  {
+    return computeItemSize(screenWidth, moviePosterWidth, -1, horizontalGapBetweenPosters)
+  }
 
   /// Triggered when a user rotates the device. This function in turn calculates the size of a cell
   /// within the collection view given the orientation.
