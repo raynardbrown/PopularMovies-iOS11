@@ -190,16 +190,8 @@ class MainViewController : UIViewController,
       // the no favorites error message should fill the size of the collection view
       return collectionView.frame.size
     }
-    
-    // TODO: When lanscape is handle by the rotation function, delete this if statement and just
-    // return itemSize.
-    if UIInterfaceOrientationIsPortrait(UIApplication.shared.statusBarOrientation)
-    {
-      return itemSize
-    }
-    
-    // use the default cell size otherwise
-    return self.moviePosterCollectionViewFlowLayout.itemSize
+
+    return itemSize
   }
   
   func configureCollectionView() -> Void
@@ -361,7 +353,48 @@ class MainViewController : UIViewController,
       
       posterWidth = posterWidthForCellWidth(Int(maxCellWidth))
       
-      itemSize = computeItemSize(screenWidth,
+      lastOrientation = .portrait
+    }
+    else
+    {
+      // we are in flat (face dowm/up) or unknown mode we will use the last orientation
+      if lastOrientation == .landscapeLeft
+      {
+        landscapeScreenWidth = screenRect.size.width
+        portraitScreenWidth = screenRect.size.height
+      }
+      else
+      {
+        // portrait
+        portraitScreenWidth = screenRect.size.width
+        landscapeScreenWidth = screenRect.size.height
+      }
+    }
+    
+    print("onRotation: portraitScreenWidth: \(portraitScreenWidth)")
+    print("onRotation: landscapeScreenWidth: \(landscapeScreenWidth)")
+    
+    // we would like exactly 2 movie posters to be displayed in each row (portrait mode)
+    let numberPostersInRow = 2
+    
+    let horizontalGapBetweenPosters = 12
+    
+    // calculate the max width of a cell in this row given the number of posters we want in the
+    // row
+    let maxCellWidth = portraitScreenWidth / CGFloat(numberPostersInRow)
+    
+    posterWidth = posterWidthForCellWidth(Int(maxCellWidth))
+    
+    if lastOrientation == .landscapeLeft
+    {
+      itemSize = computeItemSize(landscapeScreenWidth,
+                                 posterWidth,
+                                 horizontalGapBetweenPosters)
+    }
+    else
+    {
+      // scale the cell in portrait mode accordingly
+      itemSize = computeItemSize(portraitScreenWidth,
                                  posterWidth,
                                  numberPostersInRow,
                                  horizontalGapBetweenPosters)
