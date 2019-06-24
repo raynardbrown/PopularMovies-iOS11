@@ -289,7 +289,8 @@ class MainViewController : UIViewController,
   /// - Parameters:
   ///   - screenWidth: the width of the screen.
   ///   - moviePosterWidth: the width of the movie poster that is being targeted.
-  ///   - numberPostersInRow: the number of posters within one row.
+  ///   - numberPostersInRow: the number of posters within one row or -1 if this function should
+  /// calculate how many posters should be in a row.
   ///   - horizontalGapBetweenPosters: the horizontal gap between posters in a row.
   /// - Returns: the new size of a cell given the specified parameters.
   func computeItemSize(_ screenWidth : CGFloat,
@@ -301,13 +302,30 @@ class MainViewController : UIViewController,
     let horizontalAspectRatio = 2
     let verticalAspectRatio = 3
     
-    let widthPostersInRow = CGFloat(moviePosterWidth.rawValue) * CGFloat(numberPostersInRow)
+    var calculatedNumberPostersInRow = 0
+    
+    if numberPostersInRow == -1
+    {
+      // calculate the number of posters that can fit in a row
+      calculatedNumberPostersInRow = Int(screenWidth / CGFloat(moviePosterWidth.rawValue))
+    }
+    else
+    {
+      // use the client value
+      calculatedNumberPostersInRow = numberPostersInRow
+    }
+    
+    let widthPostersInRow = CGFloat(moviePosterWidth.rawValue) * CGFloat(calculatedNumberPostersInRow)
+    
+    let numberHorizontalGapsInOneRow = CGFloat(calculatedNumberPostersInRow - 1)
+    
+    let calculatedHorizontalGaps = CGFloat(horizontalGapBetweenPosters) * numberHorizontalGapsInOneRow
     
     // check if we need to scale first
-    let whatIsLeftover = screenWidth - widthPostersInRow - CGFloat(horizontalGapBetweenPosters)
+    let whatIsLeftover = screenWidth - widthPostersInRow - calculatedHorizontalGaps
     
     // split the difference between the posters in a row
-    let scaleValue = whatIsLeftover / CGFloat(numberPostersInRow)
+    let scaleValue = whatIsLeftover / CGFloat(calculatedNumberPostersInRow)
     
     // shrink or widen the width of a poster
     let finalWidth = CGFloat(moviePosterWidth.rawValue) + scaleValue
@@ -370,9 +388,6 @@ class MainViewController : UIViewController,
         landscapeScreenWidth = screenRect.size.height
       }
     }
-    
-    print("onRotation: portraitScreenWidth: \(portraitScreenWidth)")
-    print("onRotation: landscapeScreenWidth: \(landscapeScreenWidth)")
     
     // we would like exactly 2 movie posters to be displayed in each row (portrait mode)
     let numberPostersInRow = 2
