@@ -44,6 +44,11 @@ class MainViewController : UIViewController,
   
   private var posterWidth : TheMovieDatabaseUtils.MoviePosterWidths!
   
+  // When we first start assume we are in portrait mode.
+  private var lastOrientation : UIDeviceOrientation = .portrait
+  
+  private var actualOrientation : UIDeviceOrientation?
+  
   override func viewDidLoad()
   {
     super.viewDidLoad()
@@ -348,72 +353,94 @@ class MainViewController : UIViewController,
   @objc
   func onRotation() -> Void
   {
-    if UIDevice.current.orientation.isLandscape
+    // handle rotation if we have been rotated for the first time or if the current rotation is
+    // different from the last rotation
+    if actualOrientation == nil ||
+      (actualOrientation != nil && actualOrientation != UIDevice.current.orientation)
     {
-      // TODO: Handle landscape mode
-    }
-    else
-    {
-      // We are in portrait mode
-      
+      actualOrientation = UIDevice.current.orientation
+
       let screenRect = UIScreen.main.bounds
+      var landscapeScreenWidth = CGFloat(0)
+      var portraitScreenWidth = CGFloat(0)
+    
+      let isLandscape = UIDevice.current.orientation.isLandscape
+      let isPortrait = UIDevice.current.orientation == .portrait
+      let isPortraitUpsideDown = UIDevice.current.orientation == .portraitUpsideDown
+    
+      if isLandscape
+      {
+        // We are in landscape mode
       
-      let screenWidth = screenRect.size.width
+        // when in landscape mode, the "portrait width" is the "landscape height"
+        landscapeScreenWidth = screenRect.size.width
+        portraitScreenWidth = screenRect.size.height
       
-      // we would like exactly 2 movie posters to be displayed in each row
+        lastOrientation = .landscapeLeft
+      }
+      else if isPortrait
+      {
+        // We are in portrait mode
+        portraitScreenWidth = screenRect.size.width
+        landscapeScreenWidth = screenRect.size.height
+      
+        lastOrientation = .portrait
+      }
+      else if isPortraitUpsideDown
+      {
+        if lastOrientation == .landscapeLeft
+        {
+          landscapeScreenWidth = screenRect.size.width
+          portraitScreenWidth = screenRect.size.height
+        }
+        else
+        {
+          portraitScreenWidth = screenRect.size.width
+          landscapeScreenWidth = screenRect.size.height
+        }
+      }
+      else
+      {
+        // we are in flat (face dowm/up) or unknown mode we will use the last orientation
+        if lastOrientation == .landscapeLeft
+        {
+          landscapeScreenWidth = screenRect.size.width
+          portraitScreenWidth = screenRect.size.height
+        }
+        else
+        {
+          // portrait
+          portraitScreenWidth = screenRect.size.width
+          landscapeScreenWidth = screenRect.size.height
+        }
+      }
+    
+      // we would like exactly 2 movie posters to be displayed in each row (portrait mode)
       let numberPostersInRow = 2
       
       let horizontalGapBetweenPosters = 12
       
       // calculate the max width of a cell in this row given the number of posters we want in the
       // row
-      let maxCellWidth = screenWidth / CGFloat(numberPostersInRow)
+      let maxCellWidth = portraitScreenWidth / CGFloat(numberPostersInRow)
       
       posterWidth = posterWidthForCellWidth(Int(maxCellWidth))
       
-      lastOrientation = .portrait
-    }
-    else
-    {
-      // we are in flat (face dowm/up) or unknown mode we will use the last orientation
       if lastOrientation == .landscapeLeft
       {
-        landscapeScreenWidth = screenRect.size.width
-        portraitScreenWidth = screenRect.size.height
+        itemSize = computeItemSize(landscapeScreenWidth,
+                                   posterWidth,
+                                   horizontalGapBetweenPosters)
       }
       else
       {
-        // portrait
-        portraitScreenWidth = screenRect.size.width
-        landscapeScreenWidth = screenRect.size.height
+        // scale the cell in portrait mode accordingly
+        itemSize = computeItemSize(portraitScreenWidth,
+                                   posterWidth,
+                                   numberPostersInRow,
+                                   horizontalGapBetweenPosters)
       }
-    }
     
-    // we would like exactly 2 movie posters to be displayed in each row (portrait mode)
-    let numberPostersInRow = 2
-    
-    let horizontalGapBetweenPosters = 12
-    
-    // calculate the max width of a cell in this row given the number of posters we want in the
-    // row
-    let maxCellWidth = portraitScreenWidth / CGFloat(numberPostersInRow)
-    
-    posterWidth = posterWidthForCellWidth(Int(maxCellWidth))
-    
-    if lastOrientation == .landscapeLeft
-    {
-      itemSize = computeItemSize(landscapeScreenWidth,
-                                 posterWidth,
-                                 horizontalGapBetweenPosters)
-    }
-    else
-    {
-      // scale the cell in portrait mode accordingly
-      itemSize = computeItemSize(portraitScreenWidth,
-                                 posterWidth,
-                                 numberPostersInRow,
-                                 horizontalGapBetweenPosters)
-      
       if !dispatchedTriggered
       {
         dispatchedTriggered = true
