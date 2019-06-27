@@ -174,6 +174,11 @@ class MainViewController : UIViewController,
   override func viewDidLayoutSubviews()
   {
     super.viewDidLayoutSubviews()
+  
+    // we need to force a call to onRotation in case the user is holding the phone in portrait mode
+    // not face up/down and they launch the app. In this case the onRotation call is not triggered
+    // during initialization like we expect.
+    onRotation()
     
     // check to see if we have updated the collection view after the user rotated the device
     if !orientationHandled
