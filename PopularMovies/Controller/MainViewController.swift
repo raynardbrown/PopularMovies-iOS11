@@ -459,8 +459,9 @@ class MainViewController : UIViewController,
       {
         orientationHandled = false
 
-        // force a layout update
+        // force a layout update (must call invalidateLayout after prepare)
         moviePosterCollectionView.collectionViewLayout.prepare()
+        moviePosterCollectionView.collectionViewLayout.invalidateLayout()
       }
     }
   }
