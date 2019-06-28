@@ -67,12 +67,6 @@ class MainViewController : UIViewController,
     moviePosterCollectionView.register(NoFavoritesCollectionViewCell.nib,
                                        forCellWithReuseIdentifier: NoFavoritesCollectionViewCell.reuseIdentifier)
     
-    // register for the orientation change notification
-    NotificationCenter.default.addObserver(self,
-                                           selector: #selector(MainViewController.onRotation),
-                                           name: NSNotification.Name.UIDeviceOrientationDidChange,
-                                           object: nil)
-    
     configureCollectionView()
     
     // Hold off on calling dispatchMovieListResultRequest. We want to want until we've had a chance
@@ -95,6 +89,12 @@ class MainViewController : UIViewController,
     // Ensure the navigation title is displayed when we navigate back from the child view
     // TODO: Fix this so that the animation transitions smoothly
     self.navigationItem.title = appTitle
+    
+    // register for the orientation change notification
+    NotificationCenter.default.addObserver(self,
+                                           selector: #selector(MainViewController.onRotation),
+                                           name: NSNotification.Name.UIDeviceOrientationDidChange,
+                                           object: nil)
     
     let setting : Int = popularMoviesSettings.getSortSetting()
     
@@ -245,6 +245,10 @@ class MainViewController : UIViewController,
       destinationViewController.posterWidth = posterWidth
       
       destinationViewController.favoriteStateChangeDelegate = self
+      
+      NotificationCenter.default.removeObserver(self,
+                                                name: NSNotification.Name.UIDeviceOrientationDidChange,
+                                                object: nil)
     }
   }
   
