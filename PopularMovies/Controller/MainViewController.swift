@@ -112,6 +112,17 @@ class MainViewController : UIViewController,
         
         favoritesChange = false
       }
+      else
+      {
+        // even if the favorites don't change, make sure we detect and handle a rotation if
+        // necessary. We do not need to call onRotation if the favorites change, because the data
+        // is cleared and reloaded.
+        onRotation()
+      }
+    }
+    else
+    {
+      onRotation()
     }
   }
   
