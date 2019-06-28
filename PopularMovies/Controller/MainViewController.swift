@@ -17,7 +17,8 @@ class MainViewController : UIViewController,
                            UICollectionViewDelegate,
                            UICollectionViewDataSource,
                            UICollectionViewDelegateFlowLayout,
-                           FavoriteStateChangeDelegate
+                           FavoriteStateChangeDelegate,
+                           OrientationChangeDelegate
 {
   @IBOutlet var moviePosterCollectionView: UICollectionView!
   
@@ -246,6 +247,8 @@ class MainViewController : UIViewController,
       
       destinationViewController.favoriteStateChangeDelegate = self
       
+      destinationViewController.orientationChangeDelegate = self
+      
       NotificationCenter.default.removeObserver(self,
                                                 name: NSNotification.Name.UIDeviceOrientationDidChange,
                                                 object: nil)
@@ -396,7 +399,7 @@ class MainViewController : UIViewController,
         landscapeScreenWidth = screenRect.size.width
         portraitScreenWidth = screenRect.size.height
       
-        lastOrientation = .landscapeLeft
+        onOrientationChange(.landscapeLeft)
       }
       else if isPortrait
       {
@@ -404,7 +407,7 @@ class MainViewController : UIViewController,
         portraitScreenWidth = screenRect.size.width
         landscapeScreenWidth = screenRect.size.height
       
-        lastOrientation = .portrait
+        onOrientationChange(.portrait)
       }
       else if isPortraitUpsideDown
       {
@@ -634,5 +637,10 @@ class MainViewController : UIViewController,
   func onFavoriteStateChange()
   {
     favoritesChange = true
+  }
+  
+  func onOrientationChange(_ newOrientation: UIDeviceOrientation)
+  {
+    lastOrientation = newOrientation
   }
 }
