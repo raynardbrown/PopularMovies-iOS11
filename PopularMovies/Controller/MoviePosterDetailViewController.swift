@@ -48,6 +48,8 @@ class MoviePosterDetailViewController : UIViewController,
   let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
   
   var favoriteStateChangeDelegate : FavoriteStateChangeDelegate?
+  
+  var orientationChangeDelegate : OrientationChangeDelegate!
 
   @IBOutlet var mainTableView: UITableView!
 
@@ -87,6 +89,26 @@ class MoviePosterDetailViewController : UIViewController,
     fetchReviews()
     
     DbUtils.queryFavoriteDb(context, movieListResultObject.getId(), onQueryDb)
+  }
+  
+  override func viewWillAppear(_ animated: Bool)
+  {
+    super.viewWillAppear(animated)
+    
+    // register for the orientation change notification
+    NotificationCenter.default.addObserver(self,
+                                           selector: #selector(MoviePosterDetailViewController.onRotation),
+                                           name: NSNotification.Name.UIDeviceOrientationDidChange,
+                                           object: nil)
+  }
+  
+  override func viewWillDisappear(_ animated: Bool)
+  {
+    super.viewWillDisappear(animated)
+    
+    NotificationCenter.default.removeObserver(self,
+                                              name: NSNotification.Name.UIDeviceOrientationDidChange,
+                                              object: nil)
   }
   
   func numberOfSections(in tableView: UITableView) -> Int
@@ -531,6 +553,24 @@ class MoviePosterDetailViewController : UIViewController,
           self.present(activityViewController, animated: true, completion: nil)
         }
       }
+    }
+  }
+  
+  @objc
+  func onRotation()
+  {
+    let isLandscape = UIDevice.current.orientation.isLandscape
+    let isPortrait = UIDevice.current.orientation == .portrait
+    
+    if isLandscape
+    {
+      // We are in landscape mode
+      self.orientationChangeDelegate.onOrientationChange(.landscapeLeft)
+    }
+    else if isPortrait
+    {
+      // We are in portrait mode
+      self.orientationChangeDelegate.onOrientationChange(.portrait)
     }
   }
 
