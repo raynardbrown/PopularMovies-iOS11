@@ -18,7 +18,8 @@ class MainViewController : UIViewController,
                            UICollectionViewDataSource,
                            UICollectionViewDelegateFlowLayout,
                            FavoriteStateChangeDelegate,
-                           OrientationChangeDelegate
+                           OrientationChangeDelegate,
+                           NetworkStateDelegate
 {
   @IBOutlet var moviePosterCollectionView: UICollectionView!
   
@@ -50,6 +51,8 @@ class MainViewController : UIViewController,
   
   private var actualOrientation : UIDeviceOrientation?
   
+  private var networkStateMonitor : NetworkStateMonitor!
+  
   override func viewDidLoad()
   {
     super.viewDidLoad()
@@ -76,6 +79,8 @@ class MainViewController : UIViewController,
     // 1) Get our initial orientation.
     //
     // 2) Calculate the size of the collection view cells.
+    
+    networkStateMonitor = NetworkStateMonitor(self)
   }
 
   override func didReceiveMemoryWarning()
@@ -642,5 +647,15 @@ class MainViewController : UIViewController,
   func onOrientationChange(_ newOrientation: UIDeviceOrientation)
   {
     lastOrientation = newOrientation
+  }
+  
+  func onNetworkConnected()
+  {
+    print("Network connected")
+  }
+  
+  func onNetworkDisconnected()
+  {
+    print("Network disconnected")
   }
 }
