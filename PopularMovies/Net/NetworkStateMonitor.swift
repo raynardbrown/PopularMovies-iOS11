@@ -7,12 +7,19 @@
 
 import Reachability
 
+/// NetworkStateMonitor is a class that monitors a device for network connectivity. Clients of this
+/// class can be notified of changes in the network state by registering themselves with this class.
 class NetworkStateMonitor
 {
   private var networkStateDelegate : NetworkStateDelegate
   
   private var reachability : Reachability?
   
+  /// Create a new NetworkStateMonitor that will send network state changes to the specified network
+  /// state delegate.
+  ///
+  /// - Parameter networkStateDelegate: the delegate that will receive network state changes from
+  /// this NetworkStateMonitor.
   init(_ networkStateDelegate : NetworkStateDelegate)
   {
     self.networkStateDelegate = networkStateDelegate
