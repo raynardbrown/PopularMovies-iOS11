@@ -52,6 +52,14 @@ class DbUtils
     }
   }
   
+  /// Check the favorite database for favorites returning any and all that exist.
+  ///
+  /// - Parameters:
+  ///   - context: the database context.
+  ///   - completionHandler: closure that is called after this database query completes.
+  ///   - movieFavoriteArray: the collection of favorites contained within the favorite database or
+  /// an empty array if there are no favorites or there is an error.
+  ///   - error: an optional error object if there were any errors during the database query.
   static func queryFavoriteDb(_ context : NSManagedObjectContext,
                               _ completionHandler : (_ movieFavoriteArray : [MovieFavorite],
                                                      _ error : Error?) -> Void) -> Void
