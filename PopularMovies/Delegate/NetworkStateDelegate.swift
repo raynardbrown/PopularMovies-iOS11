@@ -5,8 +5,6 @@
 //  Copyright © 2019 Raynard Brown. All rights reserved.
 //
 
-import Foundation
-
 /// NetworkStateDelegate is a protocol that clients should implement if they are interested in
 /// monitoring the network state in an application. In addition, clients must also register this
 /// protocol with a NetworkStateMonitor.
