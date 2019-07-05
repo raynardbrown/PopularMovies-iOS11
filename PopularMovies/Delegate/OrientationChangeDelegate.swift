@@ -9,5 +9,8 @@ import UIKit
 
 protocol OrientationChangeDelegate
 {
+  /// This function is called when the device changes orientation.
+  ///
+  /// - Parameter newOrientation: the new orientation of the device.
   func onOrientationChange(_ newOrientation : UIDeviceOrientation)
 }
