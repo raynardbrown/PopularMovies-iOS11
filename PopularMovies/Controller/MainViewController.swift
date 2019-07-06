@@ -53,6 +53,10 @@ class MainViewController : UIViewController,
   
   private var networkStateMonitor : NetworkStateMonitor!
   
+  /// Is there a network connection available. The initial state is false until a network connection
+  /// check is initiated.
+  private var isConnected : Bool = false
+  
   override func viewDidLoad()
   {
     super.viewDidLoad()
@@ -70,6 +74,10 @@ class MainViewController : UIViewController,
     // register the no favorites error message
     moviePosterCollectionView.register(NoFavoritesCollectionViewCell.nib,
                                        forCellWithReuseIdentifier: NoFavoritesCollectionViewCell.reuseIdentifier)
+    
+    // register the no network error message
+    moviePosterCollectionView.register(NoNetworkConnectionCollectionViewCell.nib,
+                                       forCellWithReuseIdentifier: NoNetworkConnectionCollectionViewCell.reuseIdentifier)
     
     configureCollectionView()
     
@@ -137,9 +145,12 @@ class MainViewController : UIViewController,
   {
     let setting : Int = popularMoviesSettings.getSortSetting()
     
-    if setting == PopularMoviesSettings.FAVORITES && movieListResultObjectArray.count == 0
+    if (setting == PopularMoviesSettings.FAVORITES && movieListResultObjectArray.count == 0) ||
+       (!isConnected && movieListResultObjectArray.count == 0)
     {
       // we are in the favorite state but the favorite database is empty
+      
+      // or we don't have a network connection and we have not downloaded any movie posters yet
       return 1
     }
     
@@ -155,6 +166,13 @@ class MainViewController : UIViewController,
     {
       let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NoFavoritesCollectionViewCell.reuseIdentifier,
                                                     for: indexPath) as! NoFavoritesCollectionViewCell
+      
+      return cell
+    }
+    else if !isConnected && movieListResultObjectArray.count == 0
+    {
+      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NoNetworkConnectionCollectionViewCell.reuseIdentifier,
+                                                    for: indexPath) as! NoNetworkConnectionCollectionViewCell
       
       return cell
     }
@@ -179,7 +197,8 @@ class MainViewController : UIViewController,
   {
     let setting : Int = popularMoviesSettings.getSortSetting()
     
-    if !(setting == PopularMoviesSettings.FAVORITES && movieListResultObjectArray.count == 0)
+    if !(setting == PopularMoviesSettings.FAVORITES && movieListResultObjectArray.count == 0) &&
+       !(!isConnected && movieListResultObjectArray.count == 0)
     {
       let movieListResultObject : MovieListResultObject = movieListResultObjectArray[indexPath.row]
       
@@ -212,9 +231,10 @@ class MainViewController : UIViewController,
   {
     let setting : Int = popularMoviesSettings.getSortSetting()
     
-    if setting == PopularMoviesSettings.FAVORITES && movieListResultObjectArray.count == 0
+    if (setting == PopularMoviesSettings.FAVORITES && movieListResultObjectArray.count == 0) ||
+       (!isConnected && movieListResultObjectArray.count == 0)
     {
-      // the no favorites error message should fill the size of the collection view
+      // the no favorites or no network error message should fill the size of the collection view
       return collectionView.frame.size
     }
 
@@ -651,11 +671,15 @@ class MainViewController : UIViewController,
   
   func onNetworkConnected()
   {
-    print("Network connected")
+    isConnected = true
+    if movieListResultObjectArray.isEmpty
+    {
+      dispatchMovieListResultRequest()
+    }
   }
   
   func onNetworkDisconnected()
   {
-    print("Network disconnected")
+    isConnected = false
   }
 }
