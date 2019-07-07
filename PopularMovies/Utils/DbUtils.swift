@@ -6,6 +6,7 @@
 //
 
 import CoreData
+import UIKit
 
 class DbUtils
 {
@@ -83,6 +84,51 @@ class DbUtils
     catch
     {
       completionHandler([], error)
+    }
+  }
+  
+  /// Get the image data from the favorite database.
+  ///
+  /// - Parameters:
+  ///   - context: the database context.
+  ///   - movieId: the identifier that uniquely identifies a movie in the favorite database.
+  ///   - imageView: the image view that will display the image data retrieved from the favorite
+  /// database.
+  ///   - completionHandler: closure that is called after this database query completes.
+  ///   - imageData: the image data retrieved from the database.
+  ///   - error: an optional error object if there were any errors during the database query.
+  static func queryFavoriteDb(_ context : NSManagedObjectContext,
+                              _ movieId : Int,
+                              _ imageView : UIImageView,
+                              _ completionHandler : (_ imageView : UIImageView,
+                                                     _ imageData : Data?,
+                                                     _ error : Error?) -> Void) -> Void
+  {
+    let favoriteRequest : NSFetchRequest<MovieFavorite> = MovieFavorite.fetchRequest()
+    
+    let predicate  = NSPredicate(format: "movie_id == %@", "\(movieId)")
+    
+    favoriteRequest.predicate = predicate
+    
+    do
+    {
+      let favorites = try context.fetch(favoriteRequest)
+      
+      if favorites.count > 0
+      {
+        // no errors, send the image data
+        completionHandler(imageView, favorites[0].movie_poster_image_data, nil)
+      }
+      else
+      {
+        // no image data in the database, should never happen
+        completionHandler(imageView, nil, nil)
+      }
+    }
+    catch
+    {
+      // error fetching the image data from the database
+      completionHandler(imageView, nil, error)
     }
   }
 
