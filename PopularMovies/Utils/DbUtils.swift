@@ -161,11 +161,13 @@ class DbUtils
   ///   - context: the database context.
   ///   - movieListResultObject: the object that describes the movie that will be added to the
   /// favorite database.
+  ///   - imageData: the movie poster image data.
   ///   - completionHandler: the closure that is called when the specified movie has been added to
   /// the favorite database.
   ///   - error: an optional error object if there were any errors adding the movie to the database.
   static func addFavorite(_ context : NSManagedObjectContext,
                           _ movieListResultObject : MovieListResultObject,
+                          _ imageData : Data,
                           _ completionHandler : (_ error : Error?) -> Void) -> Void
   {
     let movieFavorite : MovieFavorite = MovieFavorite(context: context)
@@ -174,8 +176,8 @@ class DbUtils
     
     movieFavorite.movie_plot_synopsis = movieListResultObject.getPlotSynopsis()
     
-    // TODO: add the actual image data
-    movieFavorite.movie_poster_image_data = Data(bytes: Array<UInt8>())
+    // add the image data
+    movieFavorite.movie_poster_image_data = imageData
     
     movieFavorite.movie_poster_url = movieListResultObject.getPosterPath()
     
