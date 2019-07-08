@@ -441,7 +441,7 @@ class MoviePosterDetailViewController : UIViewController,
       let resultJson : JSON = JSON(movieReviewResultsResponse.result.value!)
       
       let movieReviewResultArray : [MovieReviewResultObject] = TheMovieDatabaseUtils.movieReviewJsonStringToMovieReviewResultArray(resultJson,
-                                                                                                                                 movieListResultObject.getId())
+                                                                                                                                   movieListResultObject.getId())
       
       movieReviewResultObjectArray = movieReviewResultArray
       
@@ -462,7 +462,11 @@ class MoviePosterDetailViewController : UIViewController,
         if let imageData = UIImagePNGRepresentation(posterImage)
         {
           // add favorite (add movie to database)
-          DbUtils.addFavorite(context, movieListResultObject, imageData,
+          DbUtils.addFavorite(context,
+                              movieListResultObject,
+                              movieVideoResultObjectArray,
+                              movieReviewResultObjectArray,
+                              imageData,
           { (error) in
         
             if let error = error
