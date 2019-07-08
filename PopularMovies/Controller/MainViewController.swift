@@ -143,9 +143,7 @@ class MainViewController : UIViewController,
   func collectionView(_ collectionView: UICollectionView,
                       numberOfItemsInSection section: Int) -> Int
   {
-    let setting : Int = popularMoviesSettings.getSortSetting()
-    
-    if (setting == PopularMoviesSettings.FAVORITES && movieListResultObjectArray.count == 0) ||
+    if isFavoriteErrorState() ||
        isNetworkErrorState()
     {
       // we are in the favorite state but the favorite database is empty
@@ -160,9 +158,7 @@ class MainViewController : UIViewController,
   func collectionView(_ collectionView: UICollectionView,
                       cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
   {
-    let setting : Int = popularMoviesSettings.getSortSetting()
-    
-    if setting == PopularMoviesSettings.FAVORITES && movieListResultObjectArray.count == 0
+    if isFavoriteErrorState()
     {
       let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NoFavoritesCollectionViewCell.reuseIdentifier,
                                                     for: indexPath) as! NoFavoritesCollectionViewCell
@@ -212,9 +208,7 @@ class MainViewController : UIViewController,
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
   {
-    let setting : Int = popularMoviesSettings.getSortSetting()
-    
-    if !(setting == PopularMoviesSettings.FAVORITES && movieListResultObjectArray.count == 0) &&
+    if !isFavoriteErrorState() &&
        !isNetworkErrorState()
     {
       let movieListResultObject : MovieListResultObject = movieListResultObjectArray[indexPath.row]
@@ -246,9 +240,7 @@ class MainViewController : UIViewController,
                       layout collectionViewLayout: UICollectionViewLayout,
                       sizeForItemAt indexPath: IndexPath) -> CGSize
   {
-    let setting : Int = popularMoviesSettings.getSortSetting()
-    
-    if (setting == PopularMoviesSettings.FAVORITES && movieListResultObjectArray.count == 0) ||
+    if isFavoriteErrorState() ||
        isNetworkErrorState()
     {
       // the no favorites or no network error message should fill the size of the collection view
@@ -740,5 +732,15 @@ class MainViewController : UIViewController,
   func isNetworkErrorState() -> Bool
   {
     return (!isConnected && movieListResultObjectArray.count == 0)
+  }
+  
+  /// Return true if this view controller should display a favorite error message to the user.
+  ///
+  /// - Returns: true if this view controller should display a favorite error message to the user.
+  func isFavoriteErrorState() -> Bool
+  {
+    let setting : Int = popularMoviesSettings.getSortSetting()
+    
+    return (setting == PopularMoviesSettings.FAVORITES && movieListResultObjectArray.count == 0)
   }
 }
