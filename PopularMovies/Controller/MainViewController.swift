@@ -146,7 +146,7 @@ class MainViewController : UIViewController,
     let setting : Int = popularMoviesSettings.getSortSetting()
     
     if (setting == PopularMoviesSettings.FAVORITES && movieListResultObjectArray.count == 0) ||
-       (!isConnected && movieListResultObjectArray.count == 0)
+       isNetworkErrorState()
     {
       // we are in the favorite state but the favorite database is empty
       
@@ -169,7 +169,7 @@ class MainViewController : UIViewController,
       
       return cell
     }
-    else if !isConnected && movieListResultObjectArray.count == 0
+    else if isNetworkErrorState()
     {
       let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NoNetworkConnectionCollectionViewCell.reuseIdentifier,
                                                     for: indexPath) as! NoNetworkConnectionCollectionViewCell
@@ -215,7 +215,7 @@ class MainViewController : UIViewController,
     let setting : Int = popularMoviesSettings.getSortSetting()
     
     if !(setting == PopularMoviesSettings.FAVORITES && movieListResultObjectArray.count == 0) &&
-       !(!isConnected && movieListResultObjectArray.count == 0)
+       !isNetworkErrorState()
     {
       let movieListResultObject : MovieListResultObject = movieListResultObjectArray[indexPath.row]
       
@@ -249,7 +249,7 @@ class MainViewController : UIViewController,
     let setting : Int = popularMoviesSettings.getSortSetting()
     
     if (setting == PopularMoviesSettings.FAVORITES && movieListResultObjectArray.count == 0) ||
-       (!isConnected && movieListResultObjectArray.count == 0)
+       isNetworkErrorState()
     {
       // the no favorites or no network error message should fill the size of the collection view
       return collectionView.frame.size
@@ -732,5 +732,13 @@ class MainViewController : UIViewController,
   func onNetworkDisconnected()
   {
     isConnected = false
+  }
+  
+  /// Return true if this view controller should display a network error message to the user.
+  ///
+  /// - Returns: true if this view controller should display a network error message to the user.
+  func isNetworkErrorState() -> Bool
+  {
+    return (!isConnected && movieListResultObjectArray.count == 0)
   }
 }
