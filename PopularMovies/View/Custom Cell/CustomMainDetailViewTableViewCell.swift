@@ -29,7 +29,7 @@ class CustomMainDetailViewTableViewCell: UITableViewCell,
   {
     if let favoriteButtonDelegate = favoriteButtonDelegate
     {
-      favoriteButtonDelegate.onFavoriteButtonClicked(sender)
+      favoriteButtonDelegate.onFavoriteButtonClicked(sender, moviePosterImage)
     }
   }
 }
