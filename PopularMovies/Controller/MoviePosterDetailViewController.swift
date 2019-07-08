@@ -453,26 +453,32 @@ class MoviePosterDetailViewController : UIViewController,
     }
   }
   
-  func onFavoriteButtonClicked(_ sender: Any)
+  func onFavoriteButtonClicked(_ sender: Any, _ posterImageView : UIImageView)
   {
     if favoriteState == .Favorite
     {
-      // add favorite (add movie to database)
-      DbUtils.addFavorite(context, movieListResultObject,
-      { (error) in
+      if let posterImage = posterImageView.image
+      {
+        if let imageData = UIImagePNGRepresentation(posterImage)
+        {
+          // add favorite (add movie to database)
+          DbUtils.addFavorite(context, movieListResultObject, imageData,
+          { (error) in
         
-        if let error = error
-        {
-          print("Error saving favorite to database \(error)")
-        }
-        else
-        {
-          // update the favorite button
-          favoriteState = .Unfavorite
+            if let error = error
+            {
+              print("Error saving favorite to database \(error)")
+            }
+            else
+            {
+              // update the favorite button
+              favoriteState = .Unfavorite
             
-          mainTableView.reloadData()
+              mainTableView.reloadData()
+            }
+          })
         }
-      })
+      }
     }
     else
     {
