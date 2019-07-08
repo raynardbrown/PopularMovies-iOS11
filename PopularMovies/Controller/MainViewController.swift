@@ -181,13 +181,30 @@ class MainViewController : UIViewController,
       let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCollectionViewCell.reuseIdentifier,
                                                     for: indexPath) as! MovieCollectionViewCell
     
-      let movePosterRelativePath : String = movieListResultObjectArray[indexPath.row].getPosterPath()
+      let moviePosterRelativePath : String = movieListResultObjectArray[indexPath.row].getPosterPath()
     
-      let moviePosterPath : String = TheMovieDatabaseUtils.getMoviePosterUriFromPath(movePosterRelativePath,
+      let moviePosterPath : String = TheMovieDatabaseUtils.getMoviePosterUriFromPath(moviePosterRelativePath,
                                                                                      posterWidth)
       
-      cell.movieCollectionImageView.sd_setImage(with: URL(string: moviePosterPath),
-                                                placeholderImage : UIImage(named: "image_placeholder.png"))
+      if popularMoviesSettings.getSortSetting() == PopularMoviesSettings.FAVORITES
+      {
+        // set the place holder for now and populate the imageView with the image data from the
+        // favorite database.
+        
+        cell.movieCollectionImageView.image = UIImage(named: "image_placeholder.png")
+        
+        let movieId : Int = movieListResultObjectArray[indexPath.row].getId()
+        
+        DbUtils.queryFavoriteDb(context,
+                                movieId,
+                                cell.movieCollectionImageView,
+                                onQueryDb)
+      }
+      else
+      {
+        cell.movieCollectionImageView.sd_setImage(with: URL(string: moviePosterPath),
+                                                  placeholderImage : UIImage(named: "image_placeholder.png"))
+      }
       
       return cell
     }
