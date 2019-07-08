@@ -160,6 +160,8 @@ class DbUtils
   /// - Parameters:
   ///   - context: the database context.
   ///   - movieListResultObject: the object that describes the movie that will be added to the
+  ///   - movieVideoResultObjectArray: the collection of trailers associated with the specified
+  /// movie that will be saved to the favorite database.
   /// favorite database.
   ///   - imageData: the movie poster image data.
   ///   - completionHandler: the closure that is called when the specified movie has been added to
@@ -167,12 +169,15 @@ class DbUtils
   ///   - error: an optional error object if there were any errors adding the movie to the database.
   static func addFavorite(_ context : NSManagedObjectContext,
                           _ movieListResultObject : MovieListResultObject,
+                          _ movieVideoResultObjectArray : [MovieVideoResultObject],
                           _ imageData : Data,
                           _ completionHandler : (_ error : Error?) -> Void) -> Void
   {
     let movieFavorite : MovieFavorite = MovieFavorite(context: context)
     
-    movieFavorite.movie_id = Int32(movieListResultObject.getId())
+    let movieId = Int32(movieListResultObject.getId())
+    
+    movieFavorite.movie_id = Int32(movieId)
     
     movieFavorite.movie_plot_synopsis = movieListResultObject.getPlotSynopsis()
     
@@ -186,6 +191,18 @@ class DbUtils
     movieFavorite.movie_title = movieListResultObject.getOriginalTitle()
     
     movieFavorite.movie_user_rating = movieListResultObject.getUserRating()
+    
+    // add the trailers
+    for movieVideoResultObject in movieVideoResultObjectArray
+    {
+      let movieTrailer : MovieTrailers = MovieTrailers(context: context)
+      
+      movieTrailer.movie_id = movieId
+      
+      movieTrailer.trailer_clip_title = movieVideoResultObject.getVideoClipName()
+      
+      movieTrailer.trailer_youtube_key = movieVideoResultObject.getKey()
+    }
     
     // save the changes
     DbUtils.saveDb(context, completionHandler)
