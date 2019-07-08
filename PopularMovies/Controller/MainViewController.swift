@@ -496,7 +496,11 @@ class MainViewController : UIViewController,
         // we do not clear the orientation flag here because at this point we have not given the
         // collection view any data so "sizeForItemAt" would never have been triggered.
         
-        dispatchMovieListResultRequest()
+        if isConnected
+        {
+          // ensure we are connected before attempting to fetch remote data
+          dispatchMovieListResultRequest()
+        }
       }
       else
       {
@@ -515,13 +519,16 @@ class MainViewController : UIViewController,
     
     if !(setting == PopularMoviesSettings.FAVORITES)
     {
-      if setting == PopularMoviesSettings.MOST_POPULAR
+      if isConnected
       {
-        fetchMostPopular()
-      }
-      else
-      {
-        fetchTopRated()
+        if setting == PopularMoviesSettings.MOST_POPULAR
+        {
+          fetchMostPopular()
+        }
+        else
+        {
+          fetchTopRated()
+        }
       }
     }
     else
