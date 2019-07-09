@@ -100,6 +100,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="mainTableView" destination="euk-kL-HEW" id="JlE-zh-b5m"/>
+                        <outlet property="shareButton" destination="QJL-bE-woK" id="5KO-CU-Icl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uIa-yJ-rfr" userLabel="First Responder" sceneMemberID="firstResponder"/>
