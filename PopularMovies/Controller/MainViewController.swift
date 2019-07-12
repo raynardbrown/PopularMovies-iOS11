@@ -665,6 +665,7 @@ class MainViewController : UIViewController,
       {
         // there is no image data in the database, should never happen.
         // TODO: Handle this case?
+        // TODO: Maybe handle this case by creating a database error place holder image
       }
     }
   }
