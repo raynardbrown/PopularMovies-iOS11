@@ -670,6 +670,13 @@ class MainViewController : UIViewController,
     }
   }
   
+  /// Convert the array of Core Data movie favorite objects into an array of movie list result
+  /// objects.
+  ///
+  /// - Parameter movieFavoriteArray: the array of Core Data favorite objects that will be converted
+  /// to movie list result objects.
+  /// - Returns: an array of movie list result objects that were converted from the specified array
+  /// of Core Data favorite objects.
   func favoritesToMovieResults(_ movieFavoriteArray : [MovieFavorite]) -> [MovieListResultObject]
   {
     var movieResultArray : [MovieListResultObject] = []
