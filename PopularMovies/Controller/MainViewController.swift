@@ -642,6 +642,16 @@ class MainViewController : UIViewController,
     }
   }
   
+  /// Completion handler that is called in response to querying the favorite database for image data
+  /// for a client specified movie poster.
+  ///
+  /// - Parameters:
+  ///   - imageView: the image view that will hold the image data that was retrieved from the
+  /// favorite database.
+  ///   - imageData: the image data for the client specified movie poster or nil if the movie
+  /// doesn't have an associated movie poster.
+  ///   - error: an error object describing the error retrieving the image data or nil if there were
+  /// no issues retrieving the image data from the favorite database.
   func onQueryDb(_ imageView : UIImageView,
                  _ imageData : Data?,
                  _ error : Error?) -> Void
