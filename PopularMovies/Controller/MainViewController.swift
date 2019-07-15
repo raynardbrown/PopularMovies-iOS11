@@ -613,6 +613,14 @@ class MainViewController : UIViewController,
     self.present(alert, animated: true, completion: nil)
   }
   
+  /// Completion handler that is called in response to a query for the movie favorites within the
+  /// database.
+  ///
+  /// - Parameters:
+  ///   - movieFavoriteArray: an array of movie favorites from the database or an empty array if
+  /// there are no favorites in the database.
+  ///   - error: an Error object indicating issues fetching the favorites from the database or nil
+  /// if there are no issues fetching favorites from the database.
   func onQueryDb(_ movieFavoriteArray : [MovieFavorite], _ error : Error?) -> Void
   {
     if let error = error
