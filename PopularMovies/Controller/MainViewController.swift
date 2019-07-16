@@ -613,6 +613,11 @@ class MainViewController : UIViewController,
     self.present(alert, animated: true, completion: nil)
   }
   
+  @IBAction func onInfoNavItemClick(_ sender: Any)
+  {
+    
+  }
+  
   /// Completion handler that is called in response to a query for the movie favorites within the
   /// database.
   ///
