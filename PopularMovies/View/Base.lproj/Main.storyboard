@@ -115,6 +115,21 @@
             </objects>
             <point key="canvasLocation" x="1783.2" y="-584.25787106446785"/>
         </scene>
+        <!--App Info View Controller-->
+        <scene sceneID="lbV-fL-oxg">
+            <objects>
+                <viewController id="1gA-tH-tMn" customClass="AppInfoViewController" customModule="PopularMovies" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9be-Qv-Tk0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Wzt-jI-35J"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dgI-g0-uX3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2566" y="-584"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Gt0-Xo-RcX">
             <objects>
