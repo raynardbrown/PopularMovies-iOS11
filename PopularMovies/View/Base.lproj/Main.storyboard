@@ -118,17 +118,56 @@
         <!--App Info View Controller-->
         <scene sceneID="lbV-fL-oxg">
             <objects>
-                <viewController id="1gA-tH-tMn" customClass="AppInfoViewController" customModule="PopularMovies" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MySBId" id="1gA-tH-tMn" customClass="AppInfoViewController" customModule="PopularMovies" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9be-Qv-Tk0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xuQ-cX-uMX" userLabel="App Info Content View">
+                                <rect key="frame" x="37.5" y="231" width="300" height="205"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="powered_by_the_movie_db" translatesAutoresizingMaskIntoConstraints="NO" id="mu4-Xi-uaM" userLabel="Powered By TMDb Logo Image View">
+                                        <rect key="frame" x="16" y="16" width="268" height="120"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="120" id="b8D-N9-PXS"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This product uses the TMDb API but is not endorsed or certified by TMDb." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yOC-Cj-5kK" userLabel="TMDb Disclaimer Label">
+                                        <rect key="frame" x="16" y="152" width="268" height="37"/>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="yOC-Cj-5kK" firstAttribute="leading" secondItem="xuQ-cX-uMX" secondAttribute="leading" constant="16" id="8tr-lq-o5t"/>
+                                    <constraint firstAttribute="trailing" secondItem="yOC-Cj-5kK" secondAttribute="trailing" constant="16" id="OFL-4V-0e8"/>
+                                    <constraint firstItem="yOC-Cj-5kK" firstAttribute="top" secondItem="mu4-Xi-uaM" secondAttribute="bottom" constant="16" id="QyR-bv-Nk9"/>
+                                    <constraint firstItem="mu4-Xi-uaM" firstAttribute="leading" secondItem="xuQ-cX-uMX" secondAttribute="leading" constant="16" id="Rme-Oq-P1U"/>
+                                    <constraint firstAttribute="bottom" secondItem="yOC-Cj-5kK" secondAttribute="bottom" constant="16" id="Shs-co-wf0"/>
+                                    <constraint firstAttribute="width" constant="300" id="TdN-4u-bAb"/>
+                                    <constraint firstItem="mu4-Xi-uaM" firstAttribute="top" secondItem="xuQ-cX-uMX" secondAttribute="top" constant="16" id="b9G-oo-SLK"/>
+                                    <constraint firstItem="mu4-Xi-uaM" firstAttribute="centerX" secondItem="xuQ-cX-uMX" secondAttribute="centerX" id="rDf-yI-KLp"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Wzt-jI-35J" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="xuQ-cX-uMX" secondAttribute="bottom" constant="16" id="6fz-1g-0fS"/>
+                            <constraint firstItem="xuQ-cX-uMX" firstAttribute="centerX" secondItem="9be-Qv-Tk0" secondAttribute="centerX" id="lJP-XH-aAm"/>
+                            <constraint firstItem="xuQ-cX-uMX" firstAttribute="centerY" secondItem="9be-Qv-Tk0" secondAttribute="centerY" id="qxf-75-FYU"/>
+                            <constraint firstItem="xuQ-cX-uMX" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Wzt-jI-35J" secondAttribute="top" constant="16" id="wqH-Zf-OWu"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Wzt-jI-35J"/>
                     </view>
+                    <connections>
+                        <outlet property="appInfoView" destination="xuQ-cX-uMX" id="gMF-Ti-LaY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dgI-g0-uX3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2566" y="-584"/>
+            <point key="canvasLocation" x="2565.5999999999999" y="-584.25787106446785"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Gt0-Xo-RcX">
@@ -158,6 +197,7 @@
     </scenes>
     <resources>
         <image name="info_icon" width="24" height="24"/>
+        <image name="powered_by_the_movie_db" width="135" height="53"/>
         <image name="share_icon_white" width="24" height="24"/>
         <image name="sort_icon_white" width="24" height="24"/>
     </resources>
