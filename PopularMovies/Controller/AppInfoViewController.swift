@@ -9,7 +9,9 @@ import UIKit
 
 // Layout information
 //
-// App Info Content View - The Content View for this view controller that sits right below the root
+// - App Info Content View -
+//
+// The Content View for this view controller that sits right below the root
 // view. This view has the following layout properties
 //
 // Centered within the root view.
@@ -19,6 +21,22 @@ import UIKit
 //
 // Note: These two margins are either really large or at least 16 which effectively shrinks the
 // content view vertically if its child views don't need the extra space.
+//
+// - Powered By TMDb Logo Image View -
+//
+// The image view that holds the movie database compliance logo.
+//
+// Content Mode - Aspect Fit
+// Aligned horizontally within the "App Info Content View".
+// Leading margin     = 16
+// Trailing margin    = 16
+// Height            >= 120
+//
+// Note: The height setting is extremely important because the content mode is set to aspect fit. In
+// this mode the image is set to its height/width of the content (the image) while maintaining the
+// the aspect ratio. Since we want the image to stretch the width of the "App Info Content View" and
+// grow vertically while maintaining the aspect ratio, the a large height value is required since
+// autolayout will not do it with leading and trailing margins alone.
 
 class AppInfoViewController : UIViewController
 {
