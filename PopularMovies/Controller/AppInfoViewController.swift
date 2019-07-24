@@ -37,6 +37,14 @@ import UIKit
 // the aspect ratio. Since we want the image to stretch the width of the "App Info Content View" and
 // grow vertically while maintaining the aspect ratio, the a large height value is required since
 // autolayout will not do it with leading and trailing margins alone.
+//
+// - TMDb Disclaimer Label -
+//
+// Lines set to 0 - for unlimited number of lines
+// Leading margin     = 16
+// Trailing margin    = 16
+// Top margin         = 16 (attached to bottom of "Powered By TMDb Logo Image View")
+// Bottom margin      = 16 (attached to bottom of "App Info Content View"
 
 class AppInfoViewController : UIViewController
 {
