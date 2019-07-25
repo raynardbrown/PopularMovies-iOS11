@@ -615,7 +615,28 @@ class MainViewController : UIViewController,
   
   @IBAction func onInfoNavItemClick(_ sender: Any)
   {
+    let alert = self.storyboard?.instantiateViewController(withIdentifier: "MySBId") as! AppInfoViewController
     
+    alert.providesPresentationContextTransitionStyle = true
+    alert.definesPresentationContext = true
+    alert.modalPresentationStyle = .overCurrentContext
+    alert.modalTransitionStyle = .crossDissolve
+    
+    self.present(alert, animated: true)
+    {
+      alert.view.superview?.isUserInteractionEnabled = true
+      
+      // add an action to dismiss the app info alert when the user taps inside or outside of the app
+      // info alert.
+      alert.view.superview?.addGestureRecognizer(UITapGestureRecognizer(target: self,
+                                                                        action: #selector(self.alertControllerBackgroundTapped)))
+    }
+  }
+  
+  @objc
+  func alertControllerBackgroundTapped()
+  {
+    self.dismiss(animated: true, completion: nil)
   }
   
   /// Completion handler that is called in response to a query for the movie favorites within the
