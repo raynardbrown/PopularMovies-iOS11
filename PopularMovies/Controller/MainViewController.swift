@@ -632,7 +632,8 @@ class MainViewController : UIViewController,
                                                                         action: #selector(self.alertControllerBackgroundTapped)))
     }
   }
-  
+  /// Triggered when the user taps inside or outside of the app info alert. This implementation
+  /// dismisses the app info alert.
   @objc
   func alertControllerBackgroundTapped()
   {
