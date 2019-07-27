@@ -52,7 +52,8 @@ class MoviePosterDetailViewController : UIViewController,
   var orientationChangeDelegate : OrientationChangeDelegate!
 
   @IBOutlet var mainTableView: UITableView!
-
+  @IBOutlet var shareButton: UIBarButtonItem!
+  
   override func viewDidLoad()
   {
     super.viewDidLoad()
