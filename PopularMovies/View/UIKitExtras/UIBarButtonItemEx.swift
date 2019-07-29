@@ -15,7 +15,8 @@ class UIBarButtonItemEx
   }
   
   static func setVisible(_ navItem : UINavigationItem,
-                         _ barButtonItem : UIBarButtonItem)
+                         _ barButtonItem : UIBarButtonItem,
+                         _ visible : Bool)
   {
     
   }
