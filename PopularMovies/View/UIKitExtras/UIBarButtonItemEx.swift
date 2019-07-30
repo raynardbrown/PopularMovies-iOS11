@@ -9,6 +9,12 @@ import UIKit
 
 class UIBarButtonItemEx
 {
+  enum BarButtonLocation
+  {
+    case RightSide
+    case LeftSide
+  }
+  
   private init()
   {
     
@@ -16,6 +22,7 @@ class UIBarButtonItemEx
   
   static func setVisible(_ navItem : UINavigationItem,
                          _ barButtonItem : UIBarButtonItem,
+                         _ barButtonLocation : BarButtonLocation,
                          _ visible : Bool)
   {
     
