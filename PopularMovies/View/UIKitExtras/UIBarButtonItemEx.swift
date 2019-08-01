@@ -20,6 +20,16 @@ class UIBarButtonItemEx
     
   }
   
+  /// Toggle the visibility state of the specified bar button item.
+  ///
+  /// - Parameters:
+  ///   - navItem: The navigation item where the specified bar button item resides.
+  ///   - barButtonItem: the bar button item whose visibility state will be toggled.
+  ///   - barButtonLocation: the location within the specified navigation item where the specified
+  /// bare button item resides.
+  ///   - visible: the new visibility state of the specified bar button item. If this parameter is
+  /// true then the bar button will become visible within the specified navigation item, it will
+  /// become invisible otherwise.
   static func setVisible(_ navItem : UINavigationItem,
                          _ barButtonItem : UIBarButtonItem,
                          _ barButtonLocation : BarButtonLocation,
