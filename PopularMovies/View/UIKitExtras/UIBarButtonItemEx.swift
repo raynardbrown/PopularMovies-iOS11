@@ -9,6 +9,10 @@ import UIKit
 
 class UIBarButtonItemEx
 {
+  /// The location of a bar button within a navigation item.
+  ///
+  /// - RightSide: a bar button is located on the right-hand side portion of a navigation item.
+  /// - LeftSide: a bar button is located on the left-hand side portion of a navigation item.
   enum BarButtonLocation
   {
     case RightSide
