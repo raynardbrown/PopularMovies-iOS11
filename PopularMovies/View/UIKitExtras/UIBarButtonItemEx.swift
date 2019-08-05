@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// UIBarButtonItemEx is a class that adds additional functionality to the UIBarButtonItem class.
 class UIBarButtonItemEx
 {
   /// The location of a bar button within a navigation item.
