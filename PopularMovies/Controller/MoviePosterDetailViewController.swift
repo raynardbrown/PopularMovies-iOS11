@@ -50,6 +50,24 @@ class MoviePosterDetailViewController : UIViewController,
   var favoriteStateChangeDelegate : FavoriteStateChangeDelegate?
   
   var orientationChangeDelegate : OrientationChangeDelegate!
+  
+  var queryTaskComplete : Bool = false
+  
+  var trailerTaskComplete : Bool = false
+  
+  var reviewTaskComplete : Bool = false
+  
+  var moviePosterLoadingComplete : Bool = false
+  
+  var showFavoriteButton : Bool = false
+  
+  var enableShareButton : Bool = false
+  
+  var moviePosterImage : UIImage? = nil
+  
+  var moviePosterImageView : UIImageView = UIImageView()
+  
+  var moviePosterImageData : Data? = nil
 
   @IBOutlet var mainTableView: UITableView!
   @IBOutlet var shareButton: UIBarButtonItem!
