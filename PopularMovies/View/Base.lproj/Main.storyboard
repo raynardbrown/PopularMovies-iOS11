@@ -67,8 +67,10 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="infoBarButtonItem" destination="DeE-yL-1aB" id="zLL-RB-ivq"/>
                         <outlet property="moviePosterCollectionView" destination="O6Z-Ol-KhA" id="wGx-ax-z8f"/>
                         <outlet property="moviePosterCollectionViewFlowLayout" destination="1Ki-ae-QKf" id="tzE-p4-nRF"/>
+                        <outlet property="sortBarButtonItem" destination="VxU-d5-Xro" id="VyP-RH-7nH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
