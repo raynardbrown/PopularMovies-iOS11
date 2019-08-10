@@ -25,6 +25,8 @@ class MainViewController : UIViewController,
   
   // Gives us access to the itemSize property
   @IBOutlet var moviePosterCollectionViewFlowLayout: UICollectionViewFlowLayout!
+  @IBOutlet var infoBarButtonItem: UIBarButtonItem!
+  @IBOutlet var sortBarButtonItem: UIBarButtonItem!
   
   private var movieListResultObjectArray : [MovieListResultObject] = [MovieListResultObject]()
   
