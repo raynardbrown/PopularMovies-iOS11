@@ -67,6 +67,9 @@ class MainViewController : UIViewController,
     moviePosterCollectionView.delegate = self
     moviePosterCollectionView.dataSource = self
     
+    infoBarButtonItem.title = ""
+    sortBarButtonItem.title = ""
+    
     // default sort setting
     popularMoviesSettings = PopularMoviesSettings(PopularMoviesSettings.MOST_POPULAR)
     
