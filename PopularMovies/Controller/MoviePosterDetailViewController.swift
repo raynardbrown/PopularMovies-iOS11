@@ -81,6 +81,8 @@ class MoviePosterDetailViewController : UIViewController,
     self.mainTableView.delegate = self
     self.mainTableView.dataSource = self
     
+    shareButton.title = ""
+    
     // register the main cell
     mainTableView.register(CustomMainDetailViewTableViewCell.nib,
                            forCellReuseIdentifier: CustomMainDetailViewTableViewCell.reuseIdentifier)
