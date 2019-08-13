@@ -81,6 +81,7 @@ class MoviePosterDetailViewController : UIViewController,
     self.mainTableView.delegate = self
     self.mainTableView.dataSource = self
     
+    // clear the title from the bar button so that the text does not show from the behind the image
     shareButton.title = ""
     
     // register the main cell
