@@ -67,6 +67,7 @@ class MainViewController : UIViewController,
     moviePosterCollectionView.delegate = self
     moviePosterCollectionView.dataSource = self
     
+    // clear the title from the bar button so that the text does not show from the behind the image
     infoBarButtonItem.title = ""
     sortBarButtonItem.title = ""
     
