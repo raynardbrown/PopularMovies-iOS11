@@ -106,10 +106,6 @@ class MoviePosterDetailViewController : UIViewController,
     
     configureTableView()
     
-    fetchTrailers()
-    
-    fetchReviews()
-    
     DbUtils.queryFavoriteDb(context, movieListResultObject.getId(), onQueryDb)
   }
   
@@ -555,7 +551,17 @@ class MoviePosterDetailViewController : UIViewController,
         
         favoriteState = .Favorite
         
-        mainTableView.reloadData()
+        // fetch trailers
+        fetchTrailers()
+        
+        // fetch reviews
+        fetchReviews()
+        
+        queryTaskComplete = true
+        
+        notifyTaskComplete()
+        
+        dispatchMoviePosterImageFetch()
       }
     }
   }
