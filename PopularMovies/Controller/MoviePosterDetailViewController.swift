@@ -82,7 +82,9 @@ class MoviePosterDetailViewController : UIViewController,
     self.mainTableView.dataSource = self
     
     // clear the title from the bar button so that the text does not show from the behind the image
-    shareButton.title = ""
+    // Note: title must be nil not the empty string otherwise on certain platforms (iOS 10) the
+    //       bar button icons will be displayed between the nav bar and the main content view.
+    shareButton.title = nil
     
     // register the main cell
     mainTableView.register(CustomMainDetailViewTableViewCell.nib,
