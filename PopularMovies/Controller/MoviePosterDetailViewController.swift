@@ -613,6 +613,19 @@ class MoviePosterDetailViewController : UIViewController,
     
     mainTableView.reloadData()
   }
+  
+  func notifyTaskComplete() -> Void
+  {
+    if queryTaskComplete &&
+       reviewTaskComplete &&
+       trailerTaskComplete &&
+       moviePosterLoadingComplete
+    {
+      onAllTasksComplete()
+    }
+    
+    UIBarButtonItemEx.setVisible(self.navigationItem, shareButton, .RightSide, enableShareButton)
+  }
 
   override func didReceiveMemoryWarning()
   {
