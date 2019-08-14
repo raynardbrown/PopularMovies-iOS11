@@ -68,8 +68,10 @@ class MainViewController : UIViewController,
     moviePosterCollectionView.dataSource = self
     
     // clear the title from the bar button so that the text does not show from the behind the image
-    infoBarButtonItem.title = ""
-    sortBarButtonItem.title = ""
+    // Note: title must be nil not the empty string otherwise on certain platforms (iOS 10) the
+    //       bar button icons will be displayed between the nav bar and the main content view.
+    infoBarButtonItem.title = nil
+    sortBarButtonItem.title = nil
     
     // default sort setting
     popularMoviesSettings = PopularMoviesSettings(PopularMoviesSettings.MOST_POPULAR)
