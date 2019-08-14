@@ -606,6 +606,25 @@ class MoviePosterDetailViewController : UIViewController,
     }
   }
   
+  func onMoviePosterCompleteHandler(_ imagePoster : UIImage?,
+                                    _ error : Error?,
+                                    _ cacheType : SDImageCacheType,
+                                    _ imageUrl : URL?) -> Void
+  {
+    if let error = error
+    {
+      // TODO: Handle error
+      print("Error downloading remote image: \(error)")
+    }
+    else if let imagePoster = imagePoster
+    {
+      moviePosterImage = imagePoster
+      moviePosterLoadingComplete = true
+      
+      notifyTaskComplete()
+    }
+  }
+  
   func onAllTasksComplete() -> Void
   {
     // it's safe to show the favorite button now
