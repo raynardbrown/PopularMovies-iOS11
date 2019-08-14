@@ -606,6 +606,37 @@ class MoviePosterDetailViewController : UIViewController,
     }
   }
   
+  func dispatchMoviePosterImageFetch() -> Void
+  {
+    if let moviePosterImageData = moviePosterImageData
+    {
+      // use the image data from the local database
+      
+      if moviePosterImageData.count > 0
+      {
+        moviePosterImage = UIImage(data: moviePosterImageData)
+        
+        moviePosterLoadingComplete = true
+        
+        notifyTaskComplete()
+      }
+    }
+    else
+    {
+      // grab the image data remotely
+      
+      let moviePosterRelativePath : String = movieListResultObject.getPosterPath()
+      
+      let moviePosterPath : String = TheMovieDatabaseUtils.getMoviePosterUriFromPath(moviePosterRelativePath,
+                                                                                     posterWidth)
+      
+      moviePosterImageView.sd_setImage(with: URL(string: moviePosterPath),
+                                       placeholderImage : UIImage(named: "image_placeholder.png"),
+                                       options: SDWebImageOptions(rawValue: 0),
+                                       completed: onMoviePosterCompleteHandler)
+    }
+  }
+  
   func onMoviePosterCompleteHandler(_ imagePoster : UIImage?,
                                     _ error : Error?,
                                     _ cacheType : SDImageCacheType,
