@@ -449,6 +449,9 @@ class MoviePosterDetailViewController : UIViewController,
       
       movieVideoResultObjectArray = movieTrailerResultArray
       
+      // we have trailers so there is something to share
+      enableShareButton = true
+      
       trailerTaskComplete = true
       notifyTaskComplete()
     }
