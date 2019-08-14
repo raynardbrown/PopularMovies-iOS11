@@ -468,7 +468,8 @@ class MoviePosterDetailViewController : UIViewController,
       
       movieReviewResultObjectArray = movieReviewResultArray
       
-      mainTableView.reloadData()
+      reviewTaskComplete = true
+      notifyTaskComplete()
     }
     else
     {
