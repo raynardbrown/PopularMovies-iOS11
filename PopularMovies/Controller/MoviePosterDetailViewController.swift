@@ -375,14 +375,6 @@ class MoviePosterDetailViewController : UIViewController,
   {
     cell.moviePosterTitleLabel.text = movieListResultObject.getOriginalTitle()
     
-    let moviePosterRelativePath : String = movieListResultObject.getPosterPath()
-    
-    let moviePosterPath : String = TheMovieDatabaseUtils.getMoviePosterUriFromPath(moviePosterRelativePath,
-                                                                                   posterWidth)
-    
-    cell.moviePosterImage.sd_setImage(with: URL(string: moviePosterPath),
-                                      placeholderImage : UIImage(named: "image_placeholder.png"))
-    
     cell.moviePosterReleaseDateLabel.text = movieListResultObject.getReleaseDate()
     
     cell.moviePosterUserRatingLabel.text = movieListResultObject.getUserRating()
@@ -393,18 +385,31 @@ class MoviePosterDetailViewController : UIViewController,
     {
       cell.moviePosterFavoriteButton.setTitle("Favorite", for: .normal)
       
-      cell.moviePosterFavoriteButton.isHidden = false
+      if moviePosterLoadingComplete
+      {
+        cell.moviePosterImage.image = moviePosterImageView.image
+      }
+      else
+      {
+        cell.moviePosterImage.image = UIImage(named: "image_placeholder.png")
+      }
     }
     else if favoriteState == .Unfavorite
     {
       cell.moviePosterFavoriteButton.setTitle("Unfavorite", for: .normal)
       
-      cell.moviePosterFavoriteButton.isHidden = false
+      if moviePosterLoadingComplete
+      {
+        cell.moviePosterImage.image = moviePosterImage
+      }
+      else
+      {
+        cell.moviePosterImage.image = UIImage(named: "image_placeholder.png")
+      }
     }
-    else
-    {
-      cell.moviePosterFavoriteButton.isHidden = true
-    }
+    
+    // conditionally show the favorite button
+    cell.moviePosterFavoriteButton.isHidden = !showFavoriteButton
     
     cell.favoriteButtonDelegate = self
     
