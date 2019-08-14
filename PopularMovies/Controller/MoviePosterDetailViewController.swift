@@ -605,6 +605,14 @@ class MoviePosterDetailViewController : UIViewController,
       self.orientationChangeDelegate.onOrientationChange(.portrait)
     }
   }
+  
+  func onAllTasksComplete() -> Void
+  {
+    // it's safe to show the favorite button now
+    showFavoriteButton = true
+    
+    mainTableView.reloadData()
+  }
 
   override func didReceiveMemoryWarning()
   {
