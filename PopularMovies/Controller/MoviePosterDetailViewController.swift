@@ -557,6 +557,33 @@ class MoviePosterDetailViewController : UIViewController,
       }
     }
   }
+  
+  func onQueryDb(_ imageView : UIImageView,
+                 _ imageData : Data?,
+                 _ error : Error?) -> Void
+  {
+    if let error = error
+    {
+      print("Error fetching favorite data from context \(error)")
+    }
+    else
+    {
+      // no errors
+      
+      if let imageData = imageData
+      {
+        // there is image data in the database
+        
+        // set the image view
+        imageView.image = UIImage(data: imageData)
+      }
+      else
+      {
+        // there is no image data in the database, should never happen.
+        // TODO: Handle this case?
+      }
+    }
+  }
 
   @IBAction func onShareButtonClicked(_ sender: Any)
   {
