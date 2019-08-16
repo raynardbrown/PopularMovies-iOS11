@@ -196,6 +196,49 @@ class DbUtils
       completionHandler(error)
     }
   }
+  
+  /// Check the favorite database for the favorite specified by the movie id returning the favorite
+  /// if it exists.
+  ///
+  /// - Parameters:
+  ///   - context: the database context.
+  ///   - completionHandler: closure that is called after this database query completes.
+  ///   - movieFavorite: the favorite specified by the movie id contained within the favorite
+  /// database or nil if the specified favorite does not exist or there is an error.
+  ///   - error: an optional error object if there were any errors during the database query.
+  static func getFavorite(_ context : NSManagedObjectContext,
+                          _ movieId : Int,
+                          _ completionHandler : (_ movieFavorite : MovieFavorite?,
+                                                 _ error : Error?) -> Void) -> Void
+  {
+    let favoriteRequest : NSFetchRequest<MovieFavorite> = MovieFavorite.fetchRequest()
+    
+    // match MovieFavorite entity objects that have the movie_id property specified by the parameter
+    let formatString = "movie_id == %@"
+    
+    let predicate  = NSPredicate(format: formatString, "\(movieId)")
+    
+    favoriteRequest.predicate = predicate
+    
+    do
+    {
+      let favorite = try context.fetch(favoriteRequest)
+      
+      if favorite.count > 0
+      {
+        completionHandler(favorite[0], nil)
+      }
+      else
+      {
+        // favorites db is empty
+        completionHandler(nil, nil)
+      }
+    }
+    catch
+    {
+      completionHandler(nil, error)
+    }
+  }
 
   /// Add the movie associated with the specified MovieListResultObject to the favorite database.
   ///
