@@ -205,10 +205,13 @@ class DbUtils
   ///   - completionHandler: closure that is called after this database query completes.
   ///   - movieFavorite: the favorite specified by the movie id contained within the favorite
   /// database or nil if the specified favorite does not exist or there is an error.
+  ///   - movieTrailers: the trailers associated with the specified movie favorite or an empty array
+  /// if the specified movie favorite does not have any trailers associated.
   ///   - error: an optional error object if there were any errors during the database query.
   static func getFavorite(_ context : NSManagedObjectContext,
                           _ movieId : Int,
                           _ completionHandler : (_ movieFavorite : MovieFavorite?,
+                                                 _ movieTrailers : [MovieTrailers],
                                                  _ error : Error?) -> Void) -> Void
   {
     let favoriteRequest : NSFetchRequest<MovieFavorite> = MovieFavorite.fetchRequest()
@@ -222,21 +225,30 @@ class DbUtils
     
     do
     {
-      let favorite = try context.fetch(favoriteRequest)
+      let favoriteFetch = try context.fetch(favoriteRequest)
       
-      if favorite.count > 0
+      if favoriteFetch.count > 0
       {
-        completionHandler(favorite[0], nil)
+        let favorite = favoriteFetch[0]
+        
+        // fetch trailers
+        let trailerRequest : NSFetchRequest<MovieTrailers> = MovieTrailers.fetchRequest()
+        
+        trailerRequest.predicate = predicate
+        
+        let trailers = try context.fetch(trailerRequest)
+        
+        completionHandler(favorite, trailers, nil)
       }
       else
       {
         // favorites db is empty
-        completionHandler(nil, nil)
+        completionHandler(nil, [], nil)
       }
     }
     catch
     {
-      completionHandler(nil, error)
+      completionHandler(nil, [], error)
     }
   }
 
