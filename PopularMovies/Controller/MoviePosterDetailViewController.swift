@@ -108,7 +108,7 @@ class MoviePosterDetailViewController : UIViewController,
     
     configureTableView()
     
-    DbUtils.queryFavoriteDb(context, movieListResultObject.getId(), onQueryDb)
+    DbUtils.getFavorite(context, movieListResultObject.getId(), onQueryDb)
   }
   
   override func viewWillAppear(_ animated: Bool)
@@ -554,6 +554,51 @@ class MoviePosterDetailViewController : UIViewController,
         favoriteState = .Unfavorite
         
         mainTableView.reloadData()
+      }
+      else
+      {
+        // this movie is not a favorite, that means the button needs to be favorite
+        
+        favoriteState = .Favorite
+        
+        // fetch trailers
+        fetchTrailers()
+        
+        // fetch reviews
+        fetchReviews()
+        
+        queryTaskComplete = true
+        
+        notifyTaskComplete()
+        
+        dispatchMoviePosterImageFetch()
+      }
+    }
+  }
+  
+  func onQueryDb(_ movieFavorite : MovieFavorite?, _ error : Error?) -> Void
+  {
+    if let error = error
+    {
+      print("Error fetching favorite data from context \(error)")
+    }
+    else
+    {
+      // no errors
+      
+      if let movieFavorite = movieFavorite
+      {
+        // this movie is a favorite, that means the button needs to be unfavorite
+        
+        favoriteState = .Unfavorite
+        
+        moviePosterImageData = movieFavorite.movie_poster_image_data
+        
+        queryTaskComplete = true
+        
+        notifyTaskComplete()
+        
+        dispatchMoviePosterImageFetch()
       }
       else
       {
