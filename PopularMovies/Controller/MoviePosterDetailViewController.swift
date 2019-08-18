@@ -576,7 +576,9 @@ class MoviePosterDetailViewController : UIViewController,
     }
   }
   
-  func onQueryDb(_ movieFavorite : MovieFavorite?, _ error : Error?) -> Void
+  func onQueryDb(_ movieFavorite : MovieFavorite?,
+                 _ movieTrailers : [MovieTrailers],
+                 _ error : Error?) -> Void
   {
     if let error = error
     {
@@ -595,6 +597,22 @@ class MoviePosterDetailViewController : UIViewController,
         moviePosterImageData = movieFavorite.movie_poster_image_data
         
         queryTaskComplete = true
+        
+        for trailer in movieTrailers
+        {
+          // we can force unwrap the title and the key because those items are required by the
+          // movie video result object
+          movieVideoResultObjectArray.append(MovieVideoResultObject(Int(trailer.movie_id),
+                                                                    trailer.trailer_clip_title!,
+                                                                    trailer.trailer_youtube_key!))
+        }
+        
+        if movieVideoResultObjectArray.count > 0
+        {
+          enableShareButton = true
+        }
+        
+        trailerTaskComplete = true
         
         notifyTaskComplete()
         
