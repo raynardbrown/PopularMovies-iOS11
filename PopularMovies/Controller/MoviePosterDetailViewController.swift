@@ -578,6 +578,7 @@ class MoviePosterDetailViewController : UIViewController,
   
   func onQueryDb(_ movieFavorite : MovieFavorite?,
                  _ movieTrailers : [MovieTrailers],
+                 _ movieReviews : [MovieReviews],
                  _ error : Error?) -> Void
   {
     if let error = error
@@ -613,6 +614,17 @@ class MoviePosterDetailViewController : UIViewController,
         }
         
         trailerTaskComplete = true
+        
+        for review in movieReviews
+        {
+          // we can force unwrap the author and the content because those items are required by the
+          // movie review result object
+          movieReviewResultObjectArray.append(MovieReviewResultObject(Int(review.movie_id),
+                                                                      review.review_author!,
+                                                                      review.review_content!))
+        }
+        
+        reviewTaskComplete = true
         
         notifyTaskComplete()
         
