@@ -389,7 +389,27 @@ class MoviePosterDetailViewController : UIViewController,
       
       if moviePosterLoadingComplete
       {
-        cell.moviePosterImage.image = moviePosterImageView.image
+        // this movie is not a favorite but we need to check the cached movie poster image and use
+        // it in the following scenario
+        //
+        // 1) the user is on this view controller and the movie IS a favorite
+        //
+        // 2) there is NO network connection
+        //
+        // 3) the user removes this movie as a favorite
+        //
+        // Since we have the cached image data, we should use it because there is no network
+        // connection with which to download the image (redownloading would be wasteful anyway since
+        // we already have the data). Otherwise we would be left with no movie poster being
+        // displayed if the scenario were acted out without this conditional.
+        if moviePosterImage == nil
+        {
+          cell.moviePosterImage.image = moviePosterImageView.image
+        }
+        else
+        {
+          cell.moviePosterImage.image = moviePosterImage
+        }
       }
       else
       {
