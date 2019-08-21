@@ -361,6 +361,30 @@ class DbUtils
       {
         context.delete(favorites[0])
         
+        // Remove the trailers
+        let trailerRequest : NSFetchRequest<MovieTrailers> = MovieTrailers.fetchRequest()
+        
+        trailerRequest.predicate = predicate
+        
+        let trailers = try context.fetch(trailerRequest)
+        
+        for trailer in trailers
+        {
+          context.delete(trailer)
+        }
+        
+        // Remove the reviews
+        let reviewRequest : NSFetchRequest<MovieReviews> = MovieReviews.fetchRequest()
+        
+        reviewRequest.predicate = predicate
+        
+        let reviews = try context.fetch(reviewRequest)
+        
+        for review in reviews
+        {
+          context.delete(review)
+        }
+        
         // save the database
         DbUtils.saveDb(context, completionHandler)
       }
