@@ -557,6 +557,7 @@ class MoviePosterDetailViewController : UIViewController,
     favoriteStateChangeDelegate?.onFavoriteStateChange()
   }
   
+  @available(*, deprecated, message: "use updated overloaded version of this function")
   func onQueryDb(_ hasFavorite : Bool, _ error : Error?) -> Void
   {
     if let error = error
